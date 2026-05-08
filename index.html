@@ -1,0 +1,3104 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>米ぬか酵素浴 田（でん）｜JR土山駅徒歩2分｜完全個室の米ぬか酵素風呂【兵庫県播磨町】</title>
+  <meta name="description" content="兵庫県播磨町・JR土山駅徒歩2分。完全個室の米ぬか酵素浴専門サロン「田（でん）」。自然発酵の熱と酵素の力で心と体を整えます。温活・腸活・菌活のすべてが揃った酵素風呂。保健所認可済。">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500;700&family=Noto+Sans+JP:wght@300;400;500&family=Shippori+Mincho:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --color-bg:       #FAF6EE;
+      --color-white:    #FFFFFF;
+      --color-gold:     #9A7B3A;
+      --color-gold-lt:  #C8A96E;
+      --color-brown:    #4A3420;
+      --color-brown-lt: #7A5C38;
+      --color-green:    #4E6E42;
+      --color-green-lt: #6E9060;
+      --color-beige:    #E8DFCC;
+      --color-beige-dk: #D4C9B0;
+      --color-text:     #2C2417;
+      --color-text-lt:  #6B5B45;
+      --font-serif:     'Shippori Mincho', 'Noto Serif JP', serif;
+      --font-sans:      'Noto Sans JP', sans-serif;
+      --transition:     0.35s ease;
+      --radius:         4px;
+      --shadow:         0 4px 24px rgba(74,52,32,0.10);
+      --shadow-lg:      0 8px 48px rgba(74,52,32,0.15);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.8;
+      font-size: 15px;
+      overflow-x: hidden;
+    }
+
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+
+    /* ===== UTILITY ===== */
+    .container {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    .section-label {
+      font-family: var(--font-serif);
+      font-size: 11px;
+      letter-spacing: 0.28em;
+      color: var(--color-gold);
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: clamp(24px, 3.2vw, 36px);
+      font-weight: 500;
+      line-height: 1.55;
+      color: var(--color-brown);
+      margin-bottom: 20px;
+    }
+
+    .section-lead {
+      font-size: 14px;
+      color: var(--color-text-lt);
+      line-height: 2.1;
+      max-width: 600px;
+    }
+
+    .divider {
+      width: 40px;
+      height: 2px;
+      background: var(--color-gold);
+      margin-bottom: 28px;
+    }
+
+    .btn {
+      display: inline-block;
+      font-family: var(--font-serif);
+      font-size: 13px;
+      letter-spacing: 0.18em;
+      padding: 14px 40px;
+      border: 1px solid currentColor;
+      transition: var(--transition);
+      cursor: pointer;
+    }
+
+    .btn-gold {
+      background: var(--color-gold);
+      color: var(--color-white);
+      border-color: var(--color-gold);
+    }
+    .btn-gold:hover { background: var(--color-brown-lt); border-color: var(--color-brown-lt); }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--color-brown);
+      border-color: var(--color-brown);
+    }
+    .btn-outline:hover { background: var(--color-brown); color: var(--color-white); }
+
+    .btn-outline-white {
+      background: transparent;
+      color: var(--color-white);
+      border-color: rgba(255,255,255,0.65);
+    }
+    .btn-outline-white:hover { background: var(--color-white); color: var(--color-brown); }
+
+    /* ===== HEADER ===== */
+    .site-header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      transition: var(--transition);
+    }
+
+    .site-header.scrolled {
+      background: rgba(250,246,238,0.97);
+      box-shadow: 0 1px 16px rgba(74,52,32,0.10);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+      padding: 0 40px;
+    }
+
+    .site-logo {
+      font-family: var(--font-serif);
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--color-white);
+      letter-spacing: 0.08em;
+      transition: var(--transition);
+      line-height: 1.3;
+    }
+
+    .site-header.scrolled .site-logo { color: var(--color-brown); }
+
+    .site-logo span {
+      display: block;
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      font-weight: 400;
+      margin-top: 2px;
+      opacity: 0.75;
+    }
+
+    .site-nav {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .nav-link {
+      font-family: var(--font-serif);
+      font-size: 13px;
+      letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.88);
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0; right: 0;
+      height: 1px;
+      background: currentColor;
+      transform: scaleX(0);
+      transition: var(--transition);
+    }
+
+    .nav-link:hover::after { transform: scaleX(1); }
+    .site-header.scrolled .nav-link { color: var(--color-brown); }
+
+    .nav-cta {
+      font-family: var(--font-serif);
+      font-size: 12px;
+      letter-spacing: 0.15em;
+      padding: 10px 22px;
+      border: 1px solid rgba(255,255,255,0.65);
+      color: var(--color-white);
+      transition: var(--transition);
+    }
+
+    .nav-cta:hover { background: var(--color-white); color: var(--color-brown); }
+
+    .nav-link-blog {
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      padding: 4px 10px;
+      border: 1px solid rgba(200,169,110,0.55);
+      border-radius: 2px;
+      color: var(--color-gold-lt) !important;
+    }
+    .site-header.scrolled .nav-link-blog {
+      border-color: var(--color-gold);
+      color: var(--color-gold) !important;
+    }
+    .nav-link-blog::after { display: none !important; }
+
+    .site-header.scrolled .nav-cta {
+      border-color: var(--color-gold);
+      color: var(--color-gold);
+    }
+    .site-header.scrolled .nav-cta:hover {
+      background: var(--color-gold);
+      color: var(--color-white);
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 6px;
+      cursor: pointer;
+      border: none;
+      background: none;
+      padding: 4px;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 26px;
+      height: 2px;
+      background: var(--color-white);
+      transition: var(--transition);
+    }
+
+    .site-header.scrolled .hamburger span { background: var(--color-brown); }
+
+    /* ===== HERO ===== */
+    .hero {
+      position: relative;
+      height: 100vh;
+      min-height: 600px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+    }
+
+    .hero-slide {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      opacity: 0;
+      transition: opacity 1.5s ease-in-out;
+    }
+    .hero-slide.active { opacity: 1; }
+    .hero-slide:nth-child(1) { background-image: url('images/hero.png'); }
+    .hero-slide:nth-child(2) { background-image: url('images/hero2.png'); }
+    .hero-slide:nth-child(3) { background-image: url('images/hero3.png'); }
+
+    .hero-bg::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background-image:
+        linear-gradient(140deg, rgba(30,21,8,0.55) 0%, rgba(61,44,20,0.45) 40%, rgba(42,58,30,0.5) 100%),
+        radial-gradient(ellipse 75% 60% at 72% 38%, rgba(154,123,58,0.15) 0%, transparent 70%);
+    }
+
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Ccircle cx='40' cy='40' r='1' fill='rgba(255,255,255,0.03)'/%3E%3Ccircle cx='10' cy='10' r='0.7' fill='rgba(255,255,255,0.025)'/%3E%3Ccircle cx='70' cy='70' r='0.7' fill='rgba(255,255,255,0.025)'/%3E%3C/svg%3E");
+    }
+
+    .hero-deco {
+      position: absolute;
+      top: 0; right: 0;
+      width: 45%;
+      height: 100%;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .hero-deco::before {
+      content: '🌾';
+      position: absolute;
+      font-size: 320px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(-15deg);
+      opacity: 0.04;
+      filter: grayscale(1);
+      line-height: 1;
+    }
+
+    .hero-deco-ring {
+      position: absolute;
+      border-radius: 50%;
+      border: 1px solid rgba(154,123,58,0.12);
+    }
+
+    .hero-deco-ring:nth-child(2) {
+      width: 500px; height: 500px;
+      top: 50%; right: -100px;
+      transform: translateY(-50%);
+    }
+
+    .hero-deco-ring:nth-child(3) {
+      width: 350px; height: 350px;
+      top: 50%; right: -25px;
+      transform: translateY(-50%);
+      border-color: rgba(154,123,58,0.18);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 0 40px;
+      max-width: 660px;
+      margin-left: 8vw;
+    }
+
+    .hero-eyebrow {
+      font-family: var(--font-serif);
+      font-size: 11px;
+      letter-spacing: 0.38em;
+      color: var(--color-gold-lt);
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      width: 28px;
+      height: 1px;
+      background: var(--color-gold-lt);
+      flex-shrink: 0;
+    }
+
+    .hero-title {
+      font-family: var(--font-serif);
+      font-size: clamp(34px, 5vw, 60px);
+      font-weight: 500;
+      color: var(--color-white);
+      line-height: 1.45;
+      margin-bottom: 28px;
+      letter-spacing: 0.05em;
+    }
+
+    .hero-title em {
+      display: block;
+      font-style: normal;
+      color: var(--color-gold-lt);
+      font-size: 0.70em;
+      margin-top: 4px;
+    }
+
+    .hero-desc {
+      font-size: 14px;
+      color: rgba(255,255,255,0.68);
+      line-height: 2.1;
+      margin-bottom: 44px;
+      letter-spacing: 0.06em;
+      max-width: 440px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 36px; right: 56px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      z-index: 2;
+    }
+
+    .hero-scroll span {
+      font-family: var(--font-serif);
+      font-size: 9px;
+      letter-spacing: 0.28em;
+      color: rgba(255,255,255,0.4);
+      writing-mode: vertical-rl;
+    }
+
+    .scroll-line {
+      width: 1px;
+      height: 56px;
+      background: linear-gradient(to bottom, rgba(255,255,255,0.45), transparent);
+      animation: scrollAnim 2.2s ease-in-out infinite;
+    }
+
+    @keyframes scrollAnim {
+      0% { transform: scaleY(0); transform-origin: top; }
+      50% { transform: scaleY(1); transform-origin: top; }
+      51% { transform-origin: bottom; }
+      100% { transform: scaleY(0); transform-origin: bottom; }
+    }
+
+    /* ===== BADGE BAND ===== */
+    /* ── NEWS ── */
+    .news {
+      padding: 80px 0;
+      background: var(--color-bg);
+    }
+
+    .news-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 28px;
+    }
+
+    .news-card {
+      background: #fff;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(74,52,32,0.08);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .news-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 32px rgba(74,52,32,0.14);
+    }
+
+    .news-card-img {
+      width: 100%;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+      display: block;
+    }
+
+    .news-card-body {
+      padding: 20px 24px 24px;
+    }
+
+    .news-card-tag {
+      display: inline-block;
+      background: var(--color-gold);
+      color: #fff;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin-bottom: 10px;
+      font-family: var(--font-sans);
+    }
+
+    .news-card-period {
+      font-size: 12px;
+      color: var(--color-gold);
+      font-family: var(--font-sans);
+      margin-bottom: 8px;
+    }
+
+    .news-card-title {
+      font-family: var(--font-serif);
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--color-brown);
+      margin-bottom: 12px;
+      line-height: 1.5;
+    }
+
+    .news-card-text {
+      font-size: 13px;
+      color: var(--color-text);
+      line-height: 1.85;
+    }
+
+    .nav-link-news { color: var(--color-gold-lt) !important; font-weight: 600; }
+    .site-header.scrolled .nav-link-news { color: var(--color-gold) !important; }
+
+    /* ── BADGE BAND ── */
+    .badge-band {
+      background: var(--color-brown);
+      padding: 26px 0;
+    }
+
+    .badge-band-inner {
+      display: flex;
+      justify-content: center;
+      gap: 56px;
+      flex-wrap: wrap;
+    }
+
+    .badge-item {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      color: rgba(255,255,255,0.82);
+      font-family: var(--font-serif);
+      font-size: 13px;
+      letter-spacing: 0.08em;
+    }
+
+    .badge-icon {
+      width: 36px;
+      height: 36px;
+      border: 1px solid rgba(200,169,110,0.45);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      flex-shrink: 0;
+    }
+
+    /* ===== ABOUT ===== */
+    .about {
+      padding: 120px 0;
+    }
+
+    .about-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .about-visual { position: relative; }
+
+    .about-img-main {
+      width: 100%;
+      aspect-ratio: 4/5;
+      background: url('images/about.jpg') center center / cover no-repeat;
+      border-radius: var(--radius);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 100px;
+    }
+
+    .about-img-main::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(26,18,8,0.4) 0%, transparent 50%);
+    }
+
+    .about-img-sub {
+      position: absolute;
+      bottom: -28px;
+      right: -28px;
+      width: 52%;
+      aspect-ratio: 1;
+      background: url('images/nuka-woman.jpg') center center / cover no-repeat;
+      border-radius: var(--radius);
+      border: 4px solid var(--color-bg);
+    }
+
+    .about-philosophy {
+      margin: 28px 0;
+      padding: 22px 24px;
+      border-left: 3px solid var(--color-gold-lt);
+      background: var(--color-white);
+      font-family: var(--font-serif);
+      font-size: 17px;
+      font-weight: 500;
+      color: var(--color-brown);
+      line-height: 1.9;
+      letter-spacing: 0.04em;
+    }
+
+    .about-features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 32px;
+    }
+
+    .about-feature-item {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      font-size: 13px;
+      color: var(--color-text-lt);
+    }
+
+    .about-feature-item::before {
+      content: '—';
+      color: var(--color-gold);
+      flex-shrink: 0;
+    }
+
+    /* ===== ENZYME ===== */
+    .enzyme {
+      background: url('images/enzyme.png') center center / cover no-repeat;
+      padding: 100px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .enzyme-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(30,18,8,0.72);
+      z-index: 0;
+    }
+
+    .enzyme .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    .enzyme::before {
+      content: '';
+      position: absolute;
+      top: -100px; right: -100px;
+      width: 420px; height: 420px;
+      border-radius: 50%;
+      border: 90px solid rgba(154,123,58,0.07);
+    }
+
+    .enzyme::after {
+      content: '';
+      position: absolute;
+      bottom: -80px; left: -80px;
+      width: 320px; height: 320px;
+      border-radius: 50%;
+      border: 60px solid rgba(78,110,66,0.09);
+    }
+
+    .enzyme-header {
+      text-align: center;
+      margin-bottom: 68px;
+    }
+
+    .enzyme-header .section-label { color: var(--color-gold-lt); }
+    .enzyme-header .section-title { color: var(--color-white); }
+    .enzyme-header .section-lead { color: rgba(255,255,255,0.60); margin: 0 auto; }
+    .enzyme-header .divider { margin: 0 auto 28px; }
+
+    .enzyme-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .enzyme-card {
+      background: rgba(255,255,255,0.04);
+      padding: 48px 34px;
+      transition: var(--transition);
+      text-align: center;
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .enzyme-card:hover {
+      background: rgba(154,123,58,0.14);
+      border-color: rgba(200,169,110,0.28);
+    }
+
+    .enzyme-icon {
+      font-size: 38px;
+      margin-bottom: 18px;
+      display: block;
+      line-height: 1;
+    }
+
+    .enzyme-card-title {
+      font-family: var(--font-serif);
+      font-size: 18px;
+      color: var(--color-gold-lt);
+      margin-bottom: 14px;
+      letter-spacing: 0.07em;
+    }
+
+    .enzyme-card-text {
+      font-size: 13px;
+      color: rgba(255,255,255,0.60);
+      line-height: 2;
+    }
+
+    /* ===== RICE BRAN ===== */
+    .ricebran {
+      padding: 120px 0;
+      background: url('images/ricebran-bg.png') center center / cover no-repeat;
+      position: relative;
+    }
+    .ricebran::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(255,255,255,0.65);
+      z-index: 0;
+    }
+    .ricebran .container { position: relative; z-index: 1; }
+
+    .ricebran-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .ricebran-img {
+      aspect-ratio: 1;
+      background: url('images/nuka.jpg') center center / cover no-repeat;
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+
+    .ricebran-points {
+      margin-top: 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .ricebran-point {
+      display: flex;
+      gap: 18px;
+      padding: 18px 22px;
+      background: var(--color-bg);
+      border-radius: var(--radius);
+      align-items: flex-start;
+    }
+
+    .ricebran-point-num {
+      font-family: var(--font-serif);
+      font-size: 26px;
+      color: var(--color-gold);
+      opacity: 0.45;
+      font-weight: 700;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+
+    .ricebran-point-content h4 {
+      font-family: var(--font-serif);
+      font-size: 15px;
+      color: var(--color-brown);
+      margin-bottom: 5px;
+    }
+
+    .ricebran-point-content p {
+      font-size: 13px;
+      color: var(--color-text-lt);
+      line-height: 1.85;
+    }
+
+    /* ===== COURSE ===== */
+    .course {
+      padding: 120px 0;
+      background: url('images/course-bg.png') center center / cover no-repeat;
+      position: relative;
+    }
+    .course::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(255,255,255,0.65);
+      z-index: 0;
+    }
+    .course .container { position: relative; z-index: 1; }
+
+    .course-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .course-header .divider { margin: 0 auto 28px; }
+
+    .course-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .course-card {
+      background: var(--color-white);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+    }
+
+    .course-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .course-card-head {
+      padding: 30px 26px 22px;
+      background: linear-gradient(135deg, #3A5030, #5A7A4A);
+      color: var(--color-white);
+    }
+
+    .course-card-head.brown {
+      background: linear-gradient(135deg, #4A3420, #7A5C38);
+    }
+
+    .course-card-head.gold {
+      background: linear-gradient(135deg, #7A5A1E, #9A7B3A);
+    }
+
+    .course-name {
+      font-family: var(--font-serif);
+      font-size: 19px;
+      margin-bottom: 4px;
+    }
+
+    .course-time {
+      font-size: 12px;
+      opacity: 0.70;
+      letter-spacing: 0.08em;
+    }
+
+    .course-card-body {
+      padding: 22px 26px 30px;
+    }
+
+    .course-price {
+      font-family: var(--font-serif);
+      font-size: 28px;
+      color: var(--color-gold);
+      margin-bottom: 14px;
+    }
+
+    .course-price span {
+      font-size: 13px;
+      color: var(--color-text-lt);
+    }
+
+    .course-desc {
+      font-size: 13px;
+      color: var(--color-text-lt);
+      line-height: 1.9;
+      margin-bottom: 18px;
+      border-top: 1px solid var(--color-beige);
+      padding-top: 14px;
+    }
+
+    .course-includes {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      list-style: none;
+    }
+
+    .course-includes li {
+      font-size: 12px;
+      color: var(--color-text-lt);
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .course-includes li::before {
+      content: '✓';
+      color: var(--color-green);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .course-note {
+      text-align: center;
+      margin-top: 36px;
+      font-size: 13px;
+      color: var(--color-text-lt);
+      padding: 18px 24px;
+      background: var(--color-white);
+      border-left: 3px solid var(--color-beige-dk);
+      line-height: 2;
+    }
+
+    /* ===== COMMITMENT ===== */
+    .commitment {
+      padding: 120px 0;
+      background: url('images/commitment.png') center center / cover no-repeat;
+      position: relative;
+    }
+    .commitment::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(20, 12, 4, 0.55);
+    }
+    .commitment .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    .commitment-header {
+      text-align: center;
+      margin-bottom: 68px;
+    }
+    .commitment-header .section-label { color: rgba(255,255,255,0.55); }
+    .commitment-header .section-title { color: var(--color-white); }
+
+    .commitment-header .divider { margin: 0 auto 28px; }
+
+    .commitment-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2px;
+    }
+
+    .commitment-item {
+      padding: 46px 48px;
+      display: flex;
+      gap: 24px;
+      align-items: flex-start;
+      transition: var(--transition);
+    }
+
+    .commitment-item:nth-child(odd) { background: rgba(255,255,255,0.07); }
+    .commitment-item:nth-child(even) { background: rgba(255,255,255,0.03); }
+    .commitment-item:hover { background: rgba(255,255,255,0.13); }
+
+    .commitment-num {
+      font-family: var(--font-serif);
+      font-size: 44px;
+      font-weight: 700;
+      color: var(--color-gold);
+      opacity: 0.18;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+
+    .commitment-content h3 {
+      font-family: var(--font-serif);
+      font-size: 19px;
+      color: var(--color-white);
+      margin-bottom: 10px;
+    }
+
+    .commitment-content p {
+      font-size: 13px;
+      color: rgba(255,255,255,0.75);
+      line-height: 2;
+    }
+
+    /* ===== FAQ ===== */
+    /* ── Cancel Policy ── */
+    .cancel-policy {
+      padding: 100px 0;
+      background: var(--color-white);
+    }
+
+    .cancel-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+
+    .cancel-lead {
+      font-size: 15px;
+      color: var(--color-text-lt);
+      margin-top: 16px;
+    }
+
+    .cancel-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      margin-bottom: 48px;
+    }
+
+    .cancel-card {
+      background: var(--color-bg);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      position: relative;
+      border-top: 4px solid var(--color-gold);
+    }
+
+    .cancel-card--ng { border-top-color: #C0392B; }
+    .cancel-card--time { border-top-color: #E67E22; }
+    .cancel-card--ticket { border-top-color: var(--color-green); }
+
+    .cancel-card-badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      padding: 3px 10px;
+      border-radius: 20px;
+      background: var(--color-gold);
+      color: #fff;
+      margin-bottom: 10px;
+    }
+
+    .cancel-card--ng .cancel-card-badge { background: #C0392B; }
+    .cancel-card--time .cancel-card-badge { background: #E67E22; }
+    .cancel-card--ticket .cancel-card-badge { background: var(--color-green); }
+
+    .cancel-card-title {
+      font-family: var(--font-serif);
+      font-size: 16px;
+      color: var(--color-brown);
+      margin-bottom: 10px;
+    }
+
+    .cancel-card p {
+      font-size: 14px;
+      line-height: 1.8;
+      color: var(--color-text);
+      margin-bottom: 8px;
+    }
+
+    .cancel-note {
+      font-size: 12px !important;
+      color: var(--color-text-lt) !important;
+    }
+
+    .cancel-contact {
+      border: 2px solid #C0392B;
+      border-radius: var(--radius);
+      padding: 32px 36px;
+      text-align: center;
+      margin-bottom: 20px;
+      background: #fff8f7;
+    }
+
+    .cancel-contact-lead {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--color-brown);
+      margin-bottom: 16px;
+      line-height: 1.8;
+    }
+
+    .cancel-contact-tel {
+      display: inline-block;
+      font-family: var(--font-serif);
+      font-size: 28px;
+      font-weight: 700;
+      color: #C0392B;
+      text-decoration: none;
+      letter-spacing: .05em;
+      margin-bottom: 16px;
+    }
+
+    .cancel-contact-note {
+      font-size: 12px;
+      color: var(--color-text-lt);
+      line-height: 1.9;
+    }
+
+    .cancel-reason {
+      background: var(--color-brown);
+      border-radius: var(--radius);
+      padding: 36px 40px;
+      text-align: center;
+    }
+
+    .cancel-reason p {
+      color: rgba(255,255,255,0.85);
+      font-size: 14px;
+      line-height: 1.9;
+      margin-bottom: 12px;
+    }
+
+    .cancel-reason-heart {
+      color: #E8C97A !important;
+      font-family: var(--font-serif);
+      font-size: 15px !important;
+    }
+
+    @media (max-width: 600px) {
+      .cancel-grid { grid-template-columns: 1fr; }
+      .cancel-reason { padding: 28px 20px; }
+    }
+
+    /* ── Caution ── */
+    .caution {
+      padding: 100px 0;
+      background: var(--color-bg);
+    }
+
+    .caution-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+
+    .caution-special {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+
+    .caution-special-item {
+      background: var(--color-white);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      border-top: 4px solid var(--color-gold);
+    }
+
+    .caution-special-title {
+      font-family: var(--font-serif);
+      font-size: 16px;
+      color: var(--color-brown);
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--color-beige);
+    }
+
+    .caution-special-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .caution-special-list li {
+      font-size: 14px;
+      line-height: 1.85;
+      color: var(--color-text);
+      padding-left: 14px;
+      position: relative;
+      margin-bottom: 8px;
+    }
+
+    .caution-special-list li::before {
+      content: '・';
+      position: absolute;
+      left: 0;
+      color: var(--color-gold);
+    }
+
+    .caution-note {
+      font-size: 12px !important;
+      color: var(--color-text-lt) !important;
+    }
+
+    .caution-note::before { display: none !important; }
+
+    .caution-list {
+      background: var(--color-white);
+      border-radius: var(--radius);
+      padding: 12px 0;
+      margin-bottom: 28px;
+    }
+
+    .caution-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 16px 28px;
+      border-bottom: 1px solid var(--color-beige);
+    }
+
+    .caution-item:last-child { border-bottom: none; }
+
+    .caution-icon {
+      flex-shrink: 0;
+      color: #E67E22;
+      font-size: 16px;
+      margin-top: 2px;
+    }
+
+    .caution-item p {
+      font-size: 14px;
+      line-height: 1.85;
+      color: var(--color-text);
+      margin: 0;
+    }
+
+    .caution-footer {
+      background: var(--color-brown);
+      color: rgba(255,255,255,0.9);
+      text-align: center;
+      padding: 24px 32px;
+      border-radius: var(--radius);
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    @media (max-width: 920px) {
+      .caution-special { grid-template-columns: 1fr; }
+    }
+
+    /* ── FAQ ── */
+    .faq {
+      padding: 100px 0;
+      background: url('images/faq-bg.png') center center / cover no-repeat;
+      position: relative;
+    }
+    .faq::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(255,255,255,0.65);
+      z-index: 0;
+    }
+    .faq .container { position: relative; z-index: 1; }
+
+    .faq-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .faq-header .divider { margin: 0 auto 28px; }
+
+    .faq-list {
+      max-width: 760px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .faq-item { background: var(--color-white); }
+
+    .faq-q {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      padding: 22px 26px;
+      cursor: pointer;
+      font-family: var(--font-serif);
+      font-size: 15px;
+      color: var(--color-brown);
+      user-select: none;
+    }
+
+    .faq-q-mark {
+      width: 30px; height: 30px;
+      background: var(--color-gold);
+      color: var(--color-white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .faq-q-text { flex: 1; }
+
+    .faq-toggle {
+      width: 22px; height: 22px;
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    .faq-toggle::before, .faq-toggle::after {
+      content: '';
+      position: absolute;
+      background: var(--color-gold);
+      transition: var(--transition);
+    }
+
+    .faq-toggle::before {
+      width: 14px; height: 1px;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .faq-toggle::after {
+      width: 1px; height: 14px;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .faq-item.open .faq-toggle::after {
+      transform: translate(-50%, -50%) rotate(90deg);
+      opacity: 0;
+    }
+
+    .faq-a {
+      display: none;
+      padding: 0 26px 22px 74px;
+      font-size: 14px;
+      color: var(--color-text-lt);
+      line-height: 2;
+      border-top: 1px solid var(--color-beige);
+    }
+
+    .faq-item.open .faq-a { display: block; }
+
+    /* ===== VOICE ===== */
+    .voice {
+      padding: 100px 0;
+      background: url('images/voice.png') center center / cover no-repeat;
+      position: relative;
+    }
+
+    .voice::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(74,52,32,0.82);
+    }
+
+    .voice .container {
+      position: relative;
+    }
+
+    .voice-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .voice-header .section-label { color: var(--color-gold-lt); }
+    .voice-header .section-title { color: var(--color-white); }
+    .voice-header .divider { margin: 0 auto 28px; background: var(--color-gold-lt); }
+
+    .voice-track-wrapper {
+      overflow: hidden;
+      width: 100%;
+    }
+
+    .voice-track {
+      display: flex;
+      gap: 24px;
+      width: max-content;
+      animation: voice-scroll 40s linear infinite;
+    }
+
+    .voice-track:hover {
+      animation-play-state: paused;
+    }
+
+    @keyframes voice-scroll {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    .voice-card {
+      flex: 0 0 360px;
+      background: rgba(255,255,255,0.06);
+      padding: 30px 26px;
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: var(--radius);
+    }
+
+    .voice-stars {
+      color: var(--color-gold-lt);
+      font-size: 14px;
+      letter-spacing: 3px;
+      margin-bottom: 14px;
+    }
+
+    .voice-text {
+      font-size: 13px;
+      color: rgba(255,255,255,0.72);
+      line-height: 2;
+      margin-bottom: 18px;
+    }
+
+    .voice-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(255,255,255,0.09);
+    }
+
+    .voice-avatar {
+      width: 34px; height: 34px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--color-gold), var(--color-green));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+    }
+
+    .voice-name {
+      font-size: 12px;
+      color: rgba(255,255,255,0.55);
+    }
+
+    /* ===== ACCESS ===== */
+    .access {
+      padding: 100px 0;
+      background: url('images/access-bg.png') center center / cover no-repeat;
+      position: relative;
+    }
+    .access::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(255,255,255,0.65);
+      z-index: 0;
+    }
+    .access .container { position: relative; z-index: 1; }
+
+    .access-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    .access-map {
+      aspect-ratio: 4/3;
+      border-radius: var(--radius);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .access-map iframe {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      inset: 0;
+      border: 0;
+    }
+
+    .access-map-placeholder {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      color: var(--color-text-lt);
+    }
+
+    .access-map-placeholder p {
+      font-family: var(--font-serif);
+      font-size: 14px;
+      margin-top: 8px;
+    }
+
+    .access-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 28px;
+    }
+
+    .access-table th, .access-table td {
+      padding: 15px 0;
+      border-bottom: 1px solid var(--color-beige);
+      font-size: 14px;
+      vertical-align: top;
+      text-align: left;
+    }
+
+    .access-table th {
+      font-family: var(--font-serif);
+      color: var(--color-brown);
+      font-weight: 500;
+      width: 80px;
+    }
+
+    .access-table td {
+      color: var(--color-text-lt);
+      line-height: 1.8;
+    }
+
+    .access-hours {
+      background: var(--color-bg);
+      padding: 22px;
+      border-radius: var(--radius);
+    }
+
+    .access-hours h4 {
+      font-family: var(--font-serif);
+      font-size: 14px;
+      color: var(--color-brown);
+      margin-bottom: 10px;
+    }
+
+    .hours-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+      padding: 8px 0;
+      border-bottom: 1px solid var(--color-beige);
+      color: var(--color-text-lt);
+    }
+
+    .hours-row:last-child { border-bottom: none; }
+
+    /* ===== CTA BANNER ===== */
+    .cta-banner {
+      padding: 80px 0;
+      background: linear-gradient(135deg, #4A3420 0%, #7A5C38 45%, #4E6E42 100%);
+      text-align: center;
+    }
+
+    .cta-banner-title {
+      font-family: var(--font-serif);
+      font-size: clamp(20px, 2.8vw, 30px);
+      color: var(--color-white);
+      margin-bottom: 10px;
+      letter-spacing: 0.07em;
+    }
+
+    .cta-banner-sub {
+      font-size: 13px;
+      color: rgba(255,255,255,0.60);
+      margin-bottom: 34px;
+      letter-spacing: 0.08em;
+    }
+
+    .cta-banner-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    /* ===== CONTACT ===== */
+    .contact {
+      padding: 100px 0;
+      background: var(--color-bg);
+    }
+
+    .contact-inner {
+      max-width: 680px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .contact-header .divider { margin: 0 auto 28px; }
+
+    .contact-form {
+      margin-top: 48px;
+      text-align: left;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .form-group { margin-bottom: 22px; }
+
+    .form-label {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-family: var(--font-serif);
+      font-size: 13px;
+      color: var(--color-brown);
+      margin-bottom: 7px;
+    }
+
+    .form-required {
+      font-size: 10px;
+      background: var(--color-gold);
+      color: var(--color-white);
+      padding: 2px 6px;
+    }
+
+    .form-input, .form-select, .form-textarea {
+      width: 100%;
+      padding: 13px 15px;
+      border: 1px solid var(--color-beige-dk);
+      background: var(--color-white);
+      font-family: var(--font-sans);
+      font-size: 14px;
+      color: var(--color-text);
+      transition: var(--transition);
+      border-radius: 0;
+      outline: none;
+      appearance: none;
+    }
+
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      border-color: var(--color-gold);
+    }
+
+    .form-textarea { min-height: 130px; resize: vertical; }
+
+    .form-privacy {
+      text-align: center;
+      font-size: 12px;
+      color: var(--color-text-lt);
+      margin: 26px 0;
+      line-height: 1.9;
+    }
+
+    .form-privacy a { color: var(--color-gold); text-decoration: underline; }
+
+    .form-submit {
+      display: block;
+      width: 100%;
+      padding: 17px;
+      background: var(--color-brown);
+      color: var(--color-white);
+      font-family: var(--font-serif);
+      font-size: 14px;
+      letter-spacing: 0.22em;
+      border: none;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .form-submit:hover { background: var(--color-gold); }
+
+    /* ===== FOOTER ===== */
+    .site-footer {
+      background: #1A1208;
+      color: rgba(255,255,255,0.50);
+      padding: 60px 0 24px;
+    }
+
+    .footer-inner {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 44px;
+      margin-bottom: 44px;
+    }
+
+    .footer-brand-name {
+      font-family: var(--font-serif);
+      font-size: 20px;
+      color: rgba(255,255,255,0.84);
+      margin-bottom: 3px;
+    }
+
+    .footer-brand-sub {
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      color: var(--color-gold-lt);
+      margin-bottom: 14px;
+    }
+
+    .footer-brand-desc {
+      font-size: 12px;
+      line-height: 2;
+      margin-bottom: 22px;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 10px;
+    }
+
+    .footer-social a {
+      width: 34px; height: 34px;
+      border: 1px solid rgba(255,255,255,0.18);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      transition: var(--transition);
+    }
+
+    .footer-social a:hover { border-color: var(--color-gold-lt); color: var(--color-gold-lt); }
+
+    .footer-col-title {
+      font-family: var(--font-serif);
+      font-size: 13px;
+      color: rgba(255,255,255,0.72);
+      letter-spacing: 0.09em;
+      margin-bottom: 18px;
+      padding-bottom: 11px;
+      border-bottom: 1px solid rgba(255,255,255,0.09);
+    }
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+
+    .footer-links a {
+      font-size: 12px;
+      transition: var(--transition);
+    }
+
+    .footer-links a:hover { color: var(--color-gold-lt); }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.07);
+      padding-top: 22px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-bottom-links { display: flex; gap: 22px; }
+    .footer-bottom-links a:hover { color: var(--color-gold-lt); }
+
+    /* ===== MOBILE DRAWER ===== */
+    .nav-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(26,18,8,0.88);
+      z-index: 200;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .nav-overlay.open { opacity: 1; }
+
+    .nav-drawer {
+      position: fixed;
+      top: 0; right: 0;
+      width: 290px;
+      height: 100%;
+      background: var(--color-bg);
+      z-index: 201;
+      padding: 76px 36px 36px;
+      transform: translateX(100%);
+      transition: transform 0.35s ease;
+    }
+
+    .nav-drawer.open { transform: translateX(0); }
+
+    .nav-drawer-close {
+      position: absolute;
+      top: 22px; right: 22px;
+      font-size: 22px;
+      cursor: pointer;
+      color: var(--color-brown);
+      background: none;
+      border: none;
+    }
+
+    .nav-drawer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .nav-drawer-links a {
+      font-family: var(--font-serif);
+      font-size: 15px;
+      color: var(--color-brown);
+      letter-spacing: 0.09em;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--color-beige);
+    }
+    .nav-drawer-links .nav-link-blog {
+      color: var(--color-gold) !important;
+      border-bottom-color: var(--color-beige-dk);
+    }
+    .nav-drawer-links .nav-link-blog::after { display: none; }
+
+    /* ===== SCROLL ANIMATIONS ===== */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+    .fade-up-d1 { transition-delay: 0.1s; }
+    .fade-up-d2 { transition-delay: 0.2s; }
+    .fade-up-d3 { transition-delay: 0.3s; }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 920px) {
+      .site-nav { display: none; }
+      .hamburger { display: flex; }
+      .nav-overlay { display: block; }
+
+      .about-inner, .ricebran-inner, .access-inner {
+        grid-template-columns: 1fr;
+        gap: 44px;
+      }
+
+      .ricebran-inner .ricebran-text { order: 2; }
+      .ricebran-inner .ricebran-visual { order: 1; }
+
+      .enzyme-grid, .course-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .commitment-list { grid-template-columns: 1fr; }
+
+      .footer-inner {
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+      }
+
+      .footer-brand { grid-column: 1 / -1; }
+    }
+
+    @media (max-width: 600px) {
+      .container { padding: 0 18px; }
+      .hero-content { margin-left: 0; }
+      .header-inner { padding: 0 18px; }
+      .form-row { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr; }
+      .about-img-sub { display: none; }
+      .hero-scroll { display: none; }
+      .hero-deco { display: none; }
+    }
+
+    /* ===== MOBILE ACCORDION ===== */
+    @media (max-width: 920px) {
+      .mob-acc-btn {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+        padding: 18px 24px;
+        background: var(--color-brown);
+        color: var(--color-white);
+        border: none;
+        font-family: var(--font-serif);
+        font-size: 17px;
+        letter-spacing: .06em;
+        cursor: pointer;
+        text-align: left;
+        gap: 12px;
+        position: relative;
+        z-index: 2;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+        opacity: 0.97;
+      }
+      .mob-acc-btn::after {
+        content: '＋';
+        flex-shrink: 0;
+        font-size: 22px;
+        line-height: 1;
+        transition: transform 0.3s;
+      }
+      .mob-acc-btn[aria-expanded="true"]::after { content: '－'; }
+      .mob-acc-body {
+        overflow: hidden;
+        max-height: 0;
+        transition: max-height 0.55s ease, opacity 0.35s ease;
+        opacity: 0;
+        position: relative;
+        z-index: 2;
+      }
+      .mob-acc-body.open {
+        max-height: 12000px;
+        opacity: 1;
+      }
+    }
+    @media (min-width: 921px) {
+      .mob-acc-btn  { display: none !important; }
+      .mob-acc-body { max-height: none !important; overflow: visible !important; opacity: 1 !important; }
+    }
+
+  </style>
+</head>
+
+<body>
+
+<!-- ============================================================
+     HEADER
+     ============================================================ -->
+<header class="site-header" id="site-header">
+  <div class="header-inner">
+    <a href="#top" class="site-logo">
+      米ぬか酵素浴田
+      <span>KOMENUKA KOSO-YOKU DEN</span>
+    </a>
+
+    <nav class="site-nav">
+      <a href="#news"       class="nav-link nav-link-news">最新情報</a>
+      <a href="#about"      class="nav-link">酵素浴田とは</a>
+      <a href="#enzyme"     class="nav-link">酵素浴について</a>
+      <a href="#course"     class="nav-link">コース・料金</a>
+      <a href="#commitment" class="nav-link">こだわり</a>
+      <a href="#access"     class="nav-link">アクセス</a>
+      <a href="cancel-policy.html" class="nav-link">キャンセルポリシー</a>
+      <a href="caution.html" class="nav-link">当店ご利用上の注意</a>
+      <a href="https://komeden-hatake.com/" target="_blank" rel="noopener" class="nav-link nav-link-blog">こうそ・ブログ</a>
+      <a href="#reservation" class="nav-cta">ご予約はこちら</a>
+    </nav>
+
+    <button class="hamburger" id="hamburger" aria-label="メニューを開く">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- Mobile drawer -->
+<div class="nav-overlay" id="nav-overlay"></div>
+<div class="nav-drawer" id="nav-drawer">
+  <button class="nav-drawer-close" id="nav-close" aria-label="閉じる">✕</button>
+  <nav class="nav-drawer-links">
+    <a href="#news">最新情報</a>
+    <a href="#about">酵素浴田とは</a>
+    <a href="#enzyme">酵素浴について</a>
+    <a href="#course">コース・料金</a>
+    <a href="#commitment">こだわり</a>
+    <a href="#faq">よくある質問</a>
+    <a href="#access">アクセス</a>
+    <a href="cancel-policy.html">キャンセルポリシー</a>
+    <a href="caution.html">ご利用時の注意事項</a>
+    <a href="https://komeden-hatake.com/" target="_blank" rel="noopener" class="nav-link-blog">こうそ・ブログ</a>
+    <a href="#contact">ご予約・お問合せ</a>
+  </nav>
+</div>
+
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<section class="hero" id="top">
+  <div class="hero-bg">
+    <div class="hero-slide active"></div>
+    <div class="hero-slide"></div>
+    <div class="hero-slide"></div>
+  </div>
+  <div class="hero-deco">
+    <div class="hero-deco-ring"></div>
+    <div class="hero-deco-ring"></div>
+  </div>
+
+  <div class="hero-content">
+    <p class="hero-eyebrow">兵庫県播磨町 / JR土山駅徒歩2分</p>
+    <h1 class="hero-title">
+      米ぬかの香りは<br>
+      <em>「発酵」の原点。</em>
+    </h1>
+    <p class="hero-desc">
+      それは古き良き伝統の健康法。<br>
+      温活・腸活・菌活のすべてが揃った酵素風呂で<br>
+      心と身体を整えて、元気の補充に来てください。
+    </p>
+    <div class="hero-buttons">
+      <a href="#course"      class="btn btn-gold">料金を見る</a>
+      <a href="#reservation" class="btn btn-outline-white">ご予約はこちら</a>
+    </div>
+  </div>
+
+  <div class="hero-scroll">
+    <span>SCROLL</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     BADGE BAND
+     ============================================================ -->
+<div class="badge-band">
+  <div class="badge-band-inner container">
+    <div class="badge-item">
+      <div class="badge-icon">🏠</div>
+      完全個室・完全予約制
+    </div>
+    <div class="badge-item">
+      <div class="badge-icon">♨️</div>
+      自然発酵の熱
+    </div>
+    <div class="badge-item">
+      <div class="badge-icon">✅</div>
+      保健所認可済
+    </div>
+    <div class="badge-item">
+      <div class="badge-icon">🚉</div>
+      JR土山駅徒歩2分
+    </div>
+  </div>
+</div>
+
+
+<!-- ============================================================
+     NEWS
+     ============================================================ -->
+<section class="news" id="news">
+  <div class="container">
+    <div class="news-header fade-up">
+      <span class="section-label">News &amp; Campaign</span>
+      <h2 class="section-title">当店最新情報</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="news-grid">
+
+      <!-- 3周年記念 -->
+      <div class="news-card fade-up">
+        <img src="images/anniversary3.png" alt="おかげさまで3周年" class="news-card-img" style="aspect-ratio: auto; object-fit: contain; background: #f9f3e8;">
+        <div class="news-card-body">
+          <span class="news-card-tag" style="background: #9A7B3A;">3周年記念</span>
+          <p class="news-card-period">2025年4月27日（月）〜6月7日（日）限定販売</p>
+          <h3 class="news-card-title">おかげさまで3周年を迎えることができました！</h3>
+          <p class="news-card-text">
+            日頃の感謝を込めて、期間限定で「酵素浴プラスワン券付き回数券」を販売します。詳しくはポスターをご覧ください。
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     ABOUT
+     ============================================================ -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-inner">
+
+      <!-- Visual -->
+      <div class="about-visual fade-up">
+        <div class="about-img-main"></div>
+        <div class="about-img-sub"></div>
+      </div>
+
+      <!-- Text -->
+      <div class="fade-up fade-up-d1">
+        <span class="section-label">About Us</span>
+        <h2 class="section-title">
+          皆様の身体作りの<br>お手伝いができる<br>お店でありたい。
+        </h2>
+        <div class="divider"></div>
+        <p class="section-lead">
+          米ぬか酵素浴 田（でん）は、兵庫県播磨町の完全個室・完全予約制の
+          米ぬか酵素浴専門サロンです。播磨町を中心に、明石・加古川はもちろん、
+          姫路・神戸・大阪からもお越しいただく、地域に愛されるサロンとして、
+          お一人おひとりに寄り添った丁寧なサービスをご提供します。
+        </p>
+        <blockquote class="about-philosophy">
+          「米ぬかの香りは『発酵』の原点であり<br>
+          古き良き伝統の健康法です。」
+        </blockquote>
+        <p class="section-lead">
+          糠にはビタミン・ミネラル・乳酸菌・麹菌がいっぱい。
+          これが発酵している中に入るのが「米ぬか酵素浴」。
+          体表からビタミン・ミネラル・酵素を吸収する、
+          最高のエネルギーチャージの時間です。
+        </p>
+        <div class="about-features">
+          <div class="about-feature-item">完全個室・完全予約制</div>
+          <div class="about-feature-item">保健所認可済</div>
+          <div class="about-feature-item">JR神戸線　土山駅徒歩2分の好立地。大阪・神戸・姫路からも好アクセス</div>
+          <div class="about-feature-item">お子様連れOK（要事前連絡）</div>
+          <div class="about-feature-item">レンタルタオル有（¥220）</div>
+          <div class="about-feature-item">2名様ペアにてご予約可（ご予約前に要事前連絡にてご確認ください）</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     ENZYME BATH
+     ============================================================ -->
+<section class="enzyme" id="enzyme">
+  <div class="enzyme-overlay"></div>
+  <div class="container">
+    <div class="enzyme-header">
+      <span class="section-label">What is Enzyme Bath</span>
+      <h2 class="section-title">酵素浴とは</h2>
+      <div class="divider"></div>
+      <p class="section-lead">
+        米ぬかが発酵する際に生み出す自然の熱と酵素のパワーで体を芯から温め、
+        デトックス・美肌・疲労回復をサポートします。
+      </p>
+    </div>
+
+    <div class="enzyme-grid">
+      <div class="enzyme-card fade-up">
+        <span class="enzyme-icon">🔥</span>
+        <h3 class="enzyme-card-title">自然発酵の熱</h3>
+        <p class="enzyme-card-text">
+          米ぬかが発酵する際に生まれる自然の熱は毎朝70℃まで上昇。
+          遠赤外線に近い性質を持ち、体の芯まで温めて
+          深部体温を上昇させ、代謝を高めます。
+        </p>
+      </div>
+      <div class="enzyme-card fade-up fade-up-d1">
+        <span class="enzyme-icon">✨</span>
+        <h3 class="enzyme-card-title">豊富な酵素と栄養</h3>
+        <p class="enzyme-card-text">
+          米ぬかには数千種類もの酵素とビタミンB群、
+          ガンマオリザノール、フェルラ酸など
+          美容・健康に嬉しい天然栄養素が豊富に含まれています。
+        </p>
+      </div>
+      <div class="enzyme-card fade-up fade-up-d2">
+        <span class="enzyme-icon">💧</span>
+        <h3 class="enzyme-card-title">デトックス効果</h3>
+        <p class="enzyme-card-text">
+          全身の毛穴から老廃物が排出され、
+          体内浄化を促進。入酵後は肌がつるつるになると
+          多くのお客様にご好評いただいています。
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     RICE BRAN
+     ============================================================ -->
+<section class="ricebran">
+  <div class="container">
+    <div class="ricebran-inner">
+
+      <div class="fade-up">
+        <span class="section-label">The Power of Rice Bran</span>
+        <h2 class="section-title">米ぬかが<br>選ばれる理由</h2>
+        <div class="divider"></div>
+        <p class="section-lead">
+          稲作の国・日本で古くから美容と健康の素材として大切にされてきた「米ぬか」。
+          その優れた力を科学的に解明し、最大限に活かします。
+        </p>
+        <div class="ricebran-points">
+          <div class="ricebran-point">
+            <span class="ricebran-point-num">01</span>
+            <div class="ricebran-point-content">
+              <h4>フィチン酸のキレート作用</h4>
+              <p>米ぬかに含まれるフィチン酸が体内の重金属や毒素と結合し、
+              排出を促進します。デトックス効果の高さの秘密です。</p>
+            </div>
+          </div>
+          <div class="ricebran-point">
+            <span class="ricebran-point-num">02</span>
+            <div class="ricebran-point-content">
+              <h4>ガンマオリザノールの美肌効果</h4>
+              <p>米ぬか特有の成分ガンマオリザノールは、ターンオーバーを促進し、
+              シミ・くすみの改善に効果的とされています。</p>
+            </div>
+          </div>
+          <div class="ricebran-point">
+            <span class="ricebran-point-num">03</span>
+            <div class="ricebran-point-content">
+              <h4>自然発酵による深部体温上昇</h4>
+              <p>発酵熱は体の芯まで届き、免疫力向上・冷え性改善・血行促進に。
+              深部体温が1℃上がると免疫力が約5〜6倍になるとも言われています。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="fade-up fade-up-d1">
+        <div class="ricebran-img"></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     COURSE & PRICE
+     ============================================================ -->
+<section class="course" id="course">
+  <div class="container">
+    <div class="course-header">
+      <span class="section-label">Course &amp; Price</span>
+      <h2 class="section-title">コース・料金</h2>
+      <div class="divider"></div>
+      <p class="section-lead" style="margin: 0 auto;">
+        はじめての方も安心。丁寧なカウンセリングのあと、
+        ご希望やお体の状態に合わせたコースをご提案します。
+      </p>
+    </div>
+
+    <!-- 基本料金 -->
+    <div class="course-grid">
+
+      <div class="course-card fade-up">
+        <div class="course-card-head">
+          <div class="course-name">通常料金</div>
+          <div class="course-time">1回入酵</div>
+        </div>
+        <div class="course-card-body">
+          <div class="course-price">¥4,900<span>（税込）</span></div>
+          <p class="course-desc">
+            1回からご利用いただける基本料金。
+            入酵後の温かみが続く自然発酵の熱で、
+            じんわりと体の芯まで温まります。
+          </p>
+          <ul class="course-includes">
+            <li>2回目以降はすぐにお入りいただけます</li>
+            <li>米ぬか酵素浴15分〜18分</li>
+            <li>個室・シャワーブース使用</li>
+            <li>シャンプー・ボディーソープ等完備</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="course-card fade-up fade-up-d1">
+        <div class="course-card-head brown">
+          <div class="course-name">初回限定料金</div>
+          <div class="course-time">初めてご利用の方・1回限り</div>
+        </div>
+        <div class="course-card-body">
+          <div class="course-price">¥3,900<span>（税込）</span></div>
+          <p class="course-desc">
+            当店を初めてご利用される方のみの
+            特別料金。まずはお気軽に
+            体験してみてください。
+          </p>
+          <ul class="course-includes">
+            <li>酵素浴のご説明・カウンセリング（初回は15〜20分前にご来店ください）</li>
+            <li>米ぬか酵素浴（まずは15分でお試しください）</li>
+            <li>個室・シャワーブース使用</li>
+            <li>※各種割引券との併用不可</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="course-card fade-up fade-up-d2">
+        <div class="course-card-head gold">
+          <div class="course-name">マスターV3</div>
+          <div class="course-time">脊椎セラピーマシン / 30〜50分</div>
+        </div>
+        <div class="course-card-body">
+          <div class="course-price">¥1,650<span>（税込）</span></div>
+          <p class="course-desc">
+            脊椎セラピーマシン「マスターV3」。
+            酵素浴とのセット予約も可能です。
+            50分間¥1,650でお試し頂けます。
+          </p>
+          <ul class="course-includes">
+            <li>マスターV3単独予約も可</li>
+            <li>酵素浴とのセット予約OK</li>
+            <li>基本料金50分 ¥1,650（初回のみお試しあり）</li>
+            <li>回数券もあり（詳細はお問合せ）</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 回数券 -->
+    <div style="margin-top: 48px;">
+      <h3 style="font-family: var(--font-serif); font-size: 20px; color: var(--color-brown); text-align: center; margin-bottom: 8px; letter-spacing: 0.08em;">お得な回数券</h3>
+      <p style="text-align: center; font-size: 13px; color: var(--color-text-lt); margin-bottom: 32px;">継続利用でより高い効果を。慢性的なお悩みには定期的な入酵がおすすめです。</p>
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;">
+
+        <div style="background: var(--color-white); padding: 28px 24px; border-radius: var(--radius); box-shadow: var(--shadow); text-align: center;">
+          <div style="font-family: var(--font-serif); font-size: 13px; color: var(--color-text-lt); margin-bottom: 8px; letter-spacing: 0.1em;">ファーストチケット</div>
+          <div style="font-family: var(--font-serif); font-size: 15px; color: var(--color-brown); margin-bottom: 4px;">5回券</div>
+          <div style="font-family: var(--font-serif); font-size: 28px; color: var(--color-gold); margin-bottom: 8px;">¥19,800<span style="font-size:13px; color: var(--color-text-lt);">（税込）</span></div>
+          <div style="font-size: 12px; color: var(--color-green); font-weight: 700; margin-bottom: 6px;">1回あたり¥3,960</div>
+          <div style="font-size: 11px; color: var(--color-text-lt); line-height: 1.7;">有効期限：5ヶ月<br>初回利用から1ヶ月以内購入可<br>※お一人様一枚限り</div>
+        </div>
+
+        <div style="background: var(--color-white); padding: 28px 24px; border-radius: var(--radius); box-shadow: var(--shadow); text-align: center;">
+          <div style="font-family: var(--font-serif); font-size: 13px; color: var(--color-text-lt); margin-bottom: 8px; letter-spacing: 0.1em;">お得な回数券</div>
+          <div style="font-family: var(--font-serif); font-size: 15px; color: var(--color-brown); margin-bottom: 4px;">5回券</div>
+          <div style="font-family: var(--font-serif); font-size: 28px; color: var(--color-gold); margin-bottom: 8px;">¥22,500<span style="font-size:13px; color: var(--color-text-lt);">（税込）</span></div>
+          <div style="font-size: 12px; color: var(--color-green); font-weight: 700; margin-bottom: 6px;">1回あたり¥4,500</div>
+          <div style="font-size: 11px; color: var(--color-text-lt); line-height: 1.7;">有効期限：5ヶ月<br>通常より¥2,000分お得<br>※同一世帯のご家族で共有可</div>
+        </div>
+
+        <div style="background: var(--color-white); padding: 28px 24px; border-radius: var(--radius); box-shadow: var(--shadow); text-align: center;">
+          <div style="font-family: var(--font-serif); font-size: 13px; color: var(--color-text-lt); margin-bottom: 8px; letter-spacing: 0.1em;">お得な回数券</div>
+          <div style="font-family: var(--font-serif); font-size: 15px; color: var(--color-brown); margin-bottom: 4px;">10回券</div>
+          <div style="font-family: var(--font-serif); font-size: 28px; color: var(--color-gold); margin-bottom: 8px;">¥40,000<span style="font-size:13px; color: var(--color-text-lt);">（税込）</span></div>
+          <div style="font-size: 12px; color: var(--color-green); font-weight: 700; margin-bottom: 6px;">1回あたり¥4,000</div>
+          <div style="font-size: 11px; color: var(--color-text-lt); line-height: 1.7;">有効期限：1年間<br>通常より¥9,000分お得<br>※同一世帯のご家族で共有可</div>
+        </div>
+
+      </div>
+    </div>
+
+    <p class="course-note">
+      ※ タオルセット（バスタオル+フェイスタオル）レンタル ¥220（税込）。紙ショーツ・ナプキンもご用意しております。<br>
+      ※ シャンプー・リンス・ボディーソープ・ドライヤー・耳綿は当店にございます。メイク落とし・化粧水等は持参ください。<br>
+      ※ 妊娠中・体調が優れない場合はご利用をお控えください。
+    </p>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     CTA BANNER
+     ============================================================ -->
+<div class="cta-banner">
+  <div class="container">
+    <p class="cta-banner-title">初めての方限定 — 初回体験料金 ¥3,900（税込）</p>
+    <p class="cta-banner-sub">LINE公式またはホットペッパービューティーからご予約ください</p>
+    <p style="margin-bottom: 12px; font-size: 13px; color: rgba(255,255,255,0.9); text-align: center;">ご予約前に必ずお読みください</p>
+    <div style="text-align: center; margin-bottom: 20px;">
+      <a href="caution.html" style="display: inline-block; padding: 10px 28px; border: 1px solid rgba(255,255,255,0.7); border-radius: 20px; color: rgba(255,255,255,0.9); font-size: 13px; text-decoration: none; letter-spacing: .06em;">当店ご利用上の注意を読む →</a>
+    </div>
+    <div class="cta-banner-buttons">
+      <a href="https://page.line.me/182ficqy?oat_content=url&openQrModal=true" target="_blank" rel="noopener" class="btn btn-gold" style="background:#06C755; border-color:#06C755;">💬 LINEで予約する</a>
+      <a href="https://beauty.hotpepper.jp/kr/slnH000650820/?cstt=1&wak=KPSC400402_link_maplist" target="_blank" rel="noopener" class="btn btn-outline-white">🌶 ホットペッパーで予約</a>
+    </div>
+    <p style="margin-top: 20px; font-size: 13px; color: rgba(255,255,255,0.8); line-height: 1.8; text-align: center;">
+      初回ご来店時はカウンセリングおよび入酵の説明がございますので、<br>
+      予定時間の15〜20分前にご来店くださいますようお願いいたします。
+    </p>
+    <p style="margin-top: 20px; font-size: 13px; color: rgba(255,255,255,0.9); text-align: center;">ご予約後はキャンセルポリシーをご確認願います</p>
+    <div style="text-align: center; margin-top: 10px;">
+      <a href="cancel-policy.html" style="display: inline-block; padding: 10px 28px; border: 1px solid rgba(255,255,255,0.7); border-radius: 20px; color: rgba(255,255,255,0.9); font-size: 13px; text-decoration: none; letter-spacing: .06em;">キャンセルポリシーを読む →</a>
+    </div>
+  </div>
+</div>
+
+
+<!-- ============================================================
+     COMMITMENT
+     ============================================================ -->
+<section class="commitment" id="commitment">
+  <div class="container">
+    <div class="commitment-header">
+      <span class="section-label">Our Commitment</span>
+      <h2 class="section-title">私たちのこだわり</h2>
+      <div class="divider"></div>
+    </div>
+
+    <div class="commitment-list">
+
+      <div class="commitment-item fade-up">
+        <span class="commitment-num">01</span>
+        <div class="commitment-content">
+          <h3>水へのこだわり　―脱塩素水―</h3>
+          <p>当店のシャワー水は浄化システムにより「脱塩素水」となっております。安心してご利用ください。
+          脱塩素水にすることで、良性の菌たちがしっかり生き残り、お身体への影響を持続させます。</p>
+        </div>
+      </div>
+
+      <div class="commitment-item fade-up fade-up-d1">
+        <span class="commitment-num">02</span>
+        <div class="commitment-content">
+          <h3>完全個室のプライベート空間</h3>
+          <p>他のお客様と時間が重なることのない、
+          完全予約制・完全個室制を採用。
+          着替えからシャワーまで、すべてのスペースが
+          プライベートな空間です。ゆったりとお過ごしいただけます。</p>
+        </div>
+      </div>
+
+      <div class="commitment-item fade-up fade-up-d2">
+        <span class="commitment-num">03</span>
+        <div class="commitment-content">
+          <h3>丁寧なカウンセリング</h3>
+          <p>入酵前に必ずカウンセリングを行い、
+          お体の状態・お悩み・ご希望をお伺いします。
+          体調や目的に合わせて入浴時間・温度を調整し、
+          最適なご入酵をご提供します。</p>
+        </div>
+      </div>
+
+      <div class="commitment-item fade-up fade-up-d3">
+        <span class="commitment-num">04</span>
+        <div class="commitment-content">
+          <h3>外側から米ぬかの温もりと、食改善で内側のケア</h3>
+          <p>50年以上の実績を持つ「株式会社玄米酵素」様のサポートのもと
+          食事の面からも無理なく続けられる習慣をご提案しています。
+          安心・安全な素材だけを厳選してお客様へお届けします。</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     CAUTION / NOTES
+     ============================================================ -->
+<!-- ============================================================
+     FAQ
+     ============================================================ -->
+<section class="faq" id="faq">
+  <div class="container">
+    <div class="faq-header">
+      <span class="section-label">FAQ</span>
+      <h2 class="section-title">よくあるご質問</h2>
+      <div class="divider"></div>
+    </div>
+
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <div class="faq-q">
+          <span class="faq-q-mark">Q</span>
+          <span class="faq-q-text">酵素浴って何ですか？</span>
+          <span class="faq-toggle"></span>
+        </div>
+        <div class="faq-a">
+          米ぬかと微生物の発酵熱を活用した温浴法です。お湯は使わず自然な温かさで体をじんわり包み込みます。
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">
+          <span class="faq-q-mark">Q</span>
+          <span class="faq-q-text">はじめてでも大丈夫ですか？</span>
+          <span class="faq-toggle"></span>
+        </div>
+        <div class="faq-a">
+          はい、もちろんです。スタッフが丁寧にご説明しながらご案内しますので、
+          はじめての方でも安心してお越しください。入酵前のカウンセリングでご不安な点はすべてお答えします。
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">
+          <span class="faq-q-mark">Q</span>
+          <span class="faq-q-text">体感温度はどれくらいですか？</span>
+          <span class="faq-toggle"></span>
+        </div>
+        <div class="faq-a">
+          発酵熱によって温められ、体感としては約42〜45℃前後のぬくもりを感じる方が多いです。
+          サウナのような熱さではなく、自然発酵熱によるじんわりと包まれるようなやさしい温かさです。
+          ※自然発酵熱のためご希望されるタイミングに完璧な温度調節ができません。比較的午前中は熱め、午後はやや温度が落ち着いている事が多いです。
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">
+          <span class="faq-q-mark">Q</span>
+          <span class="faq-q-text">入酵時は何を着ますか？</span>
+          <span class="faq-toggle"></span>
+        </div>
+        <div class="faq-a">
+          入浴着のご用意はありません。布を1枚まとうことによって素肌からの酵素の吸収が削減されるため、基本的には何もお召しにならずにご入酵いただくスタイルです。どうしても抵抗がある方は使い捨て紙ショーツをご利用いただけます。※紙ショーツをご希望される方は事前にスタッフへお申し出ください。
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">
+          <span class="faq-q-mark">Q</span>
+          <span class="faq-q-text">どんな服装でお越しになればよいですか？</span>
+          <span class="faq-toggle"></span>
+        </div>
+        <div class="faq-a">
+          たくさん汗をかくので、着脱しやすい服装でお越しください。
+          米ぬかの匂いが衣類に移ることがあります。
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">
+          <span class="faq-q-mark">Q</span>
+          <span class="faq-q-text">持ち物は何が必要ですか？</span>
+          <span class="faq-toggle"></span>
+        </div>
+        <div class="faq-a">
+          タオル・バスタオルなどタオルセットをお持ちください（220円でタオルセットのレンタルもございます）。
+          スキンケア用品やお化粧直し用のメイク道具などはご用意しておりませんので、必要な方はご持参ください。
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">
+          <span class="faq-q-mark">Q</span>
+          <span class="faq-q-text">どのくらいの頻度で利用すればいいですか？</span>
+          <span class="faq-toggle"></span>
+        </div>
+        <div class="faq-a">
+          ご自身の体調や目的によりますが、「週1回のリフレッシュに」「月数回のメンテナンスとして」通われる方が多いです。
+          最初の1〜2週間は数回入ってみて体調や気分の変化を感じながら、ご自身のペースを見つけてみてください。
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">
+          <span class="faq-q-mark">Q</span>
+          <span class="faq-q-text">生理中でも入れますか？</span>
+          <span class="faq-toggle"></span>
+        </div>
+        <div class="faq-a">
+          体調がよろしければ紙ショーツにナプキンもしくはタンポンの着用で入酵できます。来店当日スタッフへお声掛けください。
+          ※ナプキン・タンポンについてはご自身でご用意願います。どうしてもご心配な方は別日でのご予約をおすすめしております。
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">
+          <span class="faq-q-mark">Q</span>
+          <span class="faq-q-text">衛生面は大丈夫ですか？</span>
+          <span class="faq-toggle"></span>
+        </div>
+        <div class="faq-a">
+          微生物の働きによって常に分解と循環が起きており、清潔な環境が保たれています。
+          定期的なぬか入れ替え作業や丁寧なメンテナンスも行っていますのでご安心ください。
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">
+          <span class="faq-q-mark">Q</span>
+          <span class="faq-q-text">子どもと一緒に入れますか？</span>
+          <span class="faq-toggle"></span>
+        </div>
+        <div class="faq-a">
+          当店では年齢に応じたご案内をしています。他のお客様との兼ね合いもございますので、ご予約前に一度ご相談ください。
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">
+          <span class="faq-q-mark">Q</span>
+          <span class="faq-q-text">入酵いただけない方はいますか？</span>
+          <span class="faq-toggle"></span>
+        </div>
+        <div class="faq-a">
+          心臓・血圧に疾患のある方、飲酒後の方、高熱・体調不良の方はご遠慮いただいております。
+          持病がある方は事前にかかりつけ医にご相談のうえ、スタッフにもお申し出ください。
+          妊娠中の方は、酵素浴は体を深部から温めるため体調が不安定になりやすい時期でもあります。ご体調が良好で、かつ医師の許可がある場合のみご予約いただけます。ご利用前に一度ご相談ください。
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">
+          <span class="faq-q-mark">Q</span>
+          <span class="faq-q-text">予約は必要ですか？</span>
+          <span class="faq-toggle"></span>
+        </div>
+        <div class="faq-a">
+          完全予約制となっております。LINE公式またはホットペッパービューティーからご予約ください。
+          当日のご予約はお電話（078-939-3224）にてご確認ください。
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">
+          <span class="faq-q-mark">Q</span>
+          <span class="faq-q-text">入酵後に気をつけることはありますか？</span>
+          <span class="faq-toggle"></span>
+        </div>
+        <div class="faq-a">
+          入酵後は体が活発に代謝している状態のため、
+          30分〜1時間ほどは消化に重い食事を控えることをおすすめします。
+          水分補給はしっかり行ってください。入酵後に当店で手作りしている発酵ドリンクをご提供しています。
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     CUSTOMER VOICE
+     ============================================================ -->
+<section class="voice">
+  <div class="container">
+    <div class="voice-header">
+      <span class="section-label">Customer Voice</span>
+      <h2 class="section-title">お客様の声</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="voice-track-wrapper">
+      <div class="voice-track">
+        <!-- セット1 -->
+        <div class="voice-card">
+          <div class="voice-stars">★★★★★</div>
+          <p class="voice-text">
+            気になっていた酵素浴。初めてでしたが、丁寧な説明もあり、不安も無く入る事が出来ました。15分間だけ？と最初思いましたが、丁度良い長さでした。後も身体のぽかぽか感が続いていて、肌も少しスベスベになった気がします。フルーツ酵素ドリンクも初めてでしたが美味しく頂けました。回数券もあるとの事で思わず即購入してしまいました。またリピートさせて頂きます。ありがとうございます!
+          </p>
+          <div class="voice-meta">
+            <div class="voice-avatar">😊</div>
+            <span class="voice-name">40代・会社員・女性</span>
+          </div>
+        </div>
+        <div class="voice-card">
+          <div class="voice-stars">★★★★★</div>
+          <p class="voice-text">
+            初酵素風呂体験にふさわしいお店でした。出会えたことに感謝です！親切丁寧なご説明とご接客、ほんとうに体を労わるご職業の方のマインドだなぁ、と思いました。心も身体も温かく、そしてツルスベになりました！
+          </p>
+          <div class="voice-meta">
+            <div class="voice-avatar">😌</div>
+            <span class="voice-name">40代・女性</span>
+          </div>
+        </div>
+        <div class="voice-card">
+          <div class="voice-stars">★★★★★</div>
+          <p class="voice-text">
+            初めて酵素浴を体験しました。思ったほど匂いは気になりませんでした。のぼせやすい旨お伝えしたところアイスノンを枕にしていただきました。途中にヘッドマッサージもあり、のぼせることもなく、あっという間でした。シャワーを浴びてから休憩室でのんびりさせていただき、汗もたくさん出てとてもリラックスできました。ありがとうございました！
+          </p>
+          <div class="voice-meta">
+            <div class="voice-avatar">🌸</div>
+            <span class="voice-name">50代・女性</span>
+          </div>
+        </div>
+        <div class="voice-card">
+          <div class="voice-stars">★★★★★</div>
+          <p class="voice-text">
+            初めての『米ぬか酵素風呂』でした。スタッフの方の優しさがお店に入りすぐに伝わります。店内がとても可愛くてとても綺麗。説明も優しくわかりやすくて初めてでも安心出来ました。『米ぬか酵素風呂』本当に全身優しく温まり気持ちよくあっという間に時間が過ぎてしまいました。米ぬかのフワフワ感と私には丁度いい温度、気づくとじんわりと全身汗が出て普段では気づかない体が喜ぶ感覚を感じました。足を運んで本当によかったです。またお世話になります！ありがとうございました。
+          </p>
+          <div class="voice-meta">
+            <div class="voice-avatar">🌺</div>
+            <span class="voice-name">50代・女性</span>
+          </div>
+        </div>
+        <div class="voice-card">
+          <div class="voice-stars">★★★★★</div>
+          <p class="voice-text">
+            今日初めて体験しました！最初はドキドキでしたが、スタッフさんの明るい笑顔と丁寧な説明ですぐに安心できました。糠（ぬか）にすごく愛情をかけてこだわっていらっしゃるのが伝わってきて、入っている間ずっと幸せな気分でした。ふかふかの心地よさ、たっぷりかいた汗、そしてお肌のツルツル感…どれも感動で、すっかり酵素浴にハマってしまいました！最後にいただいた酵素ドリンクも美味しくて大満足です。心も体もデトックスできました。初めての方にも全力で推せます！
+          </p>
+          <div class="voice-meta">
+            <div class="voice-avatar">😄</div>
+            <span class="voice-name">40代・男性</span>
+          </div>
+        </div>
+        <div class="voice-card">
+          <div class="voice-stars">★★★★★</div>
+          <p class="voice-text">
+            初めて体験だったので、少し怖かったですが、丁寧に説明してくださりとても気持ちよかったです。のぼせやすい人でも、アイスノンやおでこに冷たいタオルをおいてくれるので安心だと思います♪施設も綺麗です。ぜひ、オススメです♪
+          </p>
+          <div class="voice-meta">
+            <div class="voice-avatar">💫</div>
+            <span class="voice-name">30代・女性</span>
+          </div>
+        </div>
+        <div class="voice-card">
+          <div class="voice-stars">★★★★★</div>
+          <p class="voice-text">
+            10年以上、酵素浴は入っていますがここの酵素浴は米ぬかもフカフカでめっちゃ気持ちいいです。今まで行っていた酵素浴は紙パンツと紙ブラ、ベッドキャップを着用しなあかんかったけど、ここは何も着用せず入浴できるのが最高の魅力です！！温度も適温で、終わってからも2回汗がドバっと出ます。またこちらに来る時は必ず来ます♪美肌はもちろん、健康のためにもめっちゃおすすめです！
+          </p>
+          <div class="voice-meta">
+            <div class="voice-avatar">✨</div>
+            <span class="voice-name">40代・女性</span>
+          </div>
+        </div>
+        <div class="voice-card">
+          <div class="voice-stars">★★★★★</div>
+          <p class="voice-text">
+            母と2人で初めて来店しました。初めての酵素風呂！ドキドキ、ワクワクしました。お店の方もとても親切で、丁寧にご説明してくださり嬉しかったです♪入った感想は絶対に通いたい！汗が噴き出て、デトックスがすぐに体感できました。朝から気持ちの良い時間を有難う御座いました。
+          </p>
+          <div class="voice-meta">
+            <div class="voice-avatar">🌷</div>
+            <span class="voice-name">30代・女性</span>
+          </div>
+        </div>
+        <!-- セット2（ループ用コピー） -->
+        <div class="voice-card">
+          <div class="voice-stars">★★★★★</div>
+          <p class="voice-text">
+            気になっていた酵素浴。初めてでしたが、丁寧な説明もあり、不安も無く入る事が出来ました。15分間だけ？と最初思いましたが、丁度良い長さでした。後も身体のぽかぽか感が続いていて、肌も少しスベスベになった気がします。フルーツ酵素ドリンクも初めてでしたが美味しく頂けました。回数券もあるとの事で思わず即購入してしまいました。またリピートさせて頂きます。ありがとうございます!
+          </p>
+          <div class="voice-meta">
+            <div class="voice-avatar">😊</div>
+            <span class="voice-name">40代・会社員・女性</span>
+          </div>
+        </div>
+        <div class="voice-card">
+          <div class="voice-stars">★★★★★</div>
+          <p class="voice-text">
+            初酵素風呂体験にふさわしいお店でした。出会えたことに感謝です！親切丁寧なご説明とご接客、ほんとうに体を労わるご職業の方のマインドだなぁ、と思いました。心も身体も温かく、そしてツルスベになりました！
+          </p>
+          <div class="voice-meta">
+            <div class="voice-avatar">😌</div>
+            <span class="voice-name">40代・女性</span>
+          </div>
+        </div>
+        <div class="voice-card">
+          <div class="voice-stars">★★★★★</div>
+          <p class="voice-text">
+            初めて酵素浴を体験しました。思ったほど匂いは気になりませんでした。のぼせやすい旨お伝えしたところアイスノンを枕にしていただきました。途中にヘッドマッサージもあり、のぼせることもなく、あっという間でした。シャワーを浴びてから休憩室でのんびりさせていただき、汗もたくさん出てとてもリラックスできました。ありがとうございました！
+          </p>
+          <div class="voice-meta">
+            <div class="voice-avatar">🌸</div>
+            <span class="voice-name">50代・女性</span>
+          </div>
+        </div>
+        <div class="voice-card">
+          <div class="voice-stars">★★★★★</div>
+          <p class="voice-text">
+            初めての『米ぬか酵素風呂』でした。スタッフの方の優しさがお店に入りすぐに伝わります。店内がとても可愛くてとても綺麗。説明も優しくわかりやすくて初めてでも安心出来ました。『米ぬか酵素風呂』本当に全身優しく温まり気持ちよくあっという間に時間が過ぎてしまいました。米ぬかのフワフワ感と私には丁度いい温度、気づくとじんわりと全身汗が出て普段では気づかない体が喜ぶ感覚を感じました。足を運んで本当によかったです。またお世話になります！ありがとうございました。
+          </p>
+          <div class="voice-meta">
+            <div class="voice-avatar">🌺</div>
+            <span class="voice-name">50代・女性</span>
+          </div>
+        </div>
+        <div class="voice-card">
+          <div class="voice-stars">★★★★★</div>
+          <p class="voice-text">
+            今日初めて体験しました！最初はドキドキでしたが、スタッフさんの明るい笑顔と丁寧な説明ですぐに安心できました。糠（ぬか）にすごく愛情をかけてこだわっていらっしゃるのが伝わってきて、入っている間ずっと幸せな気分でした。ふかふかの心地よさ、たっぷりかいた汗、そしてお肌のツルツル感…どれも感動で、すっかり酵素浴にハマってしまいました！最後にいただいた酵素ドリンクも美味しくて大満足です。心も体もデトックスできました。初めての方にも全力で推せます！
+          </p>
+          <div class="voice-meta">
+            <div class="voice-avatar">😄</div>
+            <span class="voice-name">40代・男性</span>
+          </div>
+        </div>
+        <div class="voice-card">
+          <div class="voice-stars">★★★★★</div>
+          <p class="voice-text">
+            初めて体験だったので、少し怖かったですが、丁寧に説明してくださりとても気持ちよかったです。のぼせやすい人でも、アイスノンやおでこに冷たいタオルをおいてくれるので安心だと思います♪施設も綺麗です。ぜひ、オススメです♪
+          </p>
+          <div class="voice-meta">
+            <div class="voice-avatar">💫</div>
+            <span class="voice-name">30代・女性</span>
+          </div>
+        </div>
+        <div class="voice-card">
+          <div class="voice-stars">★★★★★</div>
+          <p class="voice-text">
+            10年以上、酵素浴は入っていますがここの酵素浴は米ぬかもフカフカでめっちゃ気持ちいいです。今まで行っていた酵素浴は紙パンツと紙ブラ、ベッドキャップを着用しなあかんかったけど、ここは何も着用せず入浴できるのが最高の魅力です！！温度も適温で、終わってからも2回汗がドバっと出ます。またこちらに来る時は必ず来ます♪美肌はもちろん、健康のためにもめっちゃおすすめです！
+          </p>
+          <div class="voice-meta">
+            <div class="voice-avatar">✨</div>
+            <span class="voice-name">40代・女性</span>
+          </div>
+        </div>
+        <div class="voice-card">
+          <div class="voice-stars">★★★★★</div>
+          <p class="voice-text">
+            母と2人で初めて来店しました。初めての酵素風呂！ドキドキ、ワクワクしました。お店の方もとても親切で、丁寧にご説明してくださり嬉しかったです♪入った感想は絶対に通いたい！汗が噴き出て、デトックスがすぐに体感できました。朝から気持ちの良い時間を有難う御座いました。
+          </p>
+          <div class="voice-meta">
+            <div class="voice-avatar">🌷</div>
+            <span class="voice-name">30代・女性</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     ACCESS
+     ============================================================ -->
+<section class="access" id="access">
+  <div class="container">
+    <div style="margin-bottom: 52px;">
+      <span class="section-label">Access</span>
+      <h2 class="section-title">アクセス</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="access-inner">
+      <div class="access-map fade-up">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3279.388658636833!2d134.8873938764906!3d34.7205964729128!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3554d75595217a4b%3A0xd395dbe39fdbbd65!2z57Gz44Gs44GL6YW157Sg5rW0IOeUsA!5e0!3m2!1sja!2sjp!4v1776552076862!5m2!1sja!2sjp"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="米ぬか酵素浴 田（でん）へのアクセス">
+        </iframe>
+      </div>
+      <div class="fade-up fade-up-d1">
+        <table class="access-table">
+          <tr>
+            <th>店舗名</th>
+            <td>米ぬか酵素浴 田（でん）</td>
+          </tr>
+          <tr>
+            <th>住所</th>
+            <td>〒675-0151<br>兵庫県加古郡播磨町野添1667-15<br>オージー土山ビル1階<br>※正面入口へ入り左手にお入りください</td>
+          </tr>
+          <tr>
+            <th>電話</th>
+            <td><a href="tel:0789393224" style="color: var(--color-gold);">078-939-3224</a></td>
+          </tr>
+          <tr>
+            <th>メール</th>
+            <td>komenuka.den@gmail.com</td>
+          </tr>
+          <tr>
+            <th>電車</th>
+            <td>JR土山駅 北口より徒歩2分<br>都きしめん様横の路地を北へお進みください</td>
+          </tr>
+          <tr>
+            <th>お車</th>
+            <td>国道2号線 土山交差点よりJR土山駅方面へ<br>駅前バス乗り場前の都きしめん様横路地を曲がり<br>当店正面駐車場④・⑤・⑥へ</td>
+          </tr>
+        </table>
+        <div class="access-hours">
+          <h4>営業日・ご予約について</h4>
+          <div class="hours-row">
+            <span>営業日</span>
+            <span>不定休（営業日カレンダーをご確認ください）</span>
+          </div>
+          <div class="hours-row">
+            <span>予約方法</span>
+            <span>LINE公式 / ホットペッパービューティー / お電話</span>
+          </div>
+          <div class="hours-row">
+            <span>初回来店</span>
+            <span>予約時間の15〜20分前にお越しください</span>
+          </div>
+          <div class="hours-row">
+            <span>当日予約</span>
+            <span>初回の方はお電話にてご予約ください（078-939-3224）</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 当店までの道のり動画 -->
+    <div class="fade-up" style="margin-top: 48px;">
+      <h3 style="font-family: var(--font-serif); font-size: 18px; color: var(--color-brown); letter-spacing: .08em; margin-bottom: 16px; text-align: center;">🎬 当店までの道のり</h3>
+      <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: var(--radius);">
+        <iframe
+          src="https://www.youtube.com/embed/6f9PewPGmHY"
+          title="当店までの道のり"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+          style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+        </iframe>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================================
+     RESERVATION
+     ============================================================ -->
+<section class="contact" id="reservation">
+  <div class="container">
+    <div class="contact-inner">
+      <div class="contact-header">
+        <span class="section-label">Reservation</span>
+        <h2 class="section-title">ご予約はこちら</h2>
+        <div class="divider"></div>
+        <p class="section-lead" style="margin: 0 auto;">
+          ご予約は①LINE公式アカウント、②ホットペッパービューティーからお願いします。<br>
+          当日ご予約の際はお電話でご確認ください。
+        </p>
+      </div>
+
+      <!-- ご利用注意リンク -->
+      <div style="margin-top: 32px; text-align: center;">
+        <p style="font-size: 13px; color: var(--color-text-lt); margin-bottom: 10px;">ご予約前に必ずお読みください</p>
+        <a href="caution.html" style="display: inline-block; padding: 10px 28px; border: 1px solid var(--color-brown); border-radius: 20px; color: var(--color-brown); font-size: 13px; text-decoration: none; letter-spacing: .06em;">当店ご利用上の注意を読む →</a>
+      </div>
+
+      <!-- 予約ボタン 2つ -->
+      <div style="margin-top: 32px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+
+        <!-- LINE -->
+        <a href="https://page.line.me/182ficqy?oat_content=url&openQrModal=true" target="_blank" rel="noopener"
+           style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px;
+                  background: #06C755; border-radius: var(--radius); padding: 40px 24px;
+                  color: white; text-decoration: none; transition: opacity 0.3s;"
+           onmouseover="this.style.opacity='0.88'" onmouseout="this.style.opacity='1'">
+          <svg xmlns="http://www.w3.org/2000/svg" width="52" height="52" viewBox="0 0 48 48" fill="white">
+            <path d="M24 4C12.95 4 4 11.82 4 21.5c0 6.08 3.56 11.43 9 14.64V42l6.18-3.4A22.6 22.6 0 0024 39c11.05 0 20-7.82 20-17.5S35.05 4 24 4z"/>
+          </svg>
+          <div style="text-align: center;">
+            <div style="font-family: var(--font-serif); font-size: 18px; font-weight: 700; letter-spacing: 0.08em; margin-bottom: 6px;">LINE公式で予約</div>
+            <div style="font-size: 12px; opacity: 0.85; line-height: 1.7;">空き状況の確認・ご予約・お問合せ<br>お誕生日月の特典つき ✨</div>
+          </div>
+        </a>
+
+        <!-- ホットペッパー -->
+        <a href="https://beauty.hotpepper.jp/kr/slnH000650820/?cstt=1&wak=KPSC400402_link_maplist" target="_blank" rel="noopener"
+           style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px;
+                  background: #E6002D; border-radius: var(--radius); padding: 40px 24px;
+                  color: white; text-decoration: none; transition: opacity 0.3s;"
+           onmouseover="this.style.opacity='0.88'" onmouseout="this.style.opacity='1'">
+          <svg xmlns="http://www.w3.org/2000/svg" width="52" height="52" viewBox="0 0 48 48" fill="white">
+            <path d="M24 6a18 18 0 100 36A18 18 0 0024 6zm0 8a5 5 0 110 10 5 5 0 010-10zm0 22c-5 0-9.4-2.56-12-6.44C12.06 27.1 17.64 25 24 25s11.94 2.1 12 4.56C33.4 33.44 29 36 24 36z"/>
+          </svg>
+          <div style="text-align: center;">
+            <div style="font-family: var(--font-serif); font-size: 18px; font-weight: 700; letter-spacing: 0.08em; margin-bottom: 6px;">ホットペッパーで予約</div>
+            <div style="font-size: 12px; opacity: 0.85; line-height: 1.7;">ホットペッパービューティーの<br>アカウントをお持ちの方はこちら</div>
+          </div>
+        </a>
+
+      </div>
+
+      <!-- 電話 -->
+      <div style="margin-top: 24px; padding: 24px 28px; background: var(--color-white);
+                  border: 1px solid var(--color-beige-dk); border-radius: var(--radius);
+                  display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap;">
+        <span style="font-family: var(--font-serif); font-size: 14px; color: var(--color-text-lt);">当日直前のご予約・お電話でのお問合せ</span>
+        <a href="tel:0789393224"
+           style="font-family: var(--font-serif); font-size: 22px; font-weight: 700;
+                  color: var(--color-brown); letter-spacing: 0.05em;">
+          📞 078-939-3224
+        </a>
+      </div>
+
+      <!-- 注意書き -->
+      <div style="margin-top: 20px; padding: 24px 28px; background: var(--color-bg); border-radius: var(--radius); border-left: 4px solid var(--color-gold);">
+        <p style="font-family: var(--font-serif); font-size: 15px; font-weight: 700; color: var(--color-brown); margin-bottom: 12px;">
+          初回ご来店の方へ
+        </p>
+        <p style="font-size: 14px; color: var(--color-text); line-height: 1.9; margin-bottom: 12px;">
+          初回ご来店時はカウンセリングおよび入酵の説明がございますので、<br>
+          予定時間の<strong>15〜20分前</strong>にご来店くださいますようお願いいたします。
+        </p>
+        <p style="font-size: 14px; color: var(--color-text); line-height: 1.9; margin-bottom: 16px;">
+          週末・祝日などは周辺道路が大変混み合いますので、<br>
+          予めお時間に余裕を持ってお気をつけてお越しください。
+        </p>
+        <p style="font-size: 12px; color: var(--color-text-lt); line-height: 2;">
+          ※ 土日祝のご予約はお早めに（1ヶ月先まで予約可能です）。<br>
+          ※ 当日直前のご予約はお電話にてご確認ください。
+        </p>
+      </div>
+
+      <!-- キャンセルポリシーリンク -->
+      <div style="margin-top: 28px; text-align: center;">
+        <p style="font-size: 13px; color: var(--color-text-lt); margin-bottom: 10px;">ご予約後はキャンセルポリシーをご確認願います</p>
+        <a href="cancel-policy.html" style="display: inline-block; padding: 10px 28px; border: 1px solid var(--color-brown); border-radius: 20px; color: var(--color-brown); font-size: 13px; text-decoration: none; letter-spacing: .06em;">キャンセルポリシーを読む →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-inner">
+
+      <div class="footer-brand">
+        <div class="footer-brand-name">米ぬか酵素浴 田（でん）</div>
+        <div class="footer-brand-sub">KOMENUKA KOSO-YOKU DEN</div>
+        <p class="footer-brand-desc">
+          〒675-0151 兵庫県加古郡播磨町野添1667-15<br>
+          オージー土山ビル1階<br>
+          ☎ 078-939-3224<br>
+          mail: komenuka.den@gmail.com<br>
+          ※保健所認可済
+        </p>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram">📷</a>
+          <a href="#" aria-label="LINE">💬</a>
+        </div>
+      </div>
+
+      <div>
+        <div class="footer-col-title">メニュー</div>
+        <div class="footer-links">
+          <a href="#about">当店について</a>
+          <a href="#enzyme">酵素浴について</a>
+          <a href="#course">ご利用料金</a>
+          <a href="#commitment">こだわり</a>
+          <a href="#faq">よくある質問</a>
+        </div>
+      </div>
+
+      <div>
+        <div class="footer-col-title">ご利用案内</div>
+        <div class="footer-links">
+          <a href="#access">アクセス</a>
+          <a href="#reservation">ご予約はこちら</a>
+          <a href="#">営業日カレンダー</a>
+          <a href="#">入酵の流れ</a>
+        </div>
+      </div>
+
+      <div>
+        <div class="footer-col-title">その他</div>
+        <div class="footer-links">
+          <a href="#">お客様の声</a>
+          <a href="cancel-policy.html">キャンセルポリシー</a>
+          <a href="caution.html">ご利用時の注意事項</a>
+          <a href="#">プライバシーポリシー</a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2024 米ぬか酵素浴 田（でん） All Rights Reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="#">プライバシーポリシー</a>
+        <a href="#">特定商取引法</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ============================================================
+     SCRIPTS
+     ============================================================ -->
+<script>
+  // ── Mobile accordion ──
+  (function() {
+    const targets = [
+      { selector: '#news',       label: '当店最新情報' },
+      { selector: '#enzyme',     label: '酵素浴とは' },
+      { selector: '.ricebran',   label: '米ぬかが選ばれる理由' },
+      { selector: '#course',     label: 'コース・料金' },
+      { selector: '#commitment', label: '私たちのこだわり' },
+      { selector: '#faq',        label: 'よくあるご質問' },
+      { selector: '.voice',      label: 'お客様の声' },
+      { selector: '#access',     label: 'アクセス' },
+    ];
+    targets.forEach(function({ selector, label }) {
+      var section = document.querySelector(selector);
+      if (!section) return;
+      var container = section.querySelector('.container');
+      if (!container) return;
+
+      var body = document.createElement('div');
+      body.className = 'mob-acc-body';
+      container.parentNode.insertBefore(body, container);
+      body.appendChild(container);
+
+      var btn = document.createElement('button');
+      btn.className = 'mob-acc-btn';
+      btn.setAttribute('aria-expanded', 'false');
+      btn.innerHTML = '<span>' + label + '</span>';
+      section.insertBefore(btn, body);
+
+      btn.addEventListener('click', function() {
+        var isOpen = body.classList.contains('open');
+        body.classList.toggle('open', !isOpen);
+        btn.setAttribute('aria-expanded', String(!isOpen));
+        if (!isOpen) {
+          setTimeout(function() {
+            section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }, 50);
+        }
+      });
+    });
+  })();
+
+  // ── Hero slideshow ──
+  (function() {
+    const slides = document.querySelectorAll('.hero-slide');
+    let current = 0;
+    setInterval(() => {
+      slides[current].classList.remove('active');
+      current = (current + 1) % slides.length;
+      slides[current].classList.add('active');
+    }, 5000);
+  })();
+
+  // ── Header scroll ──
+  const header = document.getElementById('site-header');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 60);
+  }, { passive: true });
+
+  // ── Mobile drawer ──
+  const hamburger   = document.getElementById('hamburger');
+  const navOverlay  = document.getElementById('nav-overlay');
+  const navDrawer   = document.getElementById('nav-drawer');
+  const navClose    = document.getElementById('nav-close');
+
+  function openNav() {
+    navOverlay.style.display = 'block';
+    requestAnimationFrame(() => {
+      navOverlay.classList.add('open');
+      navDrawer.classList.add('open');
+    });
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeNav() {
+    navOverlay.classList.remove('open');
+    navDrawer.classList.remove('open');
+    setTimeout(() => { navOverlay.style.display = 'none'; }, 360);
+    document.body.style.overflow = '';
+  }
+
+  hamburger.addEventListener('click', openNav);
+  navOverlay.addEventListener('click', closeNav);
+  navClose.addEventListener('click', closeNav);
+  navDrawer.querySelectorAll('a').forEach(a => a.addEventListener('click', closeNav));
+
+  // ── FAQ accordion ──
+  document.querySelectorAll('.faq-q').forEach(q => {
+    q.addEventListener('click', () => {
+      const item   = q.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+
+  // ── Scroll animations ──
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.fade-up').forEach(el => io.observe(el));
+
+  // ── ナビゲーター：ドロワー内リンクのhref更新 ──
+  // LINE/HotPepperのURLはhttps://page.line.me/182ficqy?oat_content=url&openQrModal=true / https://beauty.hotpepper.jp/kr/slnH000650820/?cstt=1&wak=KPSC400402_link_maplistを実際のURLに差し替えてください
+</script>
+
+</body>
+</html>
