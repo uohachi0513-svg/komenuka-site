@@ -1,0 +1,23 @@
+# www → apex 301リダイレクト
+https://www.den-komenukakoso.com/* https://den-komenukakoso.com/:splat 301
+
+# 旧JimdoページのURL → 新サイトの近いセクションへ301リダイレクト
+/about/ /#about 301
+/米ぬか酵素浴-ってどんなもの/ /#enzyme 301
+/米ぬか酵素浴の効果/ /#enzyme 301
+/ご利用料金/ /#course 301
+/よくあるご質問/ /#faq 301
+/アクセス/ /#access 301
+/最新情報/ /#news 301
+/当店での入酵の流れ/ /#course 301
+/キャンセルポリシーおよび注意事項/ /cancel-policy.html 301
+/お客様の声-ご利用された方からの口コミ/ /#voice 301
+/お子様との入酵について/ /#faq 301
+/衛生面および感染症対策/ /#commitment 301
+/好転反応/ /#faq 301
+/営業時間/ /#access 301
+/セラゼム-マスターv3-導入しました/ /#course 301
+/玄米酵素セミナー/ / 301
+/当店の社会活動/ / 301
+/プライバシーポリシー/ / 301
+/sitemap/ /sitemap.xml 301
