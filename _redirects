@@ -1,6 +1,3 @@
-# www → apex 301リダイレクト
-https://www.den-komenukakoso.com/* https://den-komenukakoso.com/:splat 301
-
 # 旧JimdoページのURL → 新サイトの近いセクションへ301リダイレクト
 /about/ /#about 301
 /米ぬか酵素浴-ってどんなもの/ /#enzyme 301
