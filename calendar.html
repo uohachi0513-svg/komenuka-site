@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>営業日カレンダー｜米ぬか酵素浴 田（でん）</title>
+  <meta name="description" content="米ぬか酵素浴 田（でん）の営業日カレンダーです。予約状況（受付中・残1枠・満室・休業）をご確認の上ご予約ください。">
+  <link rel="canonical" href="https://den-komenukakoso.com/calendar.html">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500;700&family=Noto+Sans+JP:wght@300;400;500&family=Shippori+Mincho:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --color-bg:       #FAF6EE;
+      --color-white:    #FFFFFF;
+      --color-gold:     #9A7B3A;
+      --color-gold-lt:  #C8A96E;
+      --color-brown:    #4A3420;
+      --color-brown-lt: #7A5C38;
+      --color-green:    #4E6E42;
+      --color-green-lt: #6E9060;
+      --color-beige:    #E8DFCC;
+      --color-beige-dk: #D4C9B0;
+      --color-text:     #2C2417;
+      --color-text-lt:  #6B5B45;
+      --font-serif:     'Shippori Mincho', 'Noto Serif JP', serif;
+      --font-sans:      'Noto Sans JP', sans-serif;
+      --transition:     0.35s ease;
+      --radius:         4px;
+      --shadow:         0 4px 24px rgba(74,52,32,0.10);
+      --shadow-lg:      0 8px 48px rgba(74,52,32,0.15);
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.8;
+      font-size: 15px;
+      overflow-x: hidden;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+
+    /* ===== UTILITY ===== */
+    .container { max-width: 1080px; margin: 0 auto; padding: 0 32px; }
+
+    .section-label {
+      font-family: var(--font-serif);
+      font-size: 11px;
+      letter-spacing: 0.28em;
+      color: var(--color-gold);
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: clamp(24px, 3.2vw, 36px);
+      font-weight: 500;
+      line-height: 1.55;
+      color: var(--color-brown);
+      margin-bottom: 20px;
+    }
+    .divider {
+      width: 40px; height: 2px;
+      background: var(--color-gold);
+      margin-bottom: 28px;
+    }
+
+    /* ===== HEADER ===== */
+    .site-header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      transition: var(--transition);
+    }
+    .site-header.scrolled {
+      background: rgba(250,246,238,0.97);
+      box-shadow: 0 1px 16px rgba(74,52,32,0.10);
+    }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+      padding: 0 40px;
+    }
+    .site-logo {
+      font-family: var(--font-serif);
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--color-white);
+      letter-spacing: 0.08em;
+      transition: var(--transition);
+      line-height: 1.3;
+    }
+    .site-header.scrolled .site-logo { color: var(--color-brown); }
+    .site-logo span {
+      display: block;
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      font-weight: 400;
+      margin-top: 2px;
+      opacity: 0.75;
+    }
+    .site-nav {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+    .nav-link {
+      font-family: var(--font-serif);
+      font-size: 13px;
+      letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.88);
+      transition: var(--transition);
+      position: relative;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0; right: 0;
+      height: 1px;
+      background: currentColor;
+      transform: scaleX(0);
+      transition: var(--transition);
+    }
+    .nav-link:hover::after { transform: scaleX(1); }
+    .site-header.scrolled .nav-link { color: var(--color-brown); }
+
+    .nav-link-blog {
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      padding: 4px 10px;
+      border: 1px solid rgba(200,169,110,0.55);
+      border-radius: 2px;
+      color: var(--color-gold-lt) !important;
+    }
+    .site-header.scrolled .nav-link-blog {
+      border-color: var(--color-gold);
+      color: var(--color-gold) !important;
+    }
+    .nav-link-blog::after { display: none !important; }
+
+    .nav-cta {
+      font-family: var(--font-serif);
+      font-size: 12px;
+      letter-spacing: 0.15em;
+      padding: 10px 22px;
+      border: 1px solid rgba(255,255,255,0.65);
+      color: var(--color-white);
+      transition: var(--transition);
+    }
+    .nav-cta:hover { background: var(--color-white); color: var(--color-brown); }
+    .site-header.scrolled .nav-cta {
+      border-color: var(--color-gold);
+      color: var(--color-gold);
+    }
+    .site-header.scrolled .nav-cta:hover {
+      background: var(--color-gold);
+      color: var(--color-white);
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 6px;
+      cursor: pointer;
+      border: none;
+      background: none;
+      padding: 4px;
+    }
+    .hamburger span {
+      display: block;
+      width: 26px; height: 2px;
+      background: var(--color-white);
+      transition: var(--transition);
+    }
+    .site-header.scrolled .hamburger span { background: var(--color-brown); }
+
+    /* ===== FOOTER ===== */
+    .site-footer {
+      background: var(--color-brown);
+      padding: 64px 0 0;
+      margin-top: 80px;
+    }
+    .footer-inner {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid rgba(255,255,255,0.10);
+    }
+    .footer-brand-name {
+      font-family: var(--font-serif);
+      font-size: 18px;
+      font-weight: 500;
+      color: var(--color-white);
+      margin-bottom: 4px;
+    }
+    .footer-brand-sub {
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      color: rgba(255,255,255,0.45);
+      margin-bottom: 20px;
+    }
+    .footer-brand-desc {
+      font-size: 12px;
+      color: rgba(255,255,255,0.55);
+      line-height: 2.1;
+    }
+    .footer-social {
+      display: flex;
+      gap: 14px;
+      margin-top: 22px;
+    }
+    .footer-social a {
+      width: 36px; height: 36px;
+      border: 1px solid rgba(255,255,255,0.22);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      transition: var(--transition);
+    }
+    .footer-social a:hover { background: rgba(255,255,255,0.1); }
+    .footer-col-title {
+      font-family: var(--font-serif);
+      font-size: 12px;
+      letter-spacing: 0.16em;
+      color: var(--color-gold-lt);
+      margin-bottom: 18px;
+    }
+    .footer-links { display: flex; flex-direction: column; gap: 11px; }
+    .footer-links a { font-size: 13px; color: rgba(255,255,255,0.58); transition: var(--transition); }
+    .footer-links a:hover { color: var(--color-gold-lt); }
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 22px 0;
+      font-size: 11px;
+      color: rgba(255,255,255,0.32);
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .footer-bottom-links { display: flex; gap: 18px; }
+    .footer-bottom-links a { color: rgba(255,255,255,0.32); transition: var(--transition); }
+    .footer-bottom-links a:hover { color: rgba(255,255,255,0.65); }
+
+    /* ===== NAV DRAWER ===== */
+    .nav-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(44,36,23,0.55);
+      z-index: 150;
+      opacity: 0;
+      transition: opacity 0.35s;
+    }
+    .nav-overlay.open { opacity: 1; }
+    .nav-drawer {
+      position: fixed;
+      top: 0; right: 0;
+      width: 280px;
+      height: 100vh;
+      background: var(--color-bg);
+      z-index: 200;
+      transform: translateX(100%);
+      transition: transform 0.38s cubic-bezier(0.4,0,0.2,1);
+      padding: 80px 32px 40px;
+      overflow-y: auto;
+    }
+    .nav-drawer.open { transform: translateX(0); }
+    .nav-drawer-close {
+      position: absolute;
+      top: 22px; right: 22px;
+      background: none;
+      border: none;
+      font-size: 22px;
+      cursor: pointer;
+      color: var(--color-brown);
+      line-height: 1;
+      padding: 4px;
+    }
+    .nav-drawer-links { display: flex; flex-direction: column; gap: 0; }
+    .nav-drawer-links a {
+      font-family: var(--font-serif);
+      font-size: 16px;
+      color: var(--color-brown);
+      padding: 16px 0;
+      border-bottom: 1px solid var(--color-beige);
+      letter-spacing: 0.08em;
+      transition: var(--transition);
+    }
+    .nav-drawer-links a:hover { color: var(--color-gold); padding-left: 8px; }
+    .nav-drawer-links .nav-link-blog::after { display: none; }
+
+    /* ===== SCROLL ANIMATIONS ===== */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+    .fade-up-d1 { transition-delay: 0.1s; }
+    .fade-up-d2 { transition-delay: 0.2s; }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 920px) {
+      .site-nav { display: none; }
+      .hamburger { display: flex; }
+      .nav-overlay { display: block; }
+      .footer-inner { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .footer-brand { grid-column: 1 / -1; }
+    }
+    @media (max-width: 600px) {
+      .container { padding: 0 18px; }
+      .header-inner { padding: 0 18px; }
+      .footer-inner { grid-template-columns: 1fr; }
+    }
+
+    /* ===== SUBPAGE HERO ===== */
+    .subpage-hero {
+      background: var(--color-brown);
+      padding: 80px 0 40px;
+      margin-top: 72px;
+    }
+    .subpage-breadcrumb {
+      font-size: 12px;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 12px;
+    }
+    .subpage-breadcrumb a { color: rgba(255,255,255,0.6); text-decoration: none; }
+    .subpage-title {
+      font-family: var(--font-serif);
+      font-size: 32px;
+      color: var(--color-white);
+      letter-spacing: .1em;
+    }
+
+    /* ===== CALENDAR SECTION ===== */
+    .calendar-section {
+      padding: 80px 0 60px;
+    }
+
+    .calendar-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .calendar-notice {
+      background: var(--color-white);
+      border-left: 4px solid var(--color-gold);
+      padding: 16px 20px;
+      font-size: 13px;
+      color: var(--color-text-lt);
+      line-height: 1.9;
+      margin-bottom: 48px;
+      border-radius: 0 var(--radius) var(--radius) 0;
+    }
+
+    /* legend */
+    .calendar-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 24px;
+      justify-content: center;
+      margin-bottom: 48px;
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--color-text-lt);
+    }
+    .legend-dot {
+      width: 16px; height: 16px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .legend-dot.open   { background: #4E6E42; }
+    .legend-dot.last1  { background: #C27A2A; }
+    .legend-dot.full   { background: #8B2020; }
+    .legend-dot.closed { background: #C8C0B4; }
+
+    /* months grid */
+    .calendar-months {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+
+    .cal-block {
+      background: var(--color-white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .cal-block-head {
+      background: var(--color-brown);
+      padding: 18px 24px;
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+    }
+    .cal-month-label {
+      font-family: var(--font-serif);
+      font-size: 22px;
+      color: var(--color-white);
+      letter-spacing: 0.06em;
+    }
+    .cal-month-en {
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      color: rgba(255,255,255,0.5);
+      text-transform: uppercase;
+    }
+    .cal-month-note {
+      font-size: 12px;
+      color: rgba(255,255,255,0.65);
+      margin-left: auto;
+    }
+
+    .cal-grid {
+      padding: 20px;
+    }
+
+    .cal-weekdays {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      margin-bottom: 8px;
+    }
+    .cal-wd {
+      text-align: center;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      padding: 6px 0;
+      font-family: var(--font-serif);
+      color: var(--color-text-lt);
+    }
+    .cal-wd:first-child { color: #B94040; }
+    .cal-wd:last-child  { color: #3A6A9A; }
+
+    .cal-days {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 4px;
+    }
+
+    .cal-day {
+      aspect-ratio: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border-radius: 6px;
+      font-size: 14px;
+      font-family: var(--font-serif);
+      position: relative;
+      transition: transform 0.15s;
+    }
+
+    .cal-day.empty { background: transparent; }
+
+    /* 日曜 */
+    .cal-day[data-dow="0"] .cal-num { color: #B94040; }
+    /* 土曜 */
+    .cal-day[data-dow="6"] .cal-num { color: #3A6A9A; }
+
+    .cal-num {
+      font-size: 15px;
+      font-weight: 500;
+      line-height: 1;
+      margin-bottom: 4px;
+      color: var(--color-text);
+    }
+
+    .cal-status {
+      font-size: 9px;
+      letter-spacing: 0.04em;
+      line-height: 1.2;
+      text-align: center;
+      padding: 2px 4px;
+      border-radius: 3px;
+      font-family: var(--font-sans);
+      white-space: nowrap;
+    }
+
+    /* 受付中 */
+    .cal-day.status-open {
+      background: rgba(78,110,66,0.08);
+    }
+    .cal-day.status-open .cal-status {
+      background: #4E6E42;
+      color: #fff;
+    }
+
+    /* 残1枠 */
+    .cal-day.status-last1 {
+      background: rgba(194,122,42,0.09);
+    }
+    .cal-day.status-last1 .cal-status {
+      background: #C27A2A;
+      color: #fff;
+    }
+
+    /* 満室 */
+    .cal-day.status-full {
+      background: rgba(139,32,32,0.07);
+    }
+    .cal-day.status-full .cal-status {
+      background: #8B2020;
+      color: #fff;
+    }
+
+    /* 休業 */
+    .cal-day.status-closed {
+      opacity: 0.42;
+    }
+    .cal-day.status-closed .cal-num {
+      color: var(--color-text-lt);
+    }
+    .cal-day.status-closed .cal-status {
+      color: var(--color-text-lt);
+      font-size: 9px;
+    }
+
+    /* 今日 */
+    .cal-day.today .cal-num {
+      background: var(--color-gold);
+      color: #fff;
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 3px;
+    }
+
+    .cal-reservation-link {
+      display: block;
+      text-align: center;
+      margin: 24px 20px 20px;
+      padding: 13px;
+      background: var(--color-gold);
+      color: var(--color-white);
+      font-family: var(--font-serif);
+      font-size: 13px;
+      letter-spacing: 0.18em;
+      border-radius: var(--radius);
+      transition: var(--transition);
+    }
+    .cal-reservation-link:hover { background: var(--color-brown-lt); }
+
+    .calendar-cta {
+      text-align: center;
+      margin-top: 40px;
+      padding: 32px;
+      background: var(--color-white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .calendar-cta p {
+      font-size: 14px;
+      color: var(--color-text-lt);
+      margin-bottom: 20px;
+      line-height: 1.9;
+    }
+    .calendar-cta a {
+      display: inline-block;
+      font-family: var(--font-serif);
+      font-size: 14px;
+      letter-spacing: 0.16em;
+      padding: 14px 48px;
+      background: var(--color-brown);
+      color: var(--color-white);
+      border-radius: var(--radius);
+      transition: var(--transition);
+    }
+    .calendar-cta a:hover { background: var(--color-brown-lt); }
+
+    .back-link {
+      display: block;
+      text-align: center;
+      margin-top: 40px;
+      font-size: 13px;
+      color: var(--color-text-lt);
+      letter-spacing: 0.06em;
+      transition: var(--transition);
+    }
+    .back-link:hover { color: var(--color-gold); }
+
+    @media (max-width: 780px) {
+      .calendar-months { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 480px) {
+      .cal-grid { padding: 12px; }
+      .cal-num { font-size: 13px; }
+      .cal-status { font-size: 8px; padding: 1px 3px; }
+      .cal-days { gap: 2px; }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- ============================================================
+     HEADER
+     ============================================================ -->
+<header class="site-header" id="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="site-logo">
+      米ぬか酵素浴田
+      <span>KOMENUKA KOSO-YOKU DEN</span>
+    </a>
+
+    <nav class="site-nav">
+      <a href="index.html#news"       class="nav-link nav-link-news">最新情報</a>
+      <a href="index.html#about"      class="nav-link">酵素浴田とは</a>
+      <a href="index.html#enzyme"     class="nav-link">酵素浴について</a>
+      <a href="index.html#course"     class="nav-link">コース・料金</a>
+      <a href="index.html#commitment" class="nav-link">こだわり</a>
+      <a href="index.html#access"     class="nav-link">アクセス</a>
+      <a href="cancel-policy.html"    class="nav-link">キャンセルポリシー</a>
+      <a href="caution.html"          class="nav-link">当店ご利用上の注意</a>
+      <a href="https://komeden-hatake.com/" target="_blank" rel="noopener" class="nav-link nav-link-blog">こうそ・ブログ</a>
+      <a href="index.html#reservation" class="nav-cta">ご予約はこちら</a>
+    </nav>
+
+    <button class="hamburger" id="hamburger" aria-label="メニューを開く">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- Mobile drawer -->
+<div class="nav-overlay" id="nav-overlay"></div>
+<div class="nav-drawer" id="nav-drawer">
+  <button class="nav-drawer-close" id="nav-close" aria-label="閉じる">✕</button>
+  <nav class="nav-drawer-links">
+    <a href="index.html#news">最新情報</a>
+    <a href="index.html#about">酵素浴田とは</a>
+    <a href="index.html#enzyme">酵素浴について</a>
+    <a href="index.html#course">コース・料金</a>
+    <a href="index.html#commitment">こだわり</a>
+    <a href="index.html#faq">よくある質問</a>
+    <a href="index.html#access">アクセス</a>
+    <a href="cancel-policy.html">キャンセルポリシー</a>
+    <a href="caution.html">ご利用時の注意事項</a>
+    <a href="https://komeden-hatake.com/" target="_blank" rel="noopener" class="nav-link-blog">こうそ・ブログ</a>
+    <a href="index.html#reservation">ご予約・お問合せ</a>
+  </nav>
+</div>
+
+
+<!-- ============================================================
+     SUBPAGE HERO
+     ============================================================ -->
+<section class="subpage-hero">
+  <div class="container">
+    <p class="subpage-breadcrumb"><a href="index.html">ホーム</a> &rsaquo; 営業日カレンダー</p>
+    <h1 class="subpage-title">営業日カレンダー</h1>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     CALENDAR SECTION
+     ============================================================ -->
+<section class="calendar-section">
+  <div class="container">
+
+    <div class="calendar-header fade-up">
+      <span class="section-label">Schedule</span>
+      <h2 class="section-title">営業日カレンダー</h2>
+      <div class="divider" style="margin: 0 auto 28px;"></div>
+    </div>
+
+    <div class="calendar-notice fade-up fade-up-d1">
+      当店は不定休のため、ご来店前に必ずカレンダーでご確認ください。<br>
+      予約状況は随時更新しています。ご予約はお電話またはご予約フォームにてお願いいたします。
+    </div>
+
+    <!-- 凡例 -->
+    <div class="calendar-legend fade-up fade-up-d1">
+      <div class="legend-item"><span class="legend-dot open"></span>受付中</div>
+      <div class="legend-item"><span class="legend-dot last1"></span>残1枠</div>
+      <div class="legend-item"><span class="legend-dot full"></span>満室</div>
+      <div class="legend-item"><span class="legend-dot closed"></span>休業</div>
+    </div>
+
+    <!-- カレンダー本体（JSで描画） -->
+    <div class="calendar-months fade-up fade-up-d2" id="calendar-months"></div>
+
+    <!-- 予約CTA -->
+    <div class="calendar-cta fade-up">
+      <p>ご予約はお電話またはご予約フォームにてお受けしております。<br>お気軽にお問い合わせください。</p>
+      <a href="index.html#reservation">ご予約・お問い合わせはこちら</a>
+    </div>
+
+    <a href="index.html" class="back-link">← トップページへ戻る</a>
+
+  </div>
+</section>
+
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-inner">
+
+      <div class="footer-brand">
+        <div class="footer-brand-name">米ぬか酵素浴 田（でん）</div>
+        <div class="footer-brand-sub">KOMENUKA KOSO-YOKU DEN</div>
+        <p class="footer-brand-desc">
+          〒675-0151 兵庫県加古郡播磨町野添1667-15<br>
+          オージー土山ビル1階<br>
+          ☎ 078-939-3224<br>
+          mail: komenuka.den@gmail.com<br>
+          ※保健所認可済
+        </p>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram">📷</a>
+          <a href="#" aria-label="LINE">💬</a>
+        </div>
+      </div>
+
+      <div>
+        <div class="footer-col-title">メニュー</div>
+        <div class="footer-links">
+          <a href="index.html#about">当店について</a>
+          <a href="index.html#enzyme">酵素浴について</a>
+          <a href="index.html#course">ご利用料金</a>
+          <a href="index.html#commitment">こだわり</a>
+          <a href="index.html#faq">よくある質問</a>
+        </div>
+      </div>
+
+      <div>
+        <div class="footer-col-title">ご利用案内</div>
+        <div class="footer-links">
+          <a href="index.html#access">アクセス</a>
+          <a href="index.html#reservation">ご予約はこちら</a>
+          <a href="calendar.html">営業日カレンダー</a>
+          <a href="#">入酵の流れ</a>
+        </div>
+      </div>
+
+      <div>
+        <div class="footer-col-title">その他</div>
+        <div class="footer-links">
+          <a href="index.html#voice">お客様の声</a>
+          <a href="cancel-policy.html">キャンセルポリシー</a>
+          <a href="caution.html">ご利用時の注意事項</a>
+          <a href="privacy.html">プライバシーポリシー</a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2024 米ぬか酵素浴 田（でん） All Rights Reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="privacy.html">プライバシーポリシー</a>
+        <a href="#">特定商取引法</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ============================================================
+     SCRIPTS
+     ============================================================ -->
+<script>
+/* ================================================================
+   ★★★ 毎月ここだけ更新してください ★★★
+
+   各日のステータス:
+     "open"   → 受付中（緑）
+     "last1"  → 残1枠（オレンジ）
+     "full"   → 満室（赤）
+     "closed" → 休業（グレー）
+
+   記載のない日は自動的に「休業」扱いになります。
+
+   月のキー形式: "YYYY-MM"（例: "2026-05"）
+   ================================================================ */
+
+const SCHEDULE = {
+  "2026-05": {
+    note: "",
+    days: {
+      "1":  "open",
+      "2":  "open",
+      "3":  "open",
+      "4":  "closed",
+      "5":  "open",
+      "6":  "full",
+      "7":  "last1",
+      "8":  "open",
+      "9":  "closed",
+      "10": "open",
+      "11": "open",
+      "12": "open",
+      "13": "closed",
+      "14": "open",
+      "15": "full",
+      "16": "last1",
+      "17": "open",
+      "18": "closed",
+      "19": "open",
+      "20": "open",
+      "21": "open",
+      "22": "closed",
+      "23": "open",
+      "24": "full",
+      "25": "open",
+      "26": "open",
+      "27": "closed",
+      "28": "open",
+      "29": "open",
+      "30": "open",
+      "31": "open"
+    }
+  },
+  "2026-06": {
+    note: "",
+    days: {
+      "1":  "open",
+      "2":  "open",
+      "3":  "closed",
+      "4":  "open",
+      "5":  "open",
+      "6":  "last1",
+      "7":  "open",
+      "8":  "closed",
+      "9":  "open",
+      "10": "open",
+      "11": "open",
+      "12": "open",
+      "13": "closed",
+      "14": "open",
+      "15": "full",
+      "16": "open",
+      "17": "open",
+      "18": "closed",
+      "19": "open",
+      "20": "open",
+      "21": "open",
+      "22": "last1",
+      "23": "closed",
+      "24": "open",
+      "25": "open",
+      "26": "open",
+      "27": "open",
+      "28": "closed",
+      "29": "open",
+      "30": "open"
+    }
+  }
+};
+
+/* ================================================================
+   以下は自動生成コードです。通常は変更不要です。
+   ================================================================ */
+
+const STATUS_LABELS = {
+  open:   "受付中",
+  last1:  "残1枠",
+  full:   "満室",
+  closed: "休業"
+};
+
+const MONTH_NAMES_EN = [
+  "January","February","March","April","May","June",
+  "July","August","September","October","November","December"
+];
+
+const WEEKDAY_LABELS = ["日","月","火","水","木","金","土"];
+
+function zeroPad(n) { return String(n).padStart(2, "0"); }
+
+function buildCalendar(year, month) {
+  const key = year + "-" + zeroPad(month);
+  const data = SCHEDULE[key] || { days: {}, note: "" };
+
+  const today = new Date();
+  const isCurrentMonth = (today.getFullYear() === year && today.getMonth() + 1 === month);
+
+  const firstDay = new Date(year, month - 1, 1).getDay(); // 0=Sun
+  const daysInMonth = new Date(year, month, 0).getDate();
+
+  let html = `
+    <div class="cal-block">
+      <div class="cal-block-head">
+        <span class="cal-month-label">${year}年 ${month}月</span>
+        <span class="cal-month-en">${MONTH_NAMES_EN[month - 1]}</span>
+        ${data.note ? `<span class="cal-month-note">${data.note}</span>` : ""}
+      </div>
+      <div class="cal-grid">
+        <div class="cal-weekdays">
+          ${WEEKDAY_LABELS.map(w => `<div class="cal-wd">${w}</div>`).join("")}
+        </div>
+        <div class="cal-days">
+  `;
+
+  // 月初の空白セル
+  for (let i = 0; i < firstDay; i++) {
+    html += `<div class="cal-day empty"></div>`;
+  }
+
+  for (let d = 1; d <= daysInMonth; d++) {
+    const dow = (firstDay + d - 1) % 7;
+    const status = data.days[String(d)] || "closed";
+    const label = STATUS_LABELS[status];
+    const isTodayCell = isCurrentMonth && today.getDate() === d;
+
+    html += `<div class="cal-day status-${status}${isTodayCell ? " today" : ""}" data-dow="${dow}">
+      <span class="cal-num">${d}</span>
+      <span class="cal-status">${label}</span>
+    </div>`;
+  }
+
+  html += `
+        </div><!-- /.cal-days -->
+      </div><!-- /.cal-grid -->
+      <a href="index.html#reservation" class="cal-reservation-link">この月のご予約はこちら</a>
+    </div><!-- /.cal-block -->
+  `;
+
+  return html;
+}
+
+function renderCalendars() {
+  const now = new Date();
+  const y1 = now.getFullYear();
+  const m1 = now.getMonth() + 1;
+  const m2 = m1 === 12 ? 1 : m1 + 1;
+  const y2 = m1 === 12 ? y1 + 1 : y1;
+
+  const container = document.getElementById("calendar-months");
+  container.innerHTML = buildCalendar(y1, m1) + buildCalendar(y2, m2);
+}
+
+renderCalendars();
+
+// ── Header scroll ──
+const header = document.getElementById("site-header");
+window.addEventListener("scroll", () => {
+  header.classList.toggle("scrolled", window.scrollY > 60);
+}, { passive: true });
+
+// ── Mobile drawer ──
+const hamburger  = document.getElementById("hamburger");
+const navOverlay = document.getElementById("nav-overlay");
+const navDrawer  = document.getElementById("nav-drawer");
+const navClose   = document.getElementById("nav-close");
+
+function openNav() {
+  navOverlay.style.display = "block";
+  requestAnimationFrame(() => {
+    navOverlay.classList.add("open");
+    navDrawer.classList.add("open");
+  });
+  document.body.style.overflow = "hidden";
+}
+function closeNav() {
+  navOverlay.classList.remove("open");
+  navDrawer.classList.remove("open");
+  document.body.style.overflow = "";
+  setTimeout(() => { navOverlay.style.display = "none"; }, 380);
+}
+
+hamburger.addEventListener("click", openNav);
+navClose.addEventListener("click", closeNav);
+navOverlay.addEventListener("click", closeNav);
+
+// ── Scroll animations ──
+const fadeEls = document.querySelectorAll(".fade-up");
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add("visible"); observer.unobserve(e.target); } });
+}, { threshold: 0.1 });
+fadeEls.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
