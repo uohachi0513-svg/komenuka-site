@@ -1352,27 +1352,29 @@
     .voice-header .divider { margin: 0 auto 28px; background: var(--color-gold-lt); }
 
     .voice-track-wrapper {
-      overflow: hidden;
+      overflow-x: scroll;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
       width: 100%;
     }
+    .voice-track-wrapper::-webkit-scrollbar { display: none; }
 
     .voice-track {
       display: flex;
       gap: 24px;
       width: max-content;
-      animation: voice-scroll 70s linear infinite;
     }
 
-    .voice-track:hover {
-      animation-play-state: paused;
+    .coupon-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
     }
 
-    @keyframes voice-scroll {
-      from { transform: translateX(0); }
-      to { transform: translateX(-50%); }
-    }
-
-    .voice-card {
+        .voice-card {
+      scroll-snap-align: start;
       flex: 0 0 360px;
       background: rgba(255,255,255,0.06);
       padding: 30px 26px;
@@ -1823,6 +1825,8 @@
 
     @media (max-width: 600px) {
       .container { padding: 0 18px; }
+      .coupon-grid { grid-template-columns: 1fr; }
+      .voice-card { flex: 0 0 85vw; }
       .hero-content { margin-left: 0; }
       .header-inner { padding: 0 18px; }
       .form-row { grid-template-columns: 1fr; }
@@ -2268,7 +2272,7 @@
     <div style="margin-top: 48px;">
       <h3 style="font-family: var(--font-serif); font-size: 20px; color: var(--color-brown); text-align: center; margin-bottom: 8px; letter-spacing: 0.08em;">お得な回数券</h3>
       <p style="text-align: center; font-size: 13px; color: var(--color-text-lt); margin-bottom: 32px;">継続利用でより高い効果を。慢性的なお悩みには定期的な入酵がおすすめです。</p>
-      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;">
+      <div class="coupon-grid">
 
         <div style="background: var(--color-white); padding: 28px 24px; border-radius: var(--radius); box-shadow: var(--shadow); text-align: center;">
           <div style="font-family: var(--font-serif); font-size: 13px; color: var(--color-text-lt); margin-bottom: 8px; letter-spacing: 0.1em;">ファーストチケット</div>
@@ -2545,87 +2549,6 @@
     <div class="voice-track-wrapper">
       <div class="voice-track">
         <!-- セット1 -->
-        <div class="voice-card">
-          <div class="voice-stars">★★★★★</div>
-          <p class="voice-text">
-            気になっていた酵素浴。初めてでしたが、丁寧な説明もあり、不安も無く入る事が出来ました。15分間だけ？と最初思いましたが、丁度良い長さでした。後も身体のぽかぽか感が続いていて、肌も少しスベスベになった気がします。フルーツ酵素ドリンクも初めてでしたが美味しく頂けました。回数券もあるとの事で思わず即購入してしまいました。またリピートさせて頂きます。ありがとうございます!
-          </p>
-          <div class="voice-meta">
-            <div class="voice-avatar">😊</div>
-            <span class="voice-name">40代・会社員・女性</span>
-          </div>
-        </div>
-        <div class="voice-card">
-          <div class="voice-stars">★★★★★</div>
-          <p class="voice-text">
-            初酵素風呂体験にふさわしいお店でした。出会えたことに感謝です！親切丁寧なご説明とご接客、ほんとうに体を労わるご職業の方のマインドだなぁ、と思いました。心も身体も温かく、そしてツルスベになりました！
-          </p>
-          <div class="voice-meta">
-            <div class="voice-avatar">😌</div>
-            <span class="voice-name">40代・女性</span>
-          </div>
-        </div>
-        <div class="voice-card">
-          <div class="voice-stars">★★★★★</div>
-          <p class="voice-text">
-            初めて酵素浴を体験しました。思ったほど匂いは気になりませんでした。のぼせやすい旨お伝えしたところアイスノンを枕にしていただきました。途中にヘッドマッサージもあり、のぼせることもなく、あっという間でした。シャワーを浴びてから休憩室でのんびりさせていただき、汗もたくさん出てとてもリラックスできました。ありがとうございました！
-          </p>
-          <div class="voice-meta">
-            <div class="voice-avatar">🌸</div>
-            <span class="voice-name">50代・女性</span>
-          </div>
-        </div>
-        <div class="voice-card">
-          <div class="voice-stars">★★★★★</div>
-          <p class="voice-text">
-            初めての『米ぬか酵素風呂』でした。スタッフの方の優しさがお店に入りすぐに伝わります。店内がとても可愛くてとても綺麗。説明も優しくわかりやすくて初めてでも安心出来ました。『米ぬか酵素風呂』本当に全身優しく温まり気持ちよくあっという間に時間が過ぎてしまいました。米ぬかのフワフワ感と私には丁度いい温度、気づくとじんわりと全身汗が出て普段では気づかない体が喜ぶ感覚を感じました。足を運んで本当によかったです。またお世話になります！ありがとうございました。
-          </p>
-          <div class="voice-meta">
-            <div class="voice-avatar">🌺</div>
-            <span class="voice-name">50代・女性</span>
-          </div>
-        </div>
-        <div class="voice-card">
-          <div class="voice-stars">★★★★★</div>
-          <p class="voice-text">
-            今日初めて体験しました！最初はドキドキでしたが、スタッフさんの明るい笑顔と丁寧な説明ですぐに安心できました。糠（ぬか）にすごく愛情をかけてこだわっていらっしゃるのが伝わってきて、入っている間ずっと幸せな気分でした。ふかふかの心地よさ、たっぷりかいた汗、そしてお肌のツルツル感…どれも感動で、すっかり酵素浴にハマってしまいました！最後にいただいた酵素ドリンクも美味しくて大満足です。心も体もデトックスできました。初めての方にも全力で推せます！
-          </p>
-          <div class="voice-meta">
-            <div class="voice-avatar">😄</div>
-            <span class="voice-name">40代・男性</span>
-          </div>
-        </div>
-        <div class="voice-card">
-          <div class="voice-stars">★★★★★</div>
-          <p class="voice-text">
-            初めて体験だったので、少し怖かったですが、丁寧に説明してくださりとても気持ちよかったです。のぼせやすい人でも、アイスノンやおでこに冷たいタオルをおいてくれるので安心だと思います♪施設も綺麗です。ぜひ、オススメです♪
-          </p>
-          <div class="voice-meta">
-            <div class="voice-avatar">💫</div>
-            <span class="voice-name">30代・女性</span>
-          </div>
-        </div>
-        <div class="voice-card">
-          <div class="voice-stars">★★★★★</div>
-          <p class="voice-text">
-            10年以上、酵素浴は入っていますがここの酵素浴は米ぬかもフカフカでめっちゃ気持ちいいです。今まで行っていた酵素浴は紙パンツと紙ブラ、ベッドキャップを着用しなあかんかったけど、ここは何も着用せず入浴できるのが最高の魅力です！！温度も適温で、終わってからも2回汗がドバっと出ます。またこちらに来る時は必ず来ます♪美肌はもちろん、健康のためにもめっちゃおすすめです！
-          </p>
-          <div class="voice-meta">
-            <div class="voice-avatar">✨</div>
-            <span class="voice-name">40代・女性</span>
-          </div>
-        </div>
-        <div class="voice-card">
-          <div class="voice-stars">★★★★★</div>
-          <p class="voice-text">
-            母と2人で初めて来店しました。初めての酵素風呂！ドキドキ、ワクワクしました。お店の方もとても親切で、丁寧にご説明してくださり嬉しかったです♪入った感想は絶対に通いたい！汗が噴き出て、デトックスがすぐに体感できました。朝から気持ちの良い時間を有難う御座いました。
-          </p>
-          <div class="voice-meta">
-            <div class="voice-avatar">🌷</div>
-            <span class="voice-name">30代・女性</span>
-          </div>
-        </div>
-        <!-- セット2（ループ用コピー） -->
         <div class="voice-card">
           <div class="voice-stars">★★★★★</div>
           <p class="voice-text">
