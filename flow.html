@@ -259,13 +259,38 @@
 
     /* ===== SUBPAGE HERO ===== */
     .subpage-hero {
-      background: var(--color-brown);
-      padding: 80px 0 40px;
+      position: relative;
       margin-top: 72px;
+      min-height: 320px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background-image: url("images/nuka.jpg");
+      background-size: cover;
+      background-position: center;
+      overflow: hidden;
     }
-    .subpage-breadcrumb { font-size: 12px; color: rgba(255,255,255,0.6); margin-bottom: 12px; }
-    .subpage-breadcrumb a { color: rgba(255,255,255,0.6); }
-    .subpage-title { font-family: var(--font-serif); font-size: 32px; color: var(--color-white); letter-spacing: .1em; }
+    .subpage-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(74,52,38,0.30) 0%, rgba(74,52,38,0.45) 100%);
+    }
+    .subpage-hero .container { position: relative; z-index: 1; }
+    .subpage-breadcrumb { font-size: 12px; color: rgba(255,255,255,0.8); margin-bottom: 14px; text-shadow: 0 1px 6px rgba(0,0,0,0.35); }
+    .subpage-breadcrumb a { color: rgba(255,255,255,0.85); }
+    .subpage-title {
+      font-family: var(--font-serif);
+      font-size: 38px;
+      color: var(--color-white);
+      letter-spacing: .18em;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.4);
+    }
+    @media (max-width: 768px) {
+      .subpage-hero { min-height: 220px; }
+      .subpage-title { font-size: 26px; letter-spacing: .14em; }
+    }
 
     /* ===== FLOW ===== */
     .flow-section { padding: 84px 0 60px; }
