@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>営業日カレンダー｜米ぬか酵素浴 田（でん）</title>
-  <meta name="description" content="米ぬか酵素浴 田（でん）の営業日カレンダーです。休業日をご確認の上、予約サイトにてお申し込みください。">
-  <link rel="canonical" href="https://den-komenukakoso.com/calendar.html">
+  <title>来店から退店までの流れ｜米ぬか酵素浴 田（でん）</title>
+  <meta name="description" content="米ぬか酵素浴 田（でん）のご来店から退店までの流れをご紹介します。受付・カウンセリングから入酵、ご退店まで、初めての方も安心してご利用いただけます。">
+  <link rel="canonical" href="https://den-komenukakoso.com/flow.html">
   <link rel="icon" type="image/png" href="images/favicon.png">
   <link rel="apple-touch-icon" href="images/favicon.png">
 
@@ -267,13 +267,125 @@
     .subpage-breadcrumb a { color: rgba(255,255,255,0.6); }
     .subpage-title { font-family: var(--font-serif); font-size: 32px; color: var(--color-white); letter-spacing: .1em; }
 
-    /* ===== CALENDAR ===== */
-    .calendar-section { padding: 80px 0 60px; }
+    /* ===== FLOW ===== */
+    .flow-section { padding: 84px 0 60px; }
+    .flow-header { text-align: center; margin-bottom: 24px; }
 
-    .calendar-header { text-align: center; margin-bottom: 48px; }
+    .flow-intro {
+      max-width: 680px;
+      margin: 0 auto 64px;
+      text-align: center;
+      font-size: 14px;
+      color: var(--color-text-lt);
+      line-height: 2.1;
+    }
+    .flow-intro .lead {
+      font-family: var(--font-serif);
+      font-size: 17px;
+      color: var(--color-brown);
+      margin-bottom: 14px;
+      line-height: 1.9;
+    }
+
+    .flow-rows { max-width: 960px; margin: 0 auto; }
+
+    .flow-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: center;
+      margin-bottom: 72px;
+    }
+    .flow-row:last-child { margin-bottom: 0; }
+
+    /* 写真 */
+    .flow-photo {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      background: var(--color-beige);
+    }
+    /* 写真プレースホルダー（写真差し替え前の枠） */
+    .flow-photo-ph {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      border-radius: var(--radius);
+      background: var(--color-beige);
+      border: 1px dashed var(--color-beige-dk);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      color: var(--color-brown-lt);
+      font-family: var(--font-serif);
+      letter-spacing: 0.12em;
+      text-align: center;
+      padding: 16px;
+    }
+    .flow-photo-ph .ph-icon { font-size: 26px; opacity: 0.5; }
+    .flow-photo-ph .ph-label { font-size: 13px; }
+    .flow-photo-ph .ph-file { font-size: 11px; font-family: var(--font-sans); color: var(--color-text-lt); letter-spacing: 0.04em; opacity: 0.8; }
+
+    /* テキスト */
+    .flow-step-en {
+      font-family: var(--font-serif);
+      font-size: 11px;
+      letter-spacing: 0.26em;
+      color: var(--color-gold);
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 10px;
+    }
+    .flow-step-title {
+      font-family: var(--font-serif);
+      font-size: 26px;
+      font-weight: 500;
+      color: var(--color-brown);
+      margin-bottom: 14px;
+      letter-spacing: 0.06em;
+    }
+    .flow-step-time {
+      display: inline-block;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      color: var(--color-gold);
+      border: 1px solid var(--color-gold-lt);
+      border-radius: 20px;
+      padding: 2px 13px;
+      margin-bottom: 16px;
+    }
+    .flow-step-desc {
+      font-size: 14.5px;
+      color: var(--color-text-lt);
+      line-height: 2.15;
+    }
+
+    /* 所要時間の目安 */
+    .flow-total {
+      max-width: 760px;
+      margin: 72px auto 48px;
+      background: rgba(78,110,66,0.07);
+      border: 1px solid rgba(78,110,66,0.18);
+      border-radius: var(--radius);
+      padding: 24px 30px;
+      text-align: center;
+      font-size: 14px;
+      color: var(--color-text-lt);
+      line-height: 2;
+    }
+    .flow-total strong {
+      font-family: var(--font-serif);
+      color: var(--color-green);
+      font-size: 16px;
+    }
 
     /* 予約サイト誘導バナー */
     .booking-banner {
+      max-width: 760px;
+      margin: 0 auto 48px;
       background: var(--color-brown);
       border-radius: var(--radius);
       padding: 28px 32px;
@@ -281,7 +393,6 @@
       align-items: center;
       justify-content: space-between;
       gap: 24px;
-      margin-bottom: 48px;
       flex-wrap: wrap;
     }
     .booking-banner-text {
@@ -311,116 +422,6 @@
     }
     .booking-banner-btn:hover { background: var(--color-gold-lt); }
 
-    /* 凡例 */
-    .calendar-legend {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px 24px;
-      justify-content: center;
-      margin-bottom: 40px;
-    }
-    .legend-item { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--color-text-lt); }
-    .legend-dot { width: 14px; height: 14px; border-radius: 50%; flex-shrink: 0; }
-    .legend-dot.open   { background: var(--color-green); }
-    .legend-dot.closed { background: #C8C0B4; }
-
-    /* 2カラム */
-    .calendar-months {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 32px;
-    }
-    @media (max-width: 780px) { .calendar-months { grid-template-columns: 1fr; } }
-
-    .cal-block {
-      background: var(--color-white);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      overflow: hidden;
-    }
-    .cal-block-head {
-      background: var(--color-brown);
-      padding: 18px 24px;
-      display: flex;
-      align-items: baseline;
-      gap: 12px;
-    }
-    .cal-month-label { font-family: var(--font-serif); font-size: 22px; color: var(--color-white); letter-spacing: 0.06em; }
-    .cal-month-en { font-size: 11px; letter-spacing: 0.22em; color: rgba(255,255,255,0.5); text-transform: uppercase; }
-
-    .cal-grid { padding: 20px; }
-
-    .cal-weekdays { display: grid; grid-template-columns: repeat(7, 1fr); margin-bottom: 8px; }
-    .cal-wd {
-      text-align: center;
-      font-size: 11px;
-      letter-spacing: 0.1em;
-      padding: 6px 0;
-      font-family: var(--font-serif);
-      color: var(--color-text-lt);
-    }
-    .cal-wd:first-child { color: #B94040; }
-    .cal-wd:last-child  { color: #3A6A9A; }
-
-    .cal-days { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; }
-
-    .cal-day {
-      aspect-ratio: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      border-radius: 6px;
-      position: relative;
-    }
-    .cal-day.empty { background: transparent; }
-
-    .cal-num {
-      font-size: 15px;
-      font-weight: 500;
-      line-height: 1;
-      font-family: var(--font-serif);
-      color: var(--color-text);
-    }
-
-    /* 日曜・土曜の色 */
-    .cal-day[data-dow="0"] .cal-num { color: #B94040; }
-    .cal-day[data-dow="6"] .cal-num { color: #3A6A9A; }
-
-    /* 営業日 */
-    .cal-day.status-open { background: rgba(78,110,66,0.07); }
-    .cal-day.status-open .cal-num { color: var(--color-green); font-weight: 600; }
-
-    /* 休業 */
-    .cal-day.status-closed {
-      background: #F0EBE3;
-    }
-    .cal-day.status-closed .cal-num {
-      color: #A89880;
-    }
-    .cal-kyuu {
-      font-size: 9px;
-      font-family: var(--font-serif);
-      letter-spacing: 0.05em;
-      color: #fff;
-      background: #A89880;
-      padding: 1px 5px;
-      border-radius: 3px;
-      margin-top: 3px;
-      line-height: 1.4;
-    }
-
-    /* 今日 */
-    .cal-day.today .cal-num {
-      background: var(--color-gold);
-      color: #fff;
-      width: 26px; height: 26px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
     .back-link {
       display: block;
       text-align: center;
@@ -432,11 +433,15 @@
     }
     .back-link:hover { color: var(--color-gold); }
 
-    @media (max-width: 480px) {
-      .cal-grid { padding: 10px; }
-      .cal-num { font-size: 13px; }
-      .cal-days { gap: 2px; }
-      .booking-banner { padding: 20px; }
+    @media (max-width: 760px) {
+      .flow-row {
+        grid-template-columns: 1fr;
+        gap: 22px;
+        margin-bottom: 56px;
+      }
+      .flow-photo, .flow-photo-ph { aspect-ratio: 4 / 3; }
+      .flow-step-title { font-size: 22px; }
+      .booking-banner { padding: 22px; }
     }
   </style>
 </head>
@@ -457,7 +462,6 @@
       <a href="index.html#about"      class="nav-link">酵素浴田とは</a>
       <a href="index.html#enzyme"     class="nav-link">酵素浴について</a>
       <a href="index.html#course"     class="nav-link">コース・料金</a>
-      <a href="index.html#commitment" class="nav-link">こだわり</a>
       <a href="flow.html"             class="nav-link">ご利用の流れ</a>
       <a href="index.html#access"     class="nav-link">アクセス</a>
       <a href="cancel-policy.html"    class="nav-link">キャンセルポリシー</a>
@@ -480,7 +484,6 @@
     <a href="index.html#about">酵素浴田とは</a>
     <a href="index.html#enzyme">酵素浴について</a>
     <a href="index.html#course">コース・料金</a>
-    <a href="index.html#commitment">こだわり</a>
     <a href="flow.html">ご利用の流れ</a>
     <a href="index.html#faq">よくある質問</a>
     <a href="index.html#access">アクセス</a>
@@ -498,42 +501,162 @@
      ============================================================ -->
 <section class="subpage-hero">
   <div class="container">
-    <p class="subpage-breadcrumb"><a href="index.html">ホーム</a> &rsaquo; 営業日カレンダー</p>
-    <h1 class="subpage-title">営業日カレンダー</h1>
+    <p class="subpage-breadcrumb"><a href="index.html">ホーム</a> &rsaquo; 来店から退店までの流れ</p>
+    <h1 class="subpage-title">来店から退店までの流れ</h1>
   </div>
 </section>
 
 
 <!-- ============================================================
-     CALENDAR
+     FLOW
      ============================================================ -->
-<section class="calendar-section">
+<section class="flow-section">
   <div class="container">
 
-    <div class="calendar-header fade-up">
-      <span class="section-label">Schedule</span>
-      <h2 class="section-title">営業日カレンダー</h2>
+    <div class="flow-header fade-up">
+      <span class="section-label">Flow</span>
+      <h2 class="section-title">来店から退店までの流れ</h2>
       <div class="divider" style="margin: 0 auto 28px;"></div>
     </div>
 
-    <!-- 予約サイト誘導バナー -->
-    <div class="booking-banner fade-up fade-up-d1">
-      <div class="booking-banner-text">
-        <strong>空き状況・ご予約は予約サイトにてご確認ください</strong>
-        現時点での空き状況は予約サイトにてご確認いただけます。<br>
-        こちらのカレンダーでは休業日のみ表示しています。
+    <div class="flow-intro fade-up fade-up-d1">
+      <p class="lead">はじめての方も、どうぞご安心ください。</p>
+      <p>受付からご退店まで、スタッフが一つひとつ丁寧にご案内いたします。<br>
+      ご来店からお帰りまでの全行程の所要時間は、約1時間程度です。</p>
+    </div>
+
+    <div class="flow-rows">
+
+      <!-- ご来店時 -->
+      <div class="flow-row fade-up">
+        <!-- 写真を入れる場合は下の <div class="flow-photo-ph">...</div> を
+             <img class="flow-photo" src="images/flow-1.jpg" alt="ご来店時"> に置き換えてください -->
+        <div class="flow-photo-ph">
+          <span class="ph-icon">🖼</span>
+          <span class="ph-label">ご来店時の写真</span>
+          <span class="ph-file">images/flow-1.jpg</span>
+        </div>
+        <div class="flow-body">
+          <span class="flow-step-en">Arrival</span>
+          <h3 class="flow-step-title">ご来店時</h3>
+          <span class="flow-step-time">初回はカウンセリングあり</span>
+          <p class="flow-step-desc">
+            ご予約のお時間に合わせてご来店ください。<br>
+            初めての方はカルテのご記入とカウンセリングを行い、体調やお悩みをお伺いした上で、お身体に合わせた入酵の方法を丁寧にご説明します。<br>
+            ご不安な点は、お気軽にお尋ねください。
+          </p>
+        </div>
       </div>
-      <a href="index.html#reservation" class="booking-banner-btn">予約サイトはこちら</a>
+
+      <!-- 個室へご案内 -->
+      <div class="flow-row fade-up">
+        <div class="flow-photo-ph">
+          <span class="ph-icon">🖼</span>
+          <span class="ph-label">個室・お着替えスペースの写真</span>
+          <span class="ph-file">images/flow-2.jpg</span>
+        </div>
+        <div class="flow-body">
+          <span class="flow-step-en">Private Room</span>
+          <h3 class="flow-step-title">個室へご案内</h3>
+          <p class="flow-step-desc">
+            完全個室のお部屋へご案内いたします。<br>
+            お部屋からシャワー室・酵素浴室へは直結しておりますので、人目を気にせず、そのままお入りいただけます。<br>
+            ごゆっくりとお着替えのうえ、アクセサリーやコンタクトレンズなどは、あらかじめお外しください。<br>
+            ぬかが耳に入らないよう、耳栓もご用意しております。<br>
+            紙ショーツをご希望の方は、事前にスタッフへお知らせください。
+          </p>
+        </div>
+      </div>
+
+      <!-- ご入浴（入酵） -->
+      <div class="flow-row fade-up">
+        <div class="flow-photo-ph">
+          <span class="ph-icon">🖼</span>
+          <span class="ph-label">入酵シーンの写真</span>
+          <span class="ph-file">images/flow-3.jpg</span>
+        </div>
+        <div class="flow-body">
+          <span class="flow-step-en">Bathing</span>
+          <h3 class="flow-step-title">ご入浴（入酵）</h3>
+          <span class="flow-step-time">目安 約15分</span>
+          <p class="flow-step-desc">
+            発酵した米ぬかの中に体を横たえ、全身を米ぬかで包み込みます。<br>
+            お湯は使わず、微生物の発酵による自然な温かさで、体の芯からじんわりと温まります。<br>
+            入酵時間は約15分が目安です（2回目以降は18分もお選びいただけます）。たっぷりと汗をかきながら、心も体も解きほぐしてください。
+          </p>
+        </div>
+      </div>
+
+      <!-- ご入浴後 -->
+      <div class="flow-row fade-up">
+        <div class="flow-photo-ph">
+          <span class="ph-icon">🖼</span>
+          <span class="ph-label">パウダールームの写真</span>
+          <span class="ph-file">images/flow-4.jpg</span>
+        </div>
+        <div class="flow-body">
+          <span class="flow-step-en">After Bath</span>
+          <h3 class="flow-step-title">ご入浴後</h3>
+          <p class="flow-step-desc">
+            入酵後はシャワーで米ぬかを洗い流します。<br>
+            当店はシャワーのお水にこだわっております。脱塩素水のシャワーで肌に良い菌をできるだけ残し、酵素浴の心地よさをより長く感じていただけます。<br>
+            シャンプー・リンス・ボディーソープ・ドライヤーを完備しております。バスタオルのレンタル（税込220円）もございますので、手ぶらでもご安心ください。<br>
+            身支度を整えていただけます。
+          </p>
+        </div>
+      </div>
+
+      <!-- ご休憩 -->
+      <div class="flow-row fade-up">
+        <div class="flow-photo-ph">
+          <span class="ph-icon">🖼</span>
+          <span class="ph-label">休憩スペースの写真</span>
+          <span class="ph-file">images/flow-5.jpg</span>
+        </div>
+        <div class="flow-body">
+          <span class="flow-step-en">Rest</span>
+          <h3 class="flow-step-title">ご休憩</h3>
+          <p class="flow-step-desc">
+            たっぷりと汗をかいた後は、お休み処でゆっくりとお休みください。<br>
+            水分補給をしながらお体を落ち着かせ、ほてりがおさまってからお帰りいただくのがおすすめです。<br>
+            メイク道具やスキンケアなどのアメニティのご用意はございませんので、必要な方はお持ちください。
+          </p>
+        </div>
+      </div>
+
+      <!-- ご退店 -->
+      <div class="flow-row fade-up">
+        <div class="flow-photo-ph">
+          <span class="ph-icon">🖼</span>
+          <span class="ph-label">店内・受付の写真</span>
+          <span class="ph-file">images/flow-6.jpg</span>
+        </div>
+        <div class="flow-body">
+          <span class="flow-step-en">Checkout</span>
+          <h3 class="flow-step-title">ご退店</h3>
+          <p class="flow-step-desc">
+            お会計を済ませてご退店です。本日はお疲れさまでした。<br>
+            ぽかぽかと続く温もりを、ぜひそのままお持ち帰りください。<br>
+            またのご来店を、心よりお待ちしております。
+          </p>
+        </div>
+      </div>
+
     </div>
 
-    <!-- 凡例 -->
-    <div class="calendar-legend fade-up fade-up-d1">
-      <div class="legend-item"><span class="legend-dot open"></span>営業日</div>
-      <div class="legend-item"><span class="legend-dot closed"></span>休業</div>
+    <div class="flow-total fade-up">
+      ご来店からお帰りまで、全行程の所要時間は <strong>約1時間程度</strong> です。<br>
+      ※当店は100％発酵米ぬかの酵素風呂です。発酵した米ぬかには独特の発酵臭があり、衣類に匂いが移ることがあります。お出かけ前やご予定がある際は、ご理解いただいた上でご利用ください。
     </div>
 
-    <!-- カレンダー本体（JSで描画） -->
-    <div class="calendar-months fade-up fade-up-d2" id="calendar-months"></div>
+    <!-- 予約サイト誘導バナー -->
+    <div class="booking-banner fade-up">
+      <div class="booking-banner-text">
+        <strong>ご予約・空き状況はこちら</strong>
+        ご来店は事前予約制です。空き状況は予約サイトにてご確認いただけます。
+      </div>
+      <a href="index.html#reservation" class="booking-banner-btn">ご予約はこちら</a>
+    </div>
 
     <a href="index.html" class="back-link">← トップページへ戻る</a>
 
@@ -613,96 +736,6 @@
      SCRIPTS
      ============================================================ -->
 <script>
-/* ================================================================
-   ★★★ 毎月ここだけ更新してください ★★★
-
-   休業日を数字でリストに入れるだけでOKです。
-   例: closed: [4, 11, 18, 25]  ← 4日・11日・18日・25日が休業
-
-   月のキー形式: "YYYY-MM"（例: "2026-05"）
-   ================================================================ */
-
-const SCHEDULE = {
-  "2026-06": {
-    closed: [11, 17, 22, 23, 24, 30]
-  },
-  "2026-07": {
-    closed: [7, 8, 9, 10, 13, 16, 22, 27, 28]
-  }
-};
-
-/* ================================================================
-   以下は自動生成コードです。通常は変更不要です。
-   ================================================================ */
-
-const MONTH_NAMES_EN = [
-  "January","February","March","April","May","June",
-  "July","August","September","October","November","December"
-];
-const WEEKDAY_LABELS = ["日","月","火","水","木","金","土"];
-
-function zeroPad(n) { return String(n).padStart(2, "0"); }
-
-function buildCalendar(year, month) {
-  const key = year + "-" + zeroPad(month);
-  const data = SCHEDULE[key] || { closed: [] };
-  const closedSet = new Set(data.closed);
-
-  const today = new Date();
-  const isCurrentMonth = (today.getFullYear() === year && today.getMonth() + 1 === month);
-
-  const firstDay    = new Date(year, month - 1, 1).getDay();
-  const daysInMonth = new Date(year, month, 0).getDate();
-
-  let html = `
-    <div class="cal-block">
-      <div class="cal-block-head">
-        <span class="cal-month-label">${year}年 ${month}月</span>
-        <span class="cal-month-en">${MONTH_NAMES_EN[month - 1]}</span>
-      </div>
-      <div class="cal-grid">
-        <div class="cal-weekdays">
-          ${WEEKDAY_LABELS.map(w => `<div class="cal-wd">${w}</div>`).join("")}
-        </div>
-        <div class="cal-days">
-  `;
-
-  for (let i = 0; i < firstDay; i++) {
-    html += `<div class="cal-day empty"></div>`;
-  }
-
-  for (let d = 1; d <= daysInMonth; d++) {
-    const dow    = (firstDay + d - 1) % 7;
-    const status = closedSet.has(d) ? "closed" : "open";
-    const isTodayCell = isCurrentMonth && today.getDate() === d;
-
-    html += `<div class="cal-day status-${status}${isTodayCell ? " today" : ""}" data-dow="${dow}">
-      <span class="cal-num">${d}</span>
-      ${status === "closed" ? `<span class="cal-kyuu">休</span>` : ""}
-    </div>`;
-  }
-
-  html += `
-        </div>
-      </div>
-    </div>
-  `;
-  return html;
-}
-
-function renderCalendars() {
-  const now = new Date();
-  const y1 = now.getFullYear();
-  const m1 = now.getMonth() + 1;
-  const m2 = m1 === 12 ? 1 : m1 + 1;
-  const y2 = m1 === 12 ? y1 + 1 : y1;
-
-  document.getElementById("calendar-months").innerHTML =
-    buildCalendar(y1, m1) + buildCalendar(y2, m2);
-}
-
-renderCalendars();
-
 // ── Header scroll ──
 const header = document.getElementById("site-header");
 window.addEventListener("scroll", () => {
