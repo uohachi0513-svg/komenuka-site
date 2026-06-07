@@ -2656,6 +2656,69 @@
   </div>
 </section>
 
+<script>
+  (function () {
+    var wrapper = document.querySelector('.voice-track-wrapper');
+    var track = document.querySelector('.voice-track');
+    if (!wrapper || !track) return;
+
+    var pcQuery = window.matchMedia('(min-width: 768px)');
+    var rafId = null;
+    var paused = false;
+    var duplicated = false;
+    var halfWidth = 0;
+
+    function startAuto() {
+      if (rafId) return;
+      if (!duplicated) {
+        track.innerHTML += track.innerHTML; // 同じカードを複製してシームレスにループ
+        duplicated = true;
+      }
+      halfWidth = track.scrollWidth / 2;
+      var last = null;
+      var speed = 25; // px/秒（ゆっくりめ）
+
+      function step(now) {
+        if (last == null) last = now;
+        var dt = (now - last) / 1000;
+        last = now;
+        if (!paused) {
+          wrapper.scrollLeft += speed * dt;
+          if (wrapper.scrollLeft >= halfWidth) {
+            wrapper.scrollLeft -= halfWidth;
+          }
+        }
+        rafId = requestAnimationFrame(step);
+      }
+      rafId = requestAnimationFrame(step);
+    }
+
+    function stopAuto() {
+      if (rafId) {
+        cancelAnimationFrame(rafId);
+        rafId = null;
+      }
+    }
+
+    wrapper.addEventListener('mouseenter', function () { paused = true; });
+    wrapper.addEventListener('mouseleave', function () { paused = false; });
+
+    function apply(e) {
+      if (e.matches) {
+        startAuto();
+      } else {
+        stopAuto();
+      }
+    }
+    apply(pcQuery);
+    if (pcQuery.addEventListener) {
+      pcQuery.addEventListener('change', apply);
+    } else {
+      pcQuery.addListener(apply);
+    }
+  })();
+</script>
+
 
 <!-- ============================================================
      ACCESS
