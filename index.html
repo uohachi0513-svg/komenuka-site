@@ -287,16 +287,11 @@
     .hero-slide {
       position: absolute;
       inset: 0;
+      background-image: url('images/hero-main.png');
       background-size: cover;
       background-position: center center;
       background-repeat: no-repeat;
-      opacity: 0;
-      transition: opacity 1.5s ease-in-out;
     }
-    .hero-slide.active { opacity: 1; }
-    .hero-slide:nth-child(1) { background-image: url('images/hero.png'); }
-    .hero-slide:nth-child(2) { background-image: url('images/hero2.png'); }
-    .hero-slide:nth-child(3) { background-image: url('images/hero3.png'); }
 
     .hero-bg::before {
       content: '';
@@ -420,16 +415,15 @@
     }
 
     .hero-logo {
-      font-family: var(--font-brush);
+      font-family: var(--font-serif);
       font-size: clamp(33px, 8.4vw, 84px);
-      font-weight: 400;
+      font-weight: 500;
       color: var(--color-white);
       line-height: 1.3;
       margin-bottom: 26px;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.14em;
       white-space: nowrap;
       text-shadow: 0 4px 26px rgba(0,0,0,0.5);
-      -webkit-text-stroke: 0.6px rgba(255,255,255,0.6);
     }
 
     .hero-logo-en {
@@ -2005,8 +1999,6 @@
      ============================================================ -->
 <section class="hero" id="top">
   <div class="hero-bg">
-    <div class="hero-slide active"></div>
-    <div class="hero-slide"></div>
     <div class="hero-slide"></div>
   </div>
   <div class="hero-deco">
@@ -3078,17 +3070,6 @@
         }
       });
     });
-  })();
-
-  // ── Hero slideshow ──
-  (function() {
-    const slides = document.querySelectorAll('.hero-slide');
-    let current = 0;
-    setInterval(() => {
-      slides[current].classList.remove('active');
-      current = (current + 1) % slides.length;
-      slides[current].classList.add('active');
-    }, 5000);
   })();
 
   // ── Header scroll ──
