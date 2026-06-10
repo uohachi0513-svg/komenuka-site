@@ -2767,6 +2767,7 @@
         track.innerHTML += track.innerHTML; // 同じカードを複製してシームレスにループ
         duplicated = true;
       }
+      wrapper.style.scrollSnapType = 'none'; // スナップが自動スクロールを引き戻すのを防ぐ
       halfWidth = track.scrollWidth / 2;
       var last = null;
       var speed = 25; // px/秒（ゆっくりめ）
@@ -2791,6 +2792,7 @@
         cancelAnimationFrame(rafId);
         rafId = null;
       }
+      wrapper.style.scrollSnapType = ''; // モバイルは手動スクロール用のスナップを復帰
     }
 
     wrapper.addEventListener('mouseenter', function () { paused = true; });
