@@ -574,6 +574,43 @@
       color: var(--color-white);
       letter-spacing: .1em;
     }
+
+    /* ── V3 写真・ギャラリー ── */
+    .v3-figure {
+      margin: 0;
+      background: #fff;
+      border-radius: var(--radius);
+      padding: 16px;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.35);
+    }
+    .v3-figure img {
+      width: 100%;
+      border-radius: 2px;
+    }
+    .v3-figure figcaption {
+      text-align: center;
+      font-size: 12px;
+      color: var(--color-text-lt);
+      margin-top: 10px;
+      letter-spacing: 0.05em;
+    }
+    .v3-gallery-title {
+      font-family: var(--font-serif);
+      font-size: 18px;
+      color: var(--color-white);
+      text-align: center;
+      letter-spacing: 0.08em;
+      margin: 40px 0 24px;
+    }
+    .v3-gallery {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+    @media (max-width: 760px) {
+      .v3-gallery { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 
@@ -666,6 +703,12 @@
       </div>
     </div>
 
+    <!-- 本体写真 -->
+    <figure class="v3-figure" style="max-width:620px; margin:0 auto 36px;">
+      <img src="images/v3-1.png" alt="脊椎セラピーマシン マスターV3 本体" loading="lazy">
+      <figcaption>マスターV3 本体</figcaption>
+    </figure>
+
     <!-- 3つの特長 -->
     <div class="caution-special">
 
@@ -697,6 +740,23 @@
         </ul>
       </div>
 
+    </div>
+
+    <!-- 詳しい仕組み（メーカー資料） -->
+    <h3 class="v3-gallery-title">マスターV3の特長をもっと詳しく</h3>
+    <div class="v3-gallery">
+      <figure class="v3-figure">
+        <img src="images/v3-2.png" alt="スキャニングシステムで一人ひとりに合ったリラクゼーションを提供" loading="lazy">
+      </figure>
+      <figure class="v3-figure">
+        <img src="images/v3-3.png" alt="脊椎スキャニング機能・加温加圧ユニット・APMS機能" loading="lazy">
+      </figure>
+      <figure class="v3-figure">
+        <img src="images/v3-4.png" alt="加温加圧ユニットと加温パッドの構造" loading="lazy">
+      </figure>
+      <figure class="v3-figure">
+        <img src="images/v3-5.png" alt="体調に合わせて選べる12種類のプログラム" loading="lazy">
+      </figure>
     </div>
 
     <!-- 当店でのご利用 -->
