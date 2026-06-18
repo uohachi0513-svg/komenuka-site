@@ -675,7 +675,13 @@
     /* ===== ABOUT ===== */
     .about {
       padding: 120px 0;
+      background: linear-gradient(180deg, #1c1407 0%, #130d05 100%);
     }
+
+    .about .section-label { color: var(--color-gold-lt); }
+    .about .section-title { color: var(--color-white); }
+    .about .divider { background: var(--color-gold-lt); }
+    .about .section-lead { color: rgba(255,255,255,0.78); }
 
     .about-inner {
       display: grid;
@@ -714,18 +720,18 @@
       aspect-ratio: 1;
       background: url('images/nuka-woman.jpg') center center / cover no-repeat;
       border-radius: var(--radius);
-      border: 4px solid var(--color-bg);
+      border: 4px solid #161007;
     }
 
     .about-philosophy {
       margin: 28px 0;
       padding: 22px 24px;
       border-left: 3px solid var(--color-gold-lt);
-      background: var(--color-white);
+      background: rgba(255,255,255,0.06);
       font-family: var(--font-serif);
       font-size: 17px;
       font-weight: 500;
-      color: var(--color-brown);
+      color: var(--color-white);
       line-height: 1.9;
       letter-spacing: 0.04em;
     }
@@ -742,7 +748,7 @@
       align-items: center;
       gap: 9px;
       font-size: 13px;
-      color: var(--color-text-lt);
+      color: rgba(255,255,255,0.72);
     }
 
     .about-feature-item::before {
