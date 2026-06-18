@@ -173,7 +173,7 @@
     .site-footer {
       background: var(--color-brown);
       padding: 64px 0 0;
-      margin-top: 80px;
+      margin-top: 0;
     }
     .footer-inner {
       display: grid;
@@ -268,9 +268,15 @@
     .subpage-title { font-family: var(--font-serif); font-size: 32px; color: var(--color-white); letter-spacing: .1em; }
 
     /* ===== CALENDAR ===== */
-    .calendar-section { padding: 80px 0 60px; }
+    .calendar-section {
+      padding: 80px 0 60px;
+      background: linear-gradient(180deg, #1c1407 0%, #130d05 100%);
+    }
 
     .calendar-header { text-align: center; margin-bottom: 48px; }
+    .calendar-header .section-label { color: var(--color-gold-lt); }
+    .calendar-header .section-title { color: var(--color-white); }
+    .calendar-header .divider { background: var(--color-gold-lt); }
 
     /* 予約サイト誘導バナー */
     .booking-banner {
@@ -319,7 +325,7 @@
       justify-content: center;
       margin-bottom: 40px;
     }
-    .legend-item { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--color-text-lt); }
+    .legend-item { display: flex; align-items: center; gap: 8px; font-size: 13px; color: rgba(255,255,255,0.75); }
     .legend-dot { width: 14px; height: 14px; border-radius: 50%; flex-shrink: 0; }
     .legend-dot.open   { background: var(--color-green); }
     .legend-dot.closed { background: #C8C0B4; }
