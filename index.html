@@ -757,6 +757,41 @@
       flex-shrink: 0;
     }
 
+    .about-note {
+      margin-top: 40px;
+      padding: 30px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: var(--radius);
+    }
+    .about-note-title {
+      font-family: var(--font-serif);
+      font-size: 18px;
+      line-height: 1.6;
+      letter-spacing: 0.06em;
+      color: var(--color-white);
+      margin-bottom: 16px;
+    }
+    .about-note-text {
+      font-size: 14px;
+      line-height: 1.9;
+      color: rgba(255,255,255,0.78);
+      margin-bottom: 10px;
+    }
+    .about-note-btn {
+      display: inline-block;
+      margin-top: 14px;
+      padding: 13px 32px;
+      background: var(--color-gold);
+      color: #fff;
+      font-size: 14px;
+      letter-spacing: 0.08em;
+      border-radius: 2px;
+      text-decoration: none;
+      transition: opacity .2s ease;
+    }
+    .about-note-btn:hover { opacity: 0.85; }
+
     /* ===== ENZYME ===== */
     .enzyme {
       background: url('images/enzyme.png') center center / cover no-repeat;
@@ -2213,6 +2248,14 @@
           <div class="about-feature-item">お子様連れOK（要事前連絡）</div>
           <div class="about-feature-item">レンタルタオル有（¥220）</div>
           <div class="about-feature-item">2名様ペアにてご予約可（ご予約前に要事前連絡にてご確認ください）</div>
+        </div>
+
+        <!-- でん店長の想い → note -->
+        <div class="about-note">
+          <h3 class="about-note-title">でん店長の想い｜体と向き合ってきた私の話</h3>
+          <p class="about-note-text">店長自身が体調を崩した経験や、女性特有の悩みと向き合ってきた過去をnoteに綴っています。</p>
+          <p class="about-note-text">米ぬか酵素浴 田が、なぜ「体をあたためること」「自分の体と向き合うこと」を大切にしているのか。よろしければご覧ください。</p>
+          <a href="https://note.com/agile_eider7673" target="_blank" rel="noopener" class="about-note-btn">店長のブログを読む ↗</a>
         </div>
       </div>
 
