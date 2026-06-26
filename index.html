@@ -793,13 +793,19 @@
     .about-note-btn:hover { opacity: 0.85; }
 
     .owner-note-section {
-      padding: 80px 0;
-      background: linear-gradient(180deg, #130d05 0%, #1c1407 100%);
+      padding: 96px 0;
+      background:
+        linear-gradient(180deg, rgba(15,10,3,0.78) 0%, rgba(20,14,6,0.86) 100%),
+        url("images/blog4.png") center/cover no-repeat;
     }
     .owner-note-section .about-note {
       max-width: 720px;
       margin: 0 auto;
       text-align: center;
+      background: rgba(12,8,3,0.55);
+      border: 1px solid rgba(255,255,255,0.16);
+      backdrop-filter: blur(3px);
+      -webkit-backdrop-filter: blur(3px);
     }
 
     /* ===== ENZYME ===== */
