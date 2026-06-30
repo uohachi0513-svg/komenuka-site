@@ -329,6 +329,13 @@
     .legend-dot { width: 14px; height: 14px; border-radius: 50%; flex-shrink: 0; }
     .legend-dot.open   { background: var(--color-green); }
     .legend-dot.closed { background: #C8C0B4; }
+    .calendar-irregular {
+      text-align: center;
+      font-size: 14px;
+      letter-spacing: 0.05em;
+      color: rgba(255,255,255,0.78);
+      margin: 0 0 32px;
+    }
 
     /* 2カラム */
     .calendar-months {
@@ -537,6 +544,8 @@
       <div class="legend-item"><span class="legend-dot open"></span>営業日</div>
       <div class="legend-item"><span class="legend-dot closed"></span>休業</div>
     </div>
+
+    <p class="calendar-irregular fade-up fade-up-d1">当店は不定休となっております。</p>
 
     <!-- カレンダー本体（JSで描画） -->
     <div class="calendar-months fade-up fade-up-d2" id="calendar-months"></div>
