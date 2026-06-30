@@ -331,10 +331,14 @@
     .legend-dot.closed { background: #C8C0B4; }
     .calendar-irregular {
       text-align: center;
-      font-size: 14px;
-      letter-spacing: 0.05em;
-      color: rgba(255,255,255,0.78);
-      margin: 0 0 32px;
+      font-size: 22px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: var(--color-gold-lt);
+      margin: 0 0 28px;
+    }
+    @media (max-width: 600px) {
+      .calendar-irregular { font-size: 18px; }
     }
 
     /* 2カラム */
@@ -529,6 +533,8 @@
       <div class="divider" style="margin: 0 auto 28px;"></div>
     </div>
 
+    <p class="calendar-irregular fade-up">当店は不定休となっております。</p>
+
     <!-- 予約サイト誘導バナー -->
     <div class="booking-banner fade-up fade-up-d1">
       <div class="booking-banner-text">
@@ -544,8 +550,6 @@
       <div class="legend-item"><span class="legend-dot open"></span>営業日</div>
       <div class="legend-item"><span class="legend-dot closed"></span>休業</div>
     </div>
-
-    <p class="calendar-irregular fade-up fade-up-d1">当店は不定休となっております。</p>
 
     <!-- カレンダー本体（JSで描画） -->
     <div class="calendar-months fade-up fade-up-d2" id="calendar-months"></div>
