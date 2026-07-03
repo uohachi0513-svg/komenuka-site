@@ -1,3 +1,6 @@
+# www あり → www なし へ統一（301）
+https://www.den-komenukakoso.com/* https://den-komenukakoso.com/:splat 301
+
 # 旧JimdoページのURL → 新サイトの近いセクションへ301リダイレクト
 # 日本語パスはブラウザ/Googleからpercent-encodeされて届くため、エンコード形式で記述する
 # （元の日本語表記をコメントで併記）
