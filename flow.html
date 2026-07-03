@@ -413,6 +413,47 @@
       font-size: 16px;
     }
 
+    /* お持ち物について */
+    .flow-items {
+      max-width: 760px;
+      margin: 0 auto 48px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: var(--radius);
+      padding: 32px 34px;
+    }
+    .flow-items-title {
+      font-family: var(--font-serif);
+      font-size: 20px;
+      color: var(--color-gold-lt);
+      text-align: center;
+      letter-spacing: 0.08em;
+      margin-bottom: 20px;
+    }
+    .flow-items p {
+      font-size: 14px;
+      line-height: 2;
+      color: rgba(255,255,255,0.78);
+      margin-bottom: 16px;
+    }
+    .flow-items p:last-child { margin-bottom: 0; }
+    .flow-items .flow-items-rental {
+      background: rgba(255,255,255,0.05);
+      border-left: 3px solid var(--color-gold-lt);
+      border-radius: 6px;
+      padding: 14px 18px;
+      margin-bottom: 16px;
+    }
+    .flow-items .flow-items-rental strong {
+      color: var(--color-gold-lt);
+      font-family: var(--font-serif);
+    }
+    .flow-items .flow-items-closing {
+      text-align: center;
+      color: var(--color-gold-lt);
+      font-family: var(--font-serif);
+    }
+
     /* 予約サイト誘導バナー */
     .booking-banner {
       max-width: 760px;
@@ -652,6 +693,19 @@
     <div class="flow-total fade-up">
       ご来店からお帰りまで、全行程の所要時間は <strong>約1時間程度</strong> です。<br>
       ※初回の方は酵素浴のご説明がございますので、予定時間の15〜20分前にお越しください。
+    </div>
+
+    <!-- お持ち物について -->
+    <div class="flow-items fade-up">
+      <h2 class="flow-items-title">お持ち物について</h2>
+      <p>ご入酵後はシャワーをご利用いただきますので、タオル・バスタオルをお持ちください。</p>
+      <div class="flow-items-rental">
+        タオル・バスタオルをお忘れの場合は、レンタルセットをご用意しております。<br>
+        <strong>レンタル料：220円（税込）</strong>
+      </div>
+      <p>必要に応じて、ブラシ・お化粧道具などもお持ちください。<br>
+      お帰り前に身支度を整えていただけるよう、個室内に鏡もございます。</p>
+      <p class="flow-items-closing">どうぞリラックスしてお越しください。</p>
     </div>
 
     <!-- 予約サイト誘導バナー -->
