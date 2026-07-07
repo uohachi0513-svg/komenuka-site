@@ -1,5 +1,5 @@
-# www あり → www なし へ統一（301）
-https://www.den-komenukakoso.com/* https://den-komenukakoso.com/:splat 301
+# 注意：Workers版の _redirects は相対URLのみ許可。
+# www→非www の統一は Cloudflare のリダイレクトルールで行う（このファイルには書けない）。
 
 # 旧JimdoページのURL → 新サイトの近いセクションへ301リダイレクト
 # 日本語パスはブラウザ/Googleからpercent-encodeされて届くため、エンコード形式で記述する
