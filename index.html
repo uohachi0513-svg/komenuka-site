@@ -758,20 +758,21 @@
       margin-bottom: 16px;
     }
     .scent-callout-btn {
-      display: inline-block;
-      padding: 13px 28px;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid var(--color-gold-lt);
-      border-radius: 30px;
-      color: var(--color-gold-lt);
-      font-size: 14px;
-      letter-spacing: 0.04em;
-      text-decoration: none;
-      transition: var(--transition);
+      display: block;
+      max-width: 480px;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 8px 28px rgba(0,0,0,0.28);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .scent-callout-btn img {
+      display: block;
+      width: 100%;
+      height: auto;
     }
     .scent-callout-btn:hover {
-      background: var(--color-gold-lt);
-      color: #2a1e0c;
+      transform: translateY(-3px);
+      box-shadow: 0 12px 34px rgba(0,0,0,0.36);
     }
 
     .about-features {
@@ -2333,7 +2334,9 @@
             米ぬかの香りやぬくもりの中には「自然の力」がそのまま詰まっています。
             私たちはその恵みを最大限に活かし、心身が整う時間を提供したいと思っています。
           </p>
-          <a href="https://komeden-hatake.com/hakkounokaori/" target="_blank" rel="noopener" class="scent-callout-btn">【米ぬかの香りが気になる方へ】</a>
+          <a href="https://komeden-hatake.com/hakkounokaori/" target="_blank" rel="noopener" class="scent-callout-btn" aria-label="米ぬかの香りが気になる方へ｜発酵の香りは菌が生きている証拠です（ブログを読む）">
+            <img src="images/nioitaitoru.png" alt="米ぬかの香りが気になる方へ 発酵の香りは菌が生きている証拠です" loading="lazy">
+          </a>
         </div>
         <div class="about-features">
           <div class="about-feature-item">完全個室・完全予約制</div>
