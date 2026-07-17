@@ -759,20 +759,56 @@
     }
     .scent-callout-btn {
       display: block;
+      position: relative;
       max-width: 480px;
       border-radius: 14px;
-      overflow: hidden;
       box-shadow: 0 8px 28px rgba(0,0,0,0.28);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+      animation: scent-float 2.4s ease-in-out infinite;
     }
     .scent-callout-btn img {
       display: block;
       width: 100%;
       height: auto;
+      border-radius: 14px;
     }
     .scent-callout-btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 12px 34px rgba(0,0,0,0.36);
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 18px 44px rgba(0,0,0,0.4);
+      animation-play-state: paused;
+    }
+    @keyframes scent-float {
+      0%, 100% { transform: translateY(0); }
+      50%      { transform: translateY(-7px); }
+    }
+    /* タップ誘導バッジ */
+    .scent-callout-tap {
+      position: absolute;
+      right: -10px;
+      bottom: -14px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 15px 8px 12px;
+      background: #d94f3d;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      border-radius: 30px;
+      box-shadow: 0 5px 16px rgba(180,60,45,0.5);
+      animation: scent-tap-bounce 1.2s ease-in-out infinite;
+      pointer-events: none;
+    }
+    .scent-callout-tap svg {
+      width: 20px;
+      height: 20px;
+      fill: #fff;
+    }
+    @keyframes scent-tap-bounce {
+      0%, 100% { transform: translateY(0) scale(1); }
+      30%      { transform: translateY(-6px) scale(1.08); }
+      60%      { transform: translateY(0) scale(1); }
     }
 
     .about-features {
@@ -2336,6 +2372,10 @@
           </p>
           <a href="https://komeden-hatake.com/hakkounokaori/" target="_blank" rel="noopener" class="scent-callout-btn" aria-label="米ぬかの香りが気になる方へ｜発酵の香りは菌が生きている証拠です（ブログを読む）">
             <img src="images/nioitaitoru.png" alt="米ぬかの香りが気になる方へ 発酵の香りは菌が生きている証拠です" loading="lazy">
+            <span class="scent-callout-tap">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 11V5.5a1.5 1.5 0 0 1 3 0V11h.5V8.5a1.5 1.5 0 0 1 3 0V11h.5V9.5a1.5 1.5 0 0 1 3 0V15c0 3.3-2.7 6-6 6h-1.2c-1.6 0-3.1-.6-4.2-1.8l-3.4-3.5a1.5 1.5 0 0 1 2-2.2l1.5 1.3V6.5a1.5 1.5 0 0 1 3 0V11H9z"/></svg>
+              こちらをタップ
+            </span>
           </a>
         </div>
         <div class="about-features">
