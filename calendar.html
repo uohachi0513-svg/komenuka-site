@@ -318,19 +318,15 @@
     }
     .booking-banner-btn:hover { background: var(--color-gold-lt); }
 
-    /* 凡例 */
-    .calendar-legend {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px 24px;
-      justify-content: center;
+    /* 告知 */
+    .calendar-notice {
+      text-align: center;
+      font-family: var(--font-serif);
+      font-size: 15px;
+      letter-spacing: 0.04em;
+      color: var(--color-gold-lt);
       margin-bottom: 40px;
     }
-    .legend-item { display: flex; align-items: center; gap: 8px; font-size: 13px; color: rgba(255,255,255,0.75); }
-    .legend-dot { width: 14px; height: 14px; border-radius: 50%; flex-shrink: 0; }
-    .legend-dot.open   { background: var(--color-green); }
-    .legend-dot.closed { background: #C8C0B4; }
-    .legend-dot.event  { background: var(--color-gold); }
     .calendar-irregular {
       text-align: center;
       font-family: var(--font-serif);
@@ -595,12 +591,8 @@
       <a href="index.html#reservation" class="booking-banner-btn">予約サイトはこちら</a>
     </div>
 
-    <!-- 凡例 -->
-    <div class="calendar-legend fade-up fade-up-d1">
-      <div class="legend-item"><span class="legend-dot open"></span>営業日</div>
-      <div class="legend-item"><span class="legend-dot closed"></span>休業</div>
-      <div class="legend-item"><span class="legend-dot event"></span>イベント開催</div>
-    </div>
+    <!-- 告知 -->
+    <p class="calendar-notice fade-up fade-up-d1">夏季のみ週休2日制とさせていただきます。</p>
 
     <!-- カレンダー本体（JSで描画） -->
     <div class="calendar-months fade-up fade-up-d2" id="calendar-months"></div>
