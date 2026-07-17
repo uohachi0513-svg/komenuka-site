@@ -590,6 +590,31 @@
     @media (max-width: 760px) {
       .v3-gallery { grid-template-columns: 1fr; }
     }
+    .v3-more {
+      text-align: center;
+      margin-top: 44px;
+    }
+    .v3-more-btn {
+      display: inline-block;
+      padding: 16px 40px;
+      background: var(--color-gold);
+      color: #fff;
+      font-family: var(--font-serif);
+      font-size: 16px;
+      letter-spacing: 0.06em;
+      border-radius: 30px;
+      text-decoration: none;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.35);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    }
+    .v3-more-btn:hover {
+      background: var(--color-gold-lt);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 28px rgba(0,0,0,0.42);
+    }
+    @media (max-width: 600px) {
+      .v3-more-btn { font-size: 14px; padding: 15px 28px; }
+    }
   </style>
 </head>
 
@@ -752,6 +777,10 @@
     <div class="caution-footer">
       マスターV3のご予約・ご相談は、公式LINEメッセージまたはお電話にて承っております。<br>
       <a href="index.html#reservation" style="color: var(--color-gold-lt); text-decoration: underline; text-underline-offset: 3px;">ご予約・お問い合わせはこちら</a>
+    </div>
+
+    <div class="v3-more">
+      <a href="https://komeden-hatake.com/masuta-v3/" target="_blank" rel="noopener" class="v3-more-btn">マスターV3のことをもっと知りたい方はこちら&nbsp;↗</a>
     </div>
 
   </div>
