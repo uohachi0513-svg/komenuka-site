@@ -556,7 +556,7 @@
     /* ── NEWS ── */
     .news {
       padding: 80px 0;
-      background: linear-gradient(180deg, #1c1407 0%, #130d05 100%);
+      background: var(--color-white);
     }
 
     .news-header {
@@ -564,9 +564,9 @@
       margin-bottom: 48px;
     }
 
-    .news-header .section-label { color: var(--color-gold-lt); }
-    .news-header .section-title { color: var(--color-white); }
-    .news-header .divider { background: var(--color-gold-lt); }
+    .news-header .section-label { color: var(--color-gold); }
+    .news-header .section-title { color: var(--color-brown); }
+    .news-header .divider { background: var(--color-gold); }
 
     .news-grid {
       display: grid;
@@ -575,18 +575,18 @@
     }
 
     .news-card {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.09);
+      background: var(--color-bg);
+      border: 1px solid var(--color-beige-dk);
       border-radius: var(--radius);
       overflow: hidden;
-      box-shadow: 0 6px 24px rgba(0,0,0,0.35);
+      box-shadow: var(--shadow);
       transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
     }
 
     .news-card:hover {
       transform: translateY(-4px);
-      border-color: var(--color-gold-lt);
-      box-shadow: 0 14px 38px rgba(0,0,0,0.5);
+      border-color: var(--color-gold);
+      box-shadow: var(--shadow-lg);
     }
 
     .news-card-img {
@@ -623,14 +623,14 @@
       font-family: var(--font-serif);
       font-size: 18px;
       font-weight: 600;
-      color: var(--color-white);
+      color: var(--color-brown);
       margin-bottom: 12px;
       line-height: 1.5;
     }
 
     .news-card-text {
       font-size: 13px;
-      color: rgba(255,255,255,0.72);
+      color: var(--color-text-lt);
       line-height: 1.85;
     }
 
@@ -675,13 +675,13 @@
     /* ===== ABOUT ===== */
     .about {
       padding: 120px 0;
-      background: linear-gradient(180deg, #1c1407 0%, #130d05 100%);
+      background: var(--color-white);
     }
 
-    .about .section-label { color: var(--color-gold-lt); }
-    .about .section-title { color: var(--color-white); }
-    .about .divider { background: var(--color-gold-lt); }
-    .about .section-lead { color: rgba(255,255,255,0.78); }
+    .about .section-label { color: var(--color-gold); }
+    .about .section-title { color: var(--color-brown); }
+    .about .divider { background: var(--color-gold); }
+    .about .section-lead { color: var(--color-text-lt); }
 
     .about-inner {
       display: grid;
@@ -728,12 +728,12 @@
     .about-philosophy {
       margin: 28px 0;
       padding: 22px 24px;
-      border-left: 3px solid var(--color-gold-lt);
-      background: rgba(255,255,255,0.06);
+      border-left: 3px solid var(--color-gold);
+      background: var(--color-bg);
       font-family: var(--font-serif);
       font-size: 17px;
       font-weight: 500;
-      color: var(--color-white);
+      color: var(--color-brown);
       line-height: 1.9;
       letter-spacing: 0.04em;
     }
@@ -745,7 +745,7 @@
       font-weight: 600;
       line-height: 2;
       letter-spacing: 0.04em;
-      color: var(--color-gold-lt);
+      color: var(--color-gold);
     }
 
     .scent-callout {
@@ -754,7 +754,7 @@
     .scent-callout-text {
       font-size: 12px;
       line-height: 1.9;
-      color: rgba(255,255,255,0.6);
+      color: var(--color-text-lt);
       margin-bottom: 16px;
     }
     .scent-callout-btn {
@@ -823,7 +823,7 @@
       align-items: center;
       gap: 9px;
       font-size: 13px;
-      color: rgba(255,255,255,0.72);
+      color: var(--color-text);
     }
 
     .about-feature-item::before {
@@ -904,7 +904,7 @@
     .enzyme-overlay {
       position: absolute;
       inset: 0;
-      background: rgba(30,18,8,0.72);
+      background: rgba(255,255,255,0.86);
       z-index: 0;
     }
 
@@ -936,9 +936,9 @@
       margin-bottom: 68px;
     }
 
-    .enzyme-header .section-label { color: var(--color-gold-lt); }
-    .enzyme-header .section-title { color: var(--color-white); }
-    .enzyme-header .section-lead { color: rgba(255,255,255,0.60); margin: 0 auto; }
+    .enzyme-header .section-label { color: var(--color-gold); }
+    .enzyme-header .section-title { color: var(--color-brown); }
+    .enzyme-header .section-lead { color: var(--color-text-lt); margin: 0 auto; }
     .enzyme-header .divider { margin: 0 auto 28px; }
 
     .enzyme-grid {
@@ -950,16 +950,16 @@
     }
 
     .enzyme-card {
-      background: rgba(255,255,255,0.04);
+      background: var(--color-white);
       padding: 48px 34px;
       transition: var(--transition);
       text-align: center;
-      border: 1px solid rgba(255,255,255,0.06);
+      border: 1px solid var(--color-beige-dk);
     }
 
     .enzyme-card:hover {
-      background: rgba(154,123,58,0.14);
-      border-color: rgba(200,169,110,0.28);
+      background: var(--color-bg);
+      border-color: var(--color-gold);
     }
 
     .enzyme-icon {
@@ -972,14 +972,14 @@
     .enzyme-card-title {
       font-family: var(--font-serif);
       font-size: 18px;
-      color: var(--color-gold-lt);
+      color: var(--color-gold);
       margin-bottom: 14px;
       letter-spacing: 0.07em;
     }
 
     .enzyme-card-text {
       font-size: 13px;
-      color: rgba(255,255,255,0.60);
+      color: var(--color-text-lt);
       line-height: 2;
     }
 
@@ -1804,21 +1804,21 @@
     /* ===== CTA BANNER ===== */
     .cta-banner {
       padding: 80px 0;
-      background: linear-gradient(180deg, #1c1407 0%, #130d05 100%);
+      background: var(--color-white);
       text-align: center;
     }
 
     .cta-banner-title {
       font-family: var(--font-serif);
       font-size: clamp(20px, 2.8vw, 30px);
-      color: var(--color-white);
+      color: var(--color-brown);
       margin-bottom: 10px;
       letter-spacing: 0.07em;
     }
 
     .cta-banner-sub {
       font-size: 13px;
-      color: rgba(255,255,255,0.60);
+      color: var(--color-text-lt);
       margin-bottom: 34px;
       letter-spacing: 0.08em;
     }
@@ -1833,7 +1833,7 @@
     /* ===== CONTACT ===== */
     .contact {
       padding: 100px 0;
-      background: linear-gradient(180deg, #130d05 0%, #1c1407 100%);
+      background: var(--color-white);
     }
 
     .contact-inner {
@@ -1842,10 +1842,10 @@
       text-align: center;
     }
 
-    .contact-header .section-label { color: var(--color-gold-lt); }
-    .contact-header .section-title { color: var(--color-white); }
-    .contact-header .divider { margin: 0 auto 28px; background: var(--color-gold-lt); }
-    .contact .section-lead { color: rgba(255,255,255,0.78); }
+    .contact-header .section-label { color: var(--color-gold); }
+    .contact-header .section-title { color: var(--color-brown); }
+    .contact-header .divider { margin: 0 auto 28px; background: var(--color-gold); }
+    .contact .section-lead { color: var(--color-text-lt); }
 
     .contact-form {
       margin-top: 48px;
@@ -2411,24 +2411,24 @@
   <div class="container">
     <p class="cta-banner-title">初めての方限定 — 初回体験料金 ¥3,900（税込）</p>
     <p class="cta-banner-sub">LINE公式またはホットペッパービューティーからご予約ください</p>
-    <p style="margin-bottom: 12px; font-size: 13px; color: rgba(255,255,255,0.9); text-align: center;">ご予約前に必ずお読みください</p>
+    <p style="margin-bottom: 12px; font-size: 13px; color: var(--color-text-lt); text-align: center;">ご予約前に必ずお読みください</p>
     <div style="text-align: center; margin-bottom: 20px;">
-      <a href="caution.html" style="display: inline-block; padding: 10px 28px; border: 1px solid rgba(255,255,255,0.7); border-radius: 20px; color: rgba(255,255,255,0.9); font-size: 13px; text-decoration: none; letter-spacing: .06em;">当店ご利用上の注意を読む →</a>
+      <a href="caution.html" style="display: inline-block; padding: 10px 28px; border: 1px solid var(--color-brown); border-radius: 20px; color: var(--color-brown); font-size: 13px; text-decoration: none; letter-spacing: .06em;">当店ご利用上の注意を読む →</a>
     </div>
     <div class="cta-banner-buttons">
       <a href="https://page.line.me/182ficqy?oat_content=url&openQrModal=true" target="_blank" rel="noopener" class="btn btn-gold" style="background:#06C755; border-color:#06C755;">💬 LINEで予約する</a>
-      <a href="https://beauty.hotpepper.jp/kr/slnH000650820/?cstt=1&wak=KPSC400402_link_maplist" target="_blank" rel="noopener" class="btn btn-outline-white">🌶 ホットペッパーで予約</a>
+      <a href="https://beauty.hotpepper.jp/kr/slnH000650820/?cstt=1&wak=KPSC400402_link_maplist" target="_blank" rel="noopener" class="btn btn-outline">🌶 ホットペッパーで予約</a>
     </div>
-    <div style="margin: 26px auto 0; max-width: 560px; padding: 18px 24px; background: rgba(154,123,58,0.18); border: 1px solid var(--color-gold-lt); border-radius: 10px; text-align: center;">
-      <span style="display: inline-block; margin-bottom: 8px; padding: 3px 14px; background: var(--color-gold-lt); color: #3a2a12; font-size: 12px; font-weight: 700; letter-spacing: .08em; border-radius: 20px;">初回ご来店の方へ</span>
-      <p style="margin: 0; font-size: 14px; color: #fff; line-height: 1.9; letter-spacing: .04em;">
+    <div style="margin: 26px auto 0; max-width: 560px; padding: 18px 24px; background: var(--color-beige); border: 1px solid var(--color-gold); border-radius: 10px; text-align: center;">
+      <span style="display: inline-block; margin-bottom: 8px; padding: 3px 14px; background: var(--color-gold); color: #fff; font-size: 12px; font-weight: 700; letter-spacing: .08em; border-radius: 20px;">初回ご来店の方へ</span>
+      <p style="margin: 0; font-size: 14px; color: var(--color-text); line-height: 1.9; letter-spacing: .04em;">
         カウンセリングおよび入酵の説明がございますので、<br>
-        予定時間の <strong style="color: var(--color-gold-lt); font-size: 16px;">15〜20分前</strong> にご来店くださいますようお願いいたします。
+        予定時間の <strong style="color: var(--color-gold); font-size: 16px;">15〜20分前</strong> にご来店くださいますようお願いいたします。
       </p>
     </div>
-    <p style="margin-top: 20px; font-size: 13px; color: rgba(255,255,255,0.9); text-align: center;">ご予約後はキャンセルポリシーをご確認願います</p>
+    <p style="margin-top: 20px; font-size: 13px; color: var(--color-text-lt); text-align: center;">ご予約後はキャンセルポリシーをご確認願います</p>
     <div style="text-align: center; margin-top: 10px;">
-      <a href="cancel-policy.html" style="display: inline-block; padding: 10px 28px; border: 1px solid rgba(255,255,255,0.7); border-radius: 20px; color: rgba(255,255,255,0.9); font-size: 13px; text-decoration: none; letter-spacing: .06em;">キャンセルポリシーを読む →</a>
+      <a href="cancel-policy.html" style="display: inline-block; padding: 10px 28px; border: 1px solid var(--color-brown); border-radius: 20px; color: var(--color-brown); font-size: 13px; text-decoration: none; letter-spacing: .06em;">キャンセルポリシーを読む →</a>
     </div>
   </div>
 </div>
@@ -3162,7 +3162,7 @@
         <div class="divider"></div>
         <div style="margin-bottom: 24px; text-align: center;">
           <p style="font-size: 12px; color: var(--color-gold); letter-spacing: 0.12em; margin-bottom: 10px;">【ご予約前に必ずお読みください】</p>
-          <a href="caution.html" style="display: inline-block; padding: 10px 28px; border: 1px solid rgba(255,255,255,0.55); border-radius: 20px; color: rgba(255,255,255,0.9); font-size: 13px; text-decoration: none; letter-spacing: .06em;">当店ご利用上の注意を読む →</a>
+          <a href="caution.html" style="display: inline-block; padding: 10px 28px; border: 1px solid var(--color-brown); border-radius: 20px; color: var(--color-brown); font-size: 13px; text-decoration: none; letter-spacing: .06em;">当店ご利用上の注意を読む →</a>
         </div>
         <p class="section-lead" style="margin: 0 auto;">
           ご予約は①LINE公式アカウント、②ホットペッパービューティーからお願いします。<br>
@@ -3206,30 +3206,30 @@
       </div>
 
       <!-- 電話 -->
-      <div style="margin-top: 24px; padding: 24px 28px; background: rgba(255,255,255,0.05);
-                  border: 1px solid rgba(255,255,255,0.12); border-radius: var(--radius);
+      <div style="margin-top: 24px; padding: 24px 28px; background: var(--color-bg);
+                  border: 1px solid var(--color-beige-dk); border-radius: var(--radius);
                   display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap;">
-        <span style="font-family: var(--font-serif); font-size: 14px; color: rgba(255,255,255,0.75);">当日直前のご予約・お電話でのお問合せ</span>
+        <span style="font-family: var(--font-serif); font-size: 14px; color: var(--color-text-lt);">当日直前のご予約・お電話でのお問合せ</span>
         <a href="tel:0789393224"
            style="font-family: var(--font-serif); font-size: 22px; font-weight: 700;
-                  color: var(--color-gold-lt); letter-spacing: 0.05em;">
+                  color: var(--color-gold); letter-spacing: 0.05em;">
           📞 078-939-3224
         </a>
       </div>
 
       <!-- 注意書き -->
-      <div style="margin-top: 20px; padding: 24px 28px; background: rgba(154,123,58,0.14); border: 1px solid var(--color-gold); border-radius: var(--radius);">
+      <div style="margin-top: 20px; padding: 24px 28px; background: var(--color-beige); border: 1px solid var(--color-gold); border-radius: var(--radius);">
         <span style="display: inline-block; margin-bottom: 12px; padding: 4px 16px; background: var(--color-gold); color: #fff; font-size: 12px; font-weight: 700; letter-spacing: .08em; border-radius: 20px;">初回ご来店の方へ</span>
-        <p style="font-size: 14px; color: rgba(255,255,255,0.85); line-height: 1.9; margin-bottom: 12px;">
+        <p style="font-size: 14px; color: var(--color-text); line-height: 1.9; margin-bottom: 12px;">
           初回ご来店時はカウンセリングおよび入酵の説明がございますので、<br>
-          予定時間の<strong style="color: var(--color-gold-lt); font-size: 17px;">15〜20分前</strong>にご来店くださいますようお願いいたします。
+          予定時間の<strong style="color: var(--color-gold); font-size: 17px;">15〜20分前</strong>にご来店くださいますようお願いいたします。
         </p>
         <span style="display: inline-block; margin: 6px 0 12px; padding: 4px 16px; background: var(--color-gold); color: #fff; font-size: 12px; font-weight: 700; letter-spacing: .08em; border-radius: 20px;">お車でお越しの方へ</span>
-        <p style="font-size: 14px; color: rgba(255,255,255,0.85); line-height: 1.9; margin-bottom: 16px;">
+        <p style="font-size: 14px; color: var(--color-text); line-height: 1.9; margin-bottom: 16px;">
           週末・祝日などは周辺道路が大変混み合いますので、<br>
           予めお時間に余裕を持ってお気をつけてお越しください。
         </p>
-        <p style="font-size: 12px; color: rgba(255,255,255,0.6); line-height: 2;">
+        <p style="font-size: 12px; color: var(--color-text-lt); line-height: 2;">
           ※ 土日祝のご予約はお早めに（1ヶ月先まで予約可能です）。<br>
           ※ 当日直前のご予約はお電話にてご確認ください。<br>
           ※ お二人同時にご予約される際は、事前に要ご確認ください（公式LINEメッセージなどでお問い合わせください）。
@@ -3238,8 +3238,8 @@
 
       <!-- キャンセルポリシーリンク -->
       <div style="margin-top: 28px; text-align: center;">
-        <p style="font-size: 13px; color: rgba(255,255,255,0.7); margin-bottom: 10px;">ご予約後はキャンセルポリシーをご確認願います</p>
-        <a href="cancel-policy.html" style="display: inline-block; padding: 10px 28px; border: 1px solid rgba(255,255,255,0.55); border-radius: 20px; color: rgba(255,255,255,0.9); font-size: 13px; text-decoration: none; letter-spacing: .06em;">キャンセルポリシーを読む →</a>
+        <p style="font-size: 13px; color: var(--color-text-lt); margin-bottom: 10px;">ご予約後はキャンセルポリシーをご確認願います</p>
+        <a href="cancel-policy.html" style="display: inline-block; padding: 10px 28px; border: 1px solid var(--color-brown); border-radius: 20px; color: var(--color-brown); font-size: 13px; text-decoration: none; letter-spacing: .06em;">キャンセルポリシーを読む →</a>
       </div>
 
     </div>
