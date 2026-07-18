@@ -1830,6 +1830,51 @@
       flex-wrap: wrap;
     }
 
+    /* 初回体験¥3,900を目立たせる */
+    .cta-special {
+      display: inline-block;
+      padding: 30px 52px 34px;
+      margin-bottom: 14px;
+      background: linear-gradient(135deg, #fffdf7 0%, #fbf1d9 100%);
+      border: 2px solid var(--color-gold);
+      border-radius: 20px;
+      box-shadow: 0 12px 34px rgba(184,150,60,0.28);
+      animation: cta-pulse 2.6s ease-in-out infinite;
+    }
+    .cta-special-badge {
+      display: inline-block;
+      padding: 6px 22px;
+      margin-bottom: 16px;
+      background: var(--color-gold);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      border-radius: 30px;
+    }
+    .cta-special-lead {
+      font-family: var(--font-serif);
+      font-size: clamp(16px, 2.2vw, 20px);
+      color: var(--color-brown);
+      letter-spacing: 0.12em;
+      margin-bottom: 2px;
+    }
+    .cta-special-price {
+      font-family: var(--font-serif);
+      font-weight: 700;
+      color: var(--color-gold);
+      line-height: 1.05;
+      letter-spacing: 0.01em;
+      font-size: clamp(46px, 10vw, 78px);
+      text-shadow: 0 2px 8px rgba(184,150,60,0.25);
+    }
+    .cta-special-price .cta-yen { font-size: 0.48em; margin-right: 4px; vertical-align: 0.18em; }
+    .cta-special-price .cta-tax { font-size: 0.26em; color: var(--color-text-lt); margin-left: 8px; vertical-align: 0.35em; letter-spacing: 0.06em; }
+    @keyframes cta-pulse {
+      0%, 100% { box-shadow: 0 12px 34px rgba(184,150,60,0.22); transform: scale(1); }
+      50%      { box-shadow: 0 16px 44px rgba(184,150,60,0.42); transform: scale(1.015); }
+    }
+
     /* ===== CONTACT ===== */
     .contact {
       padding: 100px 0;
@@ -2431,7 +2476,11 @@
      ============================================================ -->
 <div class="cta-banner">
   <div class="container">
-    <p class="cta-banner-title">初めての方限定 — 初回体験料金 ¥3,900（税込）</p>
+    <div class="cta-special">
+      <span class="cta-special-badge">初めての方限定</span>
+      <p class="cta-special-lead">初回体験料金</p>
+      <p class="cta-special-price"><span class="cta-yen">¥</span>3,900<span class="cta-tax">（税込）</span></p>
+    </div>
     <p class="cta-banner-sub">LINE公式またはホットペッパービューティーからご予約ください</p>
     <p style="margin-bottom: 12px; font-size: 13px; color: var(--color-text-lt); text-align: center;">ご予約前に必ずお読みください</p>
     <div style="text-align: center; margin-bottom: 20px;">
