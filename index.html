@@ -2092,6 +2092,28 @@
       filter: blur(0);
     }
 
+    /* 予約ボタンを浮き出させる */
+    .reserve-card {
+      position: relative;
+      box-shadow: 0 12px 32px rgba(0,0,0,0.2);
+      animation: reserve-float 2.8s ease-in-out infinite;
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+      will-change: transform;
+    }
+    .reserve-card:nth-of-type(2) { animation-delay: 1.4s; }
+    .reserve-card:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 24px 52px rgba(0,0,0,0.3);
+      animation-play-state: paused;
+    }
+    @keyframes reserve-float {
+      0%, 100% { transform: translateY(0); }
+      50%      { transform: translateY(-9px); }
+    }
+    @media (max-width: 600px) {
+      .reserve-card:hover { transform: translateY(-6px) scale(1.01); }
+    }
+
     /* ===== RESPONSIVE ===== */
     @media (max-width: 920px) {
       .site-nav { display: none; }
@@ -3174,11 +3196,10 @@
       <div style="margin-top: 32px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
 
         <!-- LINE -->
-        <a href="https://page.line.me/182ficqy?oat_content=url&openQrModal=true" target="_blank" rel="noopener"
+        <a href="https://page.line.me/182ficqy?oat_content=url&openQrModal=true" target="_blank" rel="noopener" class="reserve-card"
            style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px;
                   background: #06C755; border-radius: var(--radius); padding: 40px 24px;
-                  color: white; text-decoration: none; transition: opacity 0.3s;"
-           onmouseover="this.style.opacity='0.88'" onmouseout="this.style.opacity='1'">
+                  color: white; text-decoration: none;">
           <svg xmlns="http://www.w3.org/2000/svg" width="52" height="52" viewBox="0 0 48 48" fill="white">
             <path d="M24 4C12.95 4 4 11.82 4 21.5c0 6.08 3.56 11.43 9 14.64V42l6.18-3.4A22.6 22.6 0 0024 39c11.05 0 20-7.82 20-17.5S35.05 4 24 4z"/>
           </svg>
@@ -3189,11 +3210,10 @@
         </a>
 
         <!-- ホットペッパー -->
-        <a href="https://beauty.hotpepper.jp/kr/slnH000650820/?cstt=1&wak=KPSC400402_link_maplist" target="_blank" rel="noopener"
+        <a href="https://beauty.hotpepper.jp/kr/slnH000650820/?cstt=1&wak=KPSC400402_link_maplist" target="_blank" rel="noopener" class="reserve-card"
            style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px;
                   background: #E6002D; border-radius: var(--radius); padding: 40px 24px;
-                  color: white; text-decoration: none; transition: opacity 0.3s;"
-           onmouseover="this.style.opacity='0.88'" onmouseout="this.style.opacity='1'">
+                  color: white; text-decoration: none;">
           <svg xmlns="http://www.w3.org/2000/svg" width="52" height="52" viewBox="0 0 48 48" fill="white">
             <path d="M24 6a18 18 0 100 36A18 18 0 0024 6zm0 8a5 5 0 110 10 5 5 0 010-10zm0 22c-5 0-9.4-2.56-12-6.44C12.06 27.1 17.64 25 24 25s11.94 2.1 12 4.56C33.4 33.44 29 36 24 36z"/>
           </svg>
