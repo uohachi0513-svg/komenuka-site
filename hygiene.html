@@ -325,15 +325,30 @@
     }
     .hygiene-cert-text p { font-size: 13px; line-height: 1.9; color: var(--color-text-lt); }
 
-    /* 取り組みカード */
+    /* 2つ目のブロックの小見出し */
+    .hygiene-subhead {
+      margin: 12px 0 6px;
+      padding-top: 60px;
+      border-top: 1px solid #ece4d4;
+    }
+    .hygiene-subhead .section-label { color: var(--color-gold); letter-spacing: 0.3em; }
+    .hygiene-subhead .section-title {
+      color: var(--color-brown);
+      font-size: clamp(20px, 2.6vw, 26px);
+      letter-spacing: 0.08em;
+      margin-bottom: 14px;
+    }
+    .hygiene-subhead .divider { background: var(--color-gold); margin-bottom: 22px; }
+
+    /* 番号付きカード */
     .hygiene-list {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 18px;
-      margin-bottom: 56px;
+      margin-bottom: 48px;
     }
     .hygiene-card {
-      padding: 26px 24px 24px;
+      padding: 26px 26px 24px;
       background: #fff;
       border: 1px solid #e4ded2;
       border-radius: 12px;
@@ -344,35 +359,60 @@
       box-shadow: 0 10px 26px rgba(74,52,32,0.09);
       transform: translateY(-4px);
     }
-    .hygiene-card-icon {
-      width: 46px; height: 46px;
-      border-radius: 50%;
-      background: #f3ece0;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 21px;
-      margin-bottom: 14px;
+    .hygiene-card-head {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      margin-bottom: 13px;
     }
-    .hygiene-card h4 {
+    .hygiene-card-num {
+      flex-shrink: 0;
+      width: 38px; height: 38px;
+      border-radius: 50%;
+      background: var(--color-gold);
+      color: #fff;
       font-family: var(--font-serif);
-      font-size: 16px;
+      font-size: 17px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .hygiene-card-head h4 {
+      font-family: var(--font-serif);
+      font-size: 16.5px;
       color: var(--color-brown);
       letter-spacing: 0.05em;
-      margin-bottom: 9px;
+      line-height: 1.4;
     }
-    .hygiene-card p { font-size: 13px; line-height: 2; color: var(--color-text-lt); }
+    .hygiene-card p { font-size: 13.5px; line-height: 2.05; color: var(--color-text-lt); }
 
+    /* 締めのメッセージ帯 */
     .hygiene-closing {
-      max-width: 680px;
-      font-size: 14px;
-      line-height: 2.15;
+      text-align: center;
+      max-width: 760px;
+      margin: 8px auto 44px;
+      padding: 30px 28px;
+      background: #faf6ee;
+      border: 1px solid #e6ddca;
+      border-radius: 12px;
+      font-family: var(--font-serif);
+      font-size: clamp(15px, 2vw, 17px);
+      line-height: 1.95;
+      color: var(--color-brown);
+      letter-spacing: 0.04em;
+    }
+    .hygiene-note {
+      text-align: center;
+      font-size: 12px;
       color: var(--color-text-lt);
+      opacity: 0.85;
       margin-bottom: 40px;
+      letter-spacing: 0.03em;
     }
 
     @media (max-width: 600px) {
       .hygiene-section { padding: 54px 0 60px; }
       .hygiene-cert { flex-direction: column; text-align: center; gap: 12px; }
       .hygiene-list { grid-template-columns: 1fr; }
+      .hygiene-subhead { padding-top: 44px; }
     }
   </style>
 </head>
@@ -448,49 +488,105 @@
 
     <div class="hygiene-header fade-up">
       <span class="section-label">Cleanliness</span>
-      <h2 class="section-title">安心してお過ごしいただくために</h2>
+      <h2 class="section-title">安心・清潔な環境づくり</h2>
       <div class="divider"></div>
     </div>
     <p class="hygiene-lead fade-up">
-      米ぬか酵素浴 田（でん）は、お客様に安心して裸のお身体を預けていただける場所でありたいと考えています。
-      保健所の認可を受けたうえで、日々の衛生管理を大切にしています。
+      快適にご利用いただけるよう、衛生管理に配慮しています。
+    </p>
+
+    <div class="hygiene-list">
+      <div class="hygiene-card fade-up">
+        <div class="hygiene-card-head">
+          <span class="hygiene-card-num">1</span>
+          <h4>完全個室</h4>
+        </div>
+        <p>酵素室・更衣室・シャワールームは、プライバシーに配慮した完全個室です。</p>
+      </div>
+      <div class="hygiene-card fade-up">
+        <div class="hygiene-card-head">
+          <span class="hygiene-card-num">2</span>
+          <h4>換気設備</h4>
+        </div>
+        <p>酵素室・各個室には換気設備を備え、空気の入れ替えを行っています。</p>
+      </div>
+      <div class="hygiene-card fade-up">
+        <div class="hygiene-card-head">
+          <span class="hygiene-card-num">3</span>
+          <h4>日々の衛生管理</h4>
+        </div>
+        <p>スタッフは手洗い・うがい・清掃・備品の消毒など、日々の衛生管理を行っています。</p>
+      </div>
+      <div class="hygiene-card fade-up">
+        <div class="hygiene-card-head">
+          <span class="hygiene-card-num">4</span>
+          <h4>定期検査</h4>
+        </div>
+        <p>発酵米ぬかは、定期的に検査機関へ依頼し検査を行っています。検査結果は店内でご覧いただけます。</p>
+      </div>
+      <div class="hygiene-card fade-up">
+        <div class="hygiene-card-head">
+          <span class="hygiene-card-num">5</span>
+          <h4>定期メンテナンス</h4>
+        </div>
+        <p>米ぬかの入れ替え、桶の清掃・メンテナンスを定期的に実施しています。</p>
+      </div>
+      <div class="hygiene-card fade-up">
+        <div class="hygiene-card-head">
+          <span class="hygiene-card-num">6</span>
+          <h4>自然循環</h4>
+        </div>
+        <p>役目を終えた米ぬかは「酵素肥料」として土に還し、自然堆肥として再利用しています。</p>
+      </div>
+    </div>
+
+
+    <!-- ── 酵素浴槽内の衛生環境について ── -->
+    <div class="hygiene-subhead fade-up">
+      <span class="section-label">Bath Hygiene</span>
+      <h2 class="section-title">酵素浴槽内の衛生環境について</h2>
+      <div class="divider"></div>
+    </div>
+    <p class="hygiene-lead fade-up">
+      衛生管理・温度管理・定期メンテナンスを行い、快適にご利用いただける環境づくりに努めています。
     </p>
 
     <div class="hygiene-cert fade-up">
       <div class="hygiene-cert-mark">✓</div>
       <div class="hygiene-cert-text">
-        <h3>保健所の認可を受けています</h3>
-        <p>所轄の保健所へ届け出を行い、公衆浴場としての基準を満たした施設として営業しています。</p>
+        <h3>営業許可と衛生基準</h3>
+        <p>酵素浴は公衆浴場営業許可の対象であり、当店は設備面・衛生面の基準に沿って運営しています。</p>
       </div>
     </div>
 
     <div class="hygiene-list">
       <div class="hygiene-card fade-up">
-        <div class="hygiene-card-icon">🌾</div>
-        <h4>米ぬかの管理</h4>
-        <p>米ぬかは発酵の状態を毎日確認し、かき混ぜ・補充を行いながら清潔な状態を保っています。発酵によって60〜70℃の熱が生まれ、菌のバランスが保たれます。</p>
+        <div class="hygiene-card-head">
+          <span class="hygiene-card-num">1</span>
+          <h4>温度管理</h4>
+        </div>
+        <p>浴槽内はおおむね60℃以上を保つよう日々管理しています。</p>
       </div>
       <div class="hygiene-card fade-up">
-        <div class="hygiene-card-icon">🚪</div>
-        <h4>完全個室・完全予約制</h4>
-        <p>入酵から着替えまでを完全個室でご利用いただけます。完全予約制のため、他のお客様と接触することなく、ゆったりとお過ごしいただけます。</p>
+        <div class="hygiene-card-head">
+          <span class="hygiene-card-num">2</span>
+          <h4>衛生管理の考え方</h4>
+        </div>
+        <p>高温環境の維持に加え、米ぬかの入れ替え・桶の清掃・定期検査を組み合わせて、衛生面に配慮しています。</p>
       </div>
       <div class="hygiene-card fade-up">
-        <div class="hygiene-card-icon">🧺</div>
-        <h4>タオル・備品</h4>
-        <p>お使いいただくタオル類は一回ごとに洗濯した清潔なものをご用意しています。館内の備品もこまめに清掃・消毒しています。</p>
-      </div>
-      <div class="hygiene-card fade-up">
-        <div class="hygiene-card-icon">🚿</div>
-        <h4>シャワー・水まわり</h4>
-        <p>シャワールームやパウダースペースは、ご利用のたびに清掃を行い、気持ちよくお使いいただける状態を保っています。</p>
+        <div class="hygiene-card-head">
+          <span class="hygiene-card-num">3</span>
+          <h4>定期メンテナンス</h4>
+        </div>
+        <p>発酵米ぬかの検査、桶の清掃・メンテナンス、米ぬかの入れ替えを定期的に実施しています。</p>
       </div>
     </div>
 
     <p class="hygiene-closing fade-up">
-      「清潔であること」は、心からリラックスしていただくための土台だと考えています。
-      気になる点やご不安なことがございましたら、ご予約時やご来店時にお気軽にお尋ねください。
+      衛生面に配慮し、<br>安心してご利用いただける環境づくりに努めています。
     </p>
+    <p class="hygiene-note fade-up">※掲載内容は当店の衛生管理・運営体制に関するご案内です。</p>
 
     <a href="index.html" class="back-link">← トップページへ戻る</a>
 
