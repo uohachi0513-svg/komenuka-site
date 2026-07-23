@@ -640,36 +640,76 @@
     /* ── BADGE BAND ── */
     .badge-band {
       background: var(--color-brown);
-      padding: 26px 0;
+      padding: 34px 0;
     }
 
     .badge-band-inner {
       display: flex;
       justify-content: center;
-      gap: 56px;
+      gap: 20px;
       flex-wrap: wrap;
     }
 
     .badge-item {
       display: flex;
+      flex-direction: column;
       align-items: center;
-      gap: 11px;
-      color: rgba(255,255,255,0.82);
+      gap: 10px;
+      width: 180px;
+      padding: 20px 16px 16px;
+      color: rgba(255,255,255,0.9);
       font-family: var(--font-serif);
-      font-size: 13px;
-      letter-spacing: 0.08em;
+      font-size: 13.5px;
+      letter-spacing: 0.06em;
+      text-align: center;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(200,169,110,0.4);
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.22);
+      transition: transform .3s ease, box-shadow .3s ease, background .3s ease, border-color .3s ease;
+      position: relative;
     }
+    a.badge-item:hover {
+      transform: translateY(-7px);
+      background: rgba(200,169,110,0.16);
+      border-color: var(--color-gold-lt);
+      box-shadow: 0 16px 34px rgba(0,0,0,0.34);
+    }
+    .badge-arrow {
+      margin-top: 2px;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      color: var(--color-gold-lt);
+      opacity: 0.85;
+      transition: transform .3s ease;
+    }
+    a.badge-item:hover .badge-arrow { transform: translateX(3px); }
 
     .badge-icon {
-      width: 36px;
-      height: 36px;
-      border: 1px solid rgba(200,169,110,0.45);
+      width: 46px;
+      height: 46px;
+      border: 1px solid rgba(200,169,110,0.5);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 15px;
+      font-size: 20px;
       flex-shrink: 0;
+      transition: border-color .3s ease, background .3s ease;
+    }
+    a.badge-item:hover .badge-icon {
+      border-color: var(--color-gold-lt);
+      background: rgba(200,169,110,0.14);
+    }
+
+    @media (max-width: 600px) {
+      .badge-band-inner { gap: 12px; }
+      .badge-item {
+        width: calc(50% - 6px);
+        padding: 16px 10px 13px;
+        font-size: 12px;
+      }
+      .badge-icon { width: 40px; height: 40px; font-size: 18px; }
     }
 
     /* ===== ABOUT ===== */
@@ -2370,6 +2410,7 @@
     <a href="#access">アクセス</a>
     <a href="cancel-policy.html">キャンセルポリシー</a>
     <a href="caution.html">ご利用時の注意事項</a>
+    <a href="hygiene.html">衛生面について</a>
     <a href="https://note.com/agile_eider7673" target="_blank" rel="noopener" style="color: var(--color-gold) !important;">店長のブログ ↗</a>
     <a href="#reservation">ご予約・お問合せ</a>
   </nav>
@@ -2418,22 +2459,26 @@
      ============================================================ -->
 <div class="badge-band">
   <div class="badge-band-inner container">
-    <div class="badge-item">
+    <a href="flow.html" class="badge-item">
       <div class="badge-icon">🏠</div>
       完全個室・完全予約制
-    </div>
-    <div class="badge-item">
+      <span class="badge-arrow">ご利用の流れ ›</span>
+    </a>
+    <a href="index.html#enzyme" class="badge-item">
       <div class="badge-icon">♨️</div>
       自然発酵の熱
-    </div>
-    <div class="badge-item">
+      <span class="badge-arrow">米ぬか酵素浴とは ›</span>
+    </a>
+    <a href="hygiene.html" class="badge-item">
       <div class="badge-icon">✅</div>
       保健所認可済
-    </div>
-    <div class="badge-item">
+      <span class="badge-arrow">衛生面について ›</span>
+    </a>
+    <a href="index.html#access" class="badge-item">
       <div class="badge-icon">🚉</div>
       JR土山駅徒歩2分
-    </div>
+      <span class="badge-arrow">アクセス ›</span>
+    </a>
   </div>
 </div>
 

@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>催しごと｜ワークショップなどイベントの様子｜米ぬか酵素浴 田（でん）兵庫・加古川</title>
-  <meta name="description" content="米ぬか酵素浴 田（でん）で開催したぬか床ワークショップなどイベントの様子を写真でご紹介します。兵庫県播磨町・JR土山駅徒歩2分。">
-  <link rel="canonical" href="https://den-komenukakoso.com/topics.html">
+  <title>衛生面について｜清潔で安心の米ぬか酵素浴｜保健所認可済 田（でん）兵庫・加古川</title>
+  <meta name="description" content="米ぬか酵素浴 田（でん）の衛生管理について。保健所の認可を受け、米ぬかの入れ替え・完全個室の清掃・タオル類の管理など、安心してご利用いただくための取り組みをご紹介します。兵庫県播磨町・JR土山駅徒歩2分。">
+  <link rel="canonical" href="https://den-komenukakoso.com/hygiene.html">
   <link rel="icon" type="image/png" href="images/favicon.png">
   <link rel="apple-touch-icon" href="images/favicon.png">
 
@@ -274,152 +274,106 @@
     .subpage-breadcrumb a { color: rgba(255,255,255,0.6); }
     .subpage-title { font-family: var(--font-serif); font-size: 32px; color: var(--color-white); letter-spacing: .1em; }
 
-    /* ===== TOPICS（白基調・ミニマルグリッド） ===== */
-    .topics-section {
-      padding: 70px 0 80px;
-      background: #fff;
-    }
-    .topics-header { margin-bottom: 10px; }
-    .topics-header .section-label { color: var(--color-gold); letter-spacing: 0.3em; }
-    .topics-header .section-title {
+
+    /* ===== HYGIENE（衛生面について） ===== */
+    .hygiene-section { padding: 70px 0 84px; background: #fff; }
+    .hygiene-header { margin-bottom: 12px; }
+    .hygiene-header .section-label { color: var(--color-gold); letter-spacing: 0.3em; }
+    .hygiene-header .section-title {
       color: var(--color-brown);
-      font-size: clamp(20px, 2.6vw, 27px);
+      font-size: clamp(21px, 2.8vw, 28px);
       letter-spacing: 0.1em;
       margin-bottom: 14px;
     }
-    .topics-header .divider { background: var(--color-gold); margin-bottom: 22px; }
-    .topics-lead {
-      max-width: 620px;
-      margin: 0 0 46px;
-      font-size: 13px;
-      line-height: 2.1;
+    .hygiene-header .divider { background: var(--color-gold); margin-bottom: 22px; }
+    .hygiene-lead {
+      max-width: 660px;
+      margin: 0 0 52px;
+      font-size: 14px;
+      line-height: 2.15;
       color: var(--color-text-lt);
     }
 
-    /* 本文＋サイドの2カラム */
-    .topics-layout {
-      display: grid;
-      grid-template-columns: 150px 1fr;
-      gap: 44px;
-      align-items: start;
-    }
-
-    /* 左サイド：イベント一覧 */
-    .topics-side {
-      position: sticky;
-      top: 190px;
-      font-size: 12px;
-      line-height: 2.3;
-      letter-spacing: 0.06em;
-    }
-    .topics-side-title {
-      font-size: 11px;
-      letter-spacing: 0.2em;
-      color: var(--color-brown);
-      padding-bottom: 8px;
-      margin-bottom: 10px;
-      border-bottom: 1px solid #e2dbcd;
-    }
-    .topics-side a {
-      display: block;
-      color: var(--color-text-lt);
-      padding-left: 10px;
-      transition: var(--transition);
-    }
-    .topics-side a:hover { color: var(--color-gold); }
-
-    /* イベント見出し */
-    .event-card { margin-bottom: 56px; scroll-margin-top: 190px; }
-    .event-card:last-of-type { margin-bottom: 20px; }
-    .event-meta {
+    /* 認可バナー */
+    .hygiene-cert {
       display: flex;
       align-items: center;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-bottom: 8px;
-    }
-    .event-badge {
-      display: inline-block;
-      padding: 3px 12px;
-      background: #fff;
-      border: 1px solid var(--color-gold);
-      color: var(--color-gold);
-      font-size: 10px;
-      letter-spacing: 0.14em;
-    }
-    .event-date {
-      font-size: 12px;
-      color: var(--color-text-lt);
-      letter-spacing: 0.06em;
-    }
-    .event-title {
-      font-family: var(--font-serif);
-      font-size: clamp(17px, 2.2vw, 21px);
-      font-weight: 500;
-      color: var(--color-brown);
-      letter-spacing: 0.08em;
-      line-height: 1.6;
-      margin-bottom: 10px;
-    }
-    .event-desc {
-      font-size: 13px;
-      line-height: 2.1;
-      color: var(--color-text-lt);
-      margin-bottom: 22px;
-      max-width: 640px;
-    }
-
-    /* 写真カードグリッド */
-    .event-photos {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
       gap: 18px;
+      max-width: 720px;
+      margin: 0 0 48px;
+      padding: 22px 26px;
+      background: #faf6ee;
+      border: 1px solid #e6ddca;
+      border-left: 4px solid var(--color-gold);
+      border-radius: 10px;
     }
-    .event-photo {
-      margin: 0;
+    .hygiene-cert-mark {
+      flex-shrink: 0;
+      width: 52px; height: 52px;
+      border-radius: 50%;
+      background: var(--color-gold);
+      color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 24px;
+    }
+    .hygiene-cert-text h3 {
+      font-family: var(--font-serif);
+      font-size: 16px;
+      color: var(--color-brown);
+      letter-spacing: 0.06em;
+      margin-bottom: 4px;
+    }
+    .hygiene-cert-text p { font-size: 13px; line-height: 1.9; color: var(--color-text-lt); }
+
+    /* 取り組みカード */
+    .hygiene-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 18px;
+      margin-bottom: 56px;
+    }
+    .hygiene-card {
+      padding: 26px 24px 24px;
       background: #fff;
       border: 1px solid #e4ded2;
-      transition: border-color .3s ease, box-shadow .3s ease;
+      border-radius: 12px;
+      transition: border-color .3s ease, box-shadow .3s ease, transform .3s ease;
     }
-    .event-photo:hover {
+    .hygiene-card:hover {
       border-color: var(--color-gold-lt);
-      box-shadow: 0 4px 16px rgba(74,52,32,0.09);
+      box-shadow: 0 10px 26px rgba(74,52,32,0.09);
+      transform: translateY(-4px);
     }
-    .event-photo img {
-      display: block;
-      width: 100%;
-      aspect-ratio: 4 / 3;
-      object-fit: cover;
+    .hygiene-card-icon {
+      width: 46px; height: 46px;
+      border-radius: 50%;
+      background: #f3ece0;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 21px;
+      margin-bottom: 14px;
     }
-    .event-photo figcaption {
-      padding: 11px 13px 14px;
-      font-size: 12px;
-      line-height: 1.9;
+    .hygiene-card h4 {
+      font-family: var(--font-serif);
+      font-size: 16px;
+      color: var(--color-brown);
+      letter-spacing: 0.05em;
+      margin-bottom: 9px;
+    }
+    .hygiene-card p { font-size: 13px; line-height: 2; color: var(--color-text-lt); }
+
+    .hygiene-closing {
+      max-width: 680px;
+      font-size: 14px;
+      line-height: 2.15;
       color: var(--color-text-lt);
-      letter-spacing: 0.03em;
-      border-top: 1px solid #efe9de;
+      margin-bottom: 40px;
     }
 
-    /* 写真のふわっと表示 */
-    .img-reveal {
-      opacity: 0;
-      transform: scale(1.03);
-      filter: blur(6px);
-      transition: opacity 1s ease, transform 1s ease, filter 1s ease;
-    }
-    .img-reveal.visible { opacity: 1; transform: scale(1); filter: blur(0); }
-
-    @media (max-width: 820px) {
-      .topics-layout { grid-template-columns: 1fr; gap: 0; }
-      .topics-side { display: none; }
-    }
     @media (max-width: 600px) {
-      .topics-section { padding: 54px 0 56px; }
-      .event-card { margin-bottom: 44px; }
-      .event-photos { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 14px; }
+      .hygiene-section { padding: 54px 0 60px; }
+      .hygiene-cert { flex-direction: column; text-align: center; gap: 12px; }
+      .hygiene-list { grid-template-columns: 1fr; }
     }
-
-
   </style>
 </head>
 
@@ -474,81 +428,69 @@
 <!-- ============================================================
      SUBPAGE HERO
      ============================================================ -->
+
+<!-- ============================================================
+     SUBPAGE HERO
+     ============================================================ -->
 <section class="subpage-hero">
   <div class="container">
-    <p class="subpage-breadcrumb"><a href="index.html">ホーム</a> &rsaquo; 催しごと</p>
-    <h1 class="subpage-title">催しごと</h1>
+    <p class="subpage-breadcrumb"><a href="index.html">ホーム</a> &rsaquo; 衛生面について</p>
+    <h1 class="subpage-title">衛生面について</h1>
   </div>
 </section>
 
 
 <!-- ============================================================
-     TOPICS
+     HYGIENE
      ============================================================ -->
-<section class="topics-section">
+<section class="hygiene-section">
   <div class="container">
 
-    <div class="topics-header fade-up">
-      <span class="section-label">Events</span>
-      <h2 class="section-title">ぬか床づくりの、その日のこと</h2>
+    <div class="hygiene-header fade-up">
+      <span class="section-label">Cleanliness</span>
+      <h2 class="section-title">安心してお過ごしいただくために</h2>
       <div class="divider"></div>
     </div>
-    <p class="topics-lead fade-up">
-      米ぬか酵素浴 田（でん）では、ぬか床づくりのワークショップなど、
-      発酵の魅力にふれていただける催しを開いています。
-      その日の様子を、写真でおすそわけします。
+    <p class="hygiene-lead fade-up">
+      米ぬか酵素浴 田（でん）は、お客様に安心して裸のお身体を預けていただける場所でありたいと考えています。
+      保健所の認可を受けたうえで、日々の衛生管理を大切にしています。
     </p>
 
-    <div class="topics-layout">
-
-      <!-- 左サイド：イベント一覧（増えたらここにも1行足してください） -->
-      <aside class="topics-side">
-        <div class="topics-side-title">催し一覧</div>
-        <a href="#event-nukadoko">ぬか床ワークショップ</a>
-      </aside>
-
-      <div class="topics-main">
-
-    <!-- ▼▼ イベントはこのブロックをコピーして増やしてください ▼▼ -->
-    <article class="event-card fade-up" id="event-nukadoko">
-      <div class="event-meta">
-        <span class="event-badge">ワークショップ</span>
-        <span class="event-date">2026年7月21日（火）開催</span>
-      </div>
-      <h3 class="event-title">ぬか床ワークショップを開催しました</h3>
-      <p class="event-desc">
-        ご自宅で続けられる「ぬか床づくり」のワークショップを開催しました。
-        米ぬかの手ざわりや香りを感じながら、皆さんで和気あいあいと仕込み作業。
-        最後はできあがったぬか漬けの試食も楽しんでいただきました。
-        ご参加いただいた皆さま、ありがとうございました。
-      </p>
-      <div class="event-photos">
-        <figure class="event-photo">
-          <img src="images/event-nukadoko-1.png" alt="ぬか床ワークショップで参加者が一緒に仕込みをする様子｜米ぬか酵素浴 田（でん）兵庫・加古川・播磨町" loading="lazy" class="img-reveal"
-               onerror="this.closest('.event-photo').remove()">
-          <figcaption>みんなでテーブルを囲んで、わいわい仕込み</figcaption>
-        </figure>
-        <figure class="event-photo">
-          <img src="images/event-nukadoko-4.png" alt="袋に入れた米ぬかを混ぜてぬか床を仕込む様子｜ぬか床ワークショップ 米ぬか酵素浴 田（でん）播磨町" loading="lazy" class="img-reveal"
-               onerror="this.closest('.event-photo').remove()">
-          <figcaption>袋いっぱいの米ぬかを、しっかり混ぜて</figcaption>
-        </figure>
-        <figure class="event-photo">
-          <img src="images/event-nukadoko-2.jpg" alt="袋の中で米ぬかをやさしく混ぜてぬか床をつくる手元｜ぬか床ワークショップ 兵庫・加古川" loading="lazy" class="img-reveal"
-               onerror="this.closest('.event-photo').remove()">
-          <figcaption>手のひらでやさしく、なじませるように</figcaption>
-        </figure>
-        <figure class="event-photo">
-          <img src="images/event-nukadoko-3.png" alt="できあがったぬか漬けを試食する参加者｜米ぬか酵素浴 田（でん）ぬか床ワークショップ" loading="lazy" class="img-reveal"
-               onerror="this.closest('.event-photo').remove()">
-          <figcaption>最後はぬか漬けの試食を楽しみました</figcaption>
-        </figure>
-      </div>
-    </article>
-    <!-- ▲▲ ここまでが1イベント ▲▲ -->
-
+    <div class="hygiene-cert fade-up">
+      <div class="hygiene-cert-mark">✓</div>
+      <div class="hygiene-cert-text">
+        <h3>保健所の認可を受けています</h3>
+        <p>所轄の保健所へ届け出を行い、公衆浴場としての基準を満たした施設として営業しています。</p>
       </div>
     </div>
+
+    <div class="hygiene-list">
+      <div class="hygiene-card fade-up">
+        <div class="hygiene-card-icon">🌾</div>
+        <h4>米ぬかの管理</h4>
+        <p>米ぬかは発酵の状態を毎日確認し、かき混ぜ・補充を行いながら清潔な状態を保っています。発酵によって60〜70℃の熱が生まれ、菌のバランスが保たれます。</p>
+      </div>
+      <div class="hygiene-card fade-up">
+        <div class="hygiene-card-icon">🚪</div>
+        <h4>完全個室・完全予約制</h4>
+        <p>入酵から着替えまでを完全個室でご利用いただけます。完全予約制のため、他のお客様と接触することなく、ゆったりとお過ごしいただけます。</p>
+      </div>
+      <div class="hygiene-card fade-up">
+        <div class="hygiene-card-icon">🧺</div>
+        <h4>タオル・備品</h4>
+        <p>お使いいただくタオル類は一回ごとに洗濯した清潔なものをご用意しています。館内の備品もこまめに清掃・消毒しています。</p>
+      </div>
+      <div class="hygiene-card fade-up">
+        <div class="hygiene-card-icon">🚿</div>
+        <h4>シャワー・水まわり</h4>
+        <p>シャワールームやパウダースペースは、ご利用のたびに清掃を行い、気持ちよくお使いいただける状態を保っています。</p>
+      </div>
+    </div>
+
+    <p class="hygiene-closing fade-up">
+      「清潔であること」は、心からリラックスしていただくための土台だと考えています。
+      気になる点やご不安なことがございましたら、ご予約時やご来店時にお気軽にお尋ねください。
+    </p>
 
     <a href="index.html" class="back-link">← トップページへ戻る</a>
 
