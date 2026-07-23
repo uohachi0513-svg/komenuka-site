@@ -570,6 +570,11 @@
       z-index: 0;
     }
     .news .container { position: relative; z-index: 1; }
+    @media (max-width: 600px) {
+      /* スマホは枠が短いので、写真をズームして米ぬかの質感を上側に出し、オーバーレイも薄く */
+      .news { background-size: 200%; background-position: center 92%; }
+      .news::before { background: rgba(255,255,255,0.5); }
+    }
 
     .news-header {
       text-align: center;
