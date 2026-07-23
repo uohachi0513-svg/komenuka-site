@@ -294,6 +294,35 @@
       color: var(--color-text-lt);
     }
 
+    /* 挿絵バナー */
+    .hygiene-banner {
+      margin: 0 0 34px;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 8px 26px rgba(74,52,32,0.14);
+    }
+    .hygiene-banner img { display: block; width: 100%; height: auto; }
+    .hygiene-sep {
+      border-top: 1px solid #ece4d4;
+      margin: 60px 0 40px;
+    }
+    .sr-only {
+      position: absolute;
+      width: 1px; height: 1px;
+      padding: 0; margin: -1px;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+      white-space: nowrap;
+      border: 0;
+    }
+    .img-reveal {
+      opacity: 0;
+      transform: scale(1.03);
+      filter: blur(6px);
+      transition: opacity 1s ease, transform 1s ease, filter 1s ease;
+    }
+    .img-reveal.visible { opacity: 1; transform: scale(1); filter: blur(0); }
+
     /* 認可バナー */
     .hygiene-cert {
       display: flex;
@@ -486,14 +515,10 @@
 <section class="hygiene-section">
   <div class="container">
 
-    <div class="hygiene-header fade-up">
-      <span class="section-label">Cleanliness</span>
-      <h2 class="section-title">安心・清潔な環境づくり</h2>
-      <div class="divider"></div>
-    </div>
-    <p class="hygiene-lead fade-up">
-      快適にご利用いただけるよう、衛生管理に配慮しています。
-    </p>
+    <h2 class="sr-only">安心・清潔な環境づくり</h2>
+    <figure class="hygiene-banner fade-up">
+      <img src="images/eisei.jpeg" alt="衛生面について｜快適にご利用いただけるよう、衛生管理に配慮しています。安心・清潔な環境づくり｜米ぬか酵素浴 田（でん）" loading="lazy" class="img-reveal">
+    </figure>
 
     <div class="hygiene-list">
       <div class="hygiene-card fade-up">
@@ -542,14 +567,11 @@
 
 
     <!-- ── 酵素浴槽内の衛生環境について ── -->
-    <div class="hygiene-subhead fade-up">
-      <span class="section-label">Bath Hygiene</span>
-      <h2 class="section-title">酵素浴槽内の衛生環境について</h2>
-      <div class="divider"></div>
-    </div>
-    <p class="hygiene-lead fade-up">
-      衛生管理・温度管理・定期メンテナンスを行い、快適にご利用いただける環境づくりに努めています。
-    </p>
+    <div class="hygiene-sep"></div>
+    <h2 class="sr-only">酵素浴槽内の衛生環境について</h2>
+    <figure class="hygiene-banner fade-up">
+      <img src="images/yokusou.jpeg" alt="酵素浴槽内の衛生環境について｜衛生管理・温度管理・定期メンテナンスを行い、快適にご利用いただける環境づくりに努めています｜米ぬか酵素浴 田（でん）" loading="lazy" class="img-reveal">
+    </figure>
 
     <div class="hygiene-cert fade-up">
       <div class="hygiene-cert-mark">✓</div>
