@@ -901,7 +901,8 @@
     .commitment::after,
     .faq::after,
     .voice::after,
-    .access::after {
+    .access::after,
+    .owner-note-section::after {
       content: '';
       position: absolute;
       inset: 0;
@@ -915,22 +916,7 @@
         var(--color-bg) 100%
       );
     }
-    /* 暗い店長の想いセクションは、暗色でふんわり溶け込ませる */
     .owner-note-section { position: relative; }
-    .owner-note-section::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      z-index: 0;
-      pointer-events: none;
-      background: linear-gradient(
-        180deg,
-        #14100a 0%,
-        rgba(20,16,10,0) 90px,
-        rgba(20,16,10,0) calc(100% - 90px),
-        #14100a 100%
-      );
-    }
     .owner-note-section .container { position: relative; z-index: 1; }
     @media (max-width: 600px) {
       .enzyme::after, .ricebran::after, .course::after,
@@ -942,15 +928,6 @@
           rgba(250,246,238,0) 56px,
           rgba(250,246,238,0) calc(100% - 56px),
           var(--color-bg) 100%
-        );
-      }
-      .owner-note-section::after {
-        background: linear-gradient(
-          180deg,
-          #14100a 0%,
-          rgba(20,16,10,0) 56px,
-          rgba(20,16,10,0) calc(100% - 56px),
-          #14100a 100%
         );
       }
     }
@@ -3209,27 +3186,6 @@
 
 
 <!-- ============================================================
-     OWNER NOTE → note
-     ============================================================ -->
-<section class="owner-note-section">
-  <div class="container">
-    <div class="about-note fade-up">
-      <h3 class="about-note-title">でん店長の想い｜体と向き合ってきた私の話</h3>
-      <p class="about-note-text">店長自身が体調を崩した経験や、女性特有の悩みと向き合ってきた過去をnoteに綴っています。</p>
-      <p class="about-note-text">米ぬか酵素浴 田が、なぜ「体をあたためること」「自分の体と向き合うこと」を大切にしているのか。よろしければご覧ください。</p>
-      <a href="https://note.com/agile_eider7673" target="_blank" rel="noopener" class="about-note-btn" aria-label="私の体との長い旅｜店長のブログを読む">
-        <img src="images/tentixyou.png" alt="私の体との長い旅 支えられながら、自分らしく生きていく" loading="lazy">
-        <span class="scent-callout-tap">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 11V5.5a1.5 1.5 0 0 1 3 0V11h.5V8.5a1.5 1.5 0 0 1 3 0V11h.5V9.5a1.5 1.5 0 0 1 3 0V15c0 3.3-2.7 6-6 6h-1.2c-1.6 0-3.1-.6-4.2-1.8l-3.4-3.5a1.5 1.5 0 0 1 2-2.2l1.5 1.3V6.5a1.5 1.5 0 0 1 3 0V11H9z"/></svg>
-          こちらをタップ
-        </span>
-      </a>
-    </div>
-  </div>
-</section>
-
-
-<!-- ============================================================
      ACCESS
      ============================================================ -->
 <section class="access" id="access">
@@ -3313,6 +3269,27 @@
       </div>
     </div>
 
+  </div>
+</section>
+
+
+<!-- ============================================================
+     OWNER NOTE → note
+     ============================================================ -->
+<section class="owner-note-section">
+  <div class="container">
+    <div class="about-note fade-up">
+      <h3 class="about-note-title">でん店長の想い｜体と向き合ってきた私の話</h3>
+      <p class="about-note-text">店長自身が体調を崩した経験や、女性特有の悩みと向き合ってきた過去をnoteに綴っています。</p>
+      <p class="about-note-text">米ぬか酵素浴 田が、なぜ「体をあたためること」「自分の体と向き合うこと」を大切にしているのか。よろしければご覧ください。</p>
+      <a href="https://note.com/agile_eider7673" target="_blank" rel="noopener" class="about-note-btn" aria-label="私の体との長い旅｜店長のブログを読む">
+        <img src="images/tentixyou.png" alt="私の体との長い旅 支えられながら、自分らしく生きていく" loading="lazy">
+        <span class="scent-callout-tap">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 11V5.5a1.5 1.5 0 0 1 3 0V11h.5V8.5a1.5 1.5 0 0 1 3 0V11h.5V9.5a1.5 1.5 0 0 1 3 0V15c0 3.3-2.7 6-6 6h-1.2c-1.6 0-3.1-.6-4.2-1.8l-3.4-3.5a1.5 1.5 0 0 1 2-2.2l1.5 1.3V6.5a1.5 1.5 0 0 1 3 0V11H9z"/></svg>
+          こちらをタップ
+        </span>
+      </a>
+    </div>
   </div>
 </section>
 
