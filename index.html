@@ -893,6 +893,68 @@
       -webkit-backdrop-filter: blur(2px);
     }
 
+    /* ===== セクションの継ぎ目をやわらかくぼかす ===== */
+    /* 明るい写真セクションの上下端をクリーム色にふわっと溶け込ませる */
+    .enzyme::after,
+    .ricebran::after,
+    .course::after,
+    .commitment::after,
+    .faq::after,
+    .voice::after,
+    .access::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background: linear-gradient(
+        180deg,
+        var(--color-bg) 0%,
+        rgba(250,246,238,0) 90px,
+        rgba(250,246,238,0) calc(100% - 90px),
+        var(--color-bg) 100%
+      );
+    }
+    /* 暗い店長の想いセクションは、暗色でふんわり溶け込ませる */
+    .owner-note-section { position: relative; }
+    .owner-note-section::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background: linear-gradient(
+        180deg,
+        #14100a 0%,
+        rgba(20,16,10,0) 90px,
+        rgba(20,16,10,0) calc(100% - 90px),
+        #14100a 100%
+      );
+    }
+    .owner-note-section .container { position: relative; z-index: 1; }
+    @media (max-width: 600px) {
+      .enzyme::after, .ricebran::after, .course::after,
+      .commitment::after, .faq::after, .voice::after,
+      .access::after, .owner-note-section::after {
+        background: linear-gradient(
+          180deg,
+          var(--color-bg) 0%,
+          rgba(250,246,238,0) 56px,
+          rgba(250,246,238,0) calc(100% - 56px),
+          var(--color-bg) 100%
+        );
+      }
+      .owner-note-section::after {
+        background: linear-gradient(
+          180deg,
+          #14100a 0%,
+          rgba(20,16,10,0) 56px,
+          rgba(20,16,10,0) calc(100% - 56px),
+          #14100a 100%
+        );
+      }
+    }
+
     /* ===== ENZYME ===== */
     .enzyme {
       background: url('images/enzyme.png') center center / cover no-repeat;
