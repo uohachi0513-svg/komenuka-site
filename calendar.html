@@ -698,6 +698,10 @@ const SCHEDULE = {
   },
   "2026-08": {
     closed: [3, 8, 9, 13, 18, 19, 24, 27, 31]
+  },
+  "2026-09": {
+    closed: [7, 16, 17, 24, 29],
+    events: { 3: "ぬか床ワークショップ" }
   }
 };
 
@@ -777,13 +781,13 @@ function buildCalendar(year, month) {
 
 function renderCalendars() {
   const now = new Date();
-  const y1 = now.getFullYear();
-  const m1 = now.getMonth() + 1;
-  const m2 = m1 === 12 ? 1 : m1 + 1;
-  const y2 = m1 === 12 ? y1 + 1 : y1;
-
-  document.getElementById("calendar-months").innerHTML =
-    buildCalendar(y1, m1) + buildCalendar(y2, m2);
+  let html = "";
+  // 今月から3ヶ月分を表示（年またぎも自動対応）
+  for (let i = 0; i < 3; i++) {
+    const d = new Date(now.getFullYear(), now.getMonth() + i, 1);
+    html += buildCalendar(d.getFullYear(), d.getMonth() + 1);
+  }
+  document.getElementById("calendar-months").innerHTML = html;
 }
 
 renderCalendars();
