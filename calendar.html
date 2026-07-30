@@ -349,6 +349,55 @@
     }
 
     /* 2カラム */
+    .workshop-note {
+      max-width: 640px;
+      margin: 40px auto 0;
+      padding: 22px 26px;
+      background: #FBF3DF;
+      border: 1px solid rgba(198,150,58,0.35);
+      border-left: 4px solid var(--color-gold);
+      border-radius: 10px;
+      text-align: center;
+    }
+    .workshop-note-badge {
+      display: inline-block;
+      font-family: var(--font-serif);
+      font-size: 12px;
+      font-weight: 700;
+      color: #fff;
+      background: var(--color-gold);
+      padding: 3px 12px;
+      border-radius: 12px;
+      letter-spacing: 0.08em;
+      margin-bottom: 12px;
+      box-shadow: 0 1px 3px rgba(154,123,58,0.4);
+    }
+    .workshop-note p {
+      font-family: var(--font-serif);
+      font-size: 14px;
+      line-height: 2;
+      color: var(--color-text);
+      letter-spacing: 0.02em;
+    }
+    .workshop-note-btn {
+      display: inline-block;
+      margin-top: 14px;
+      padding: 11px 28px;
+      background: var(--color-gold);
+      color: #fff;
+      font-size: 13.5px;
+      letter-spacing: 0.06em;
+      border-radius: 30px;
+      text-decoration: none;
+      box-shadow: 0 4px 14px rgba(154,123,58,0.35);
+      transition: var(--transition);
+    }
+    .workshop-note-btn:hover {
+      background: var(--color-gold-lt);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(154,123,58,0.42);
+    }
+
     .calendar-months {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -628,6 +677,14 @@
 
     <!-- カレンダー本体（JSで描画） -->
     <div class="calendar-months fade-up fade-up-d2" id="calendar-months"></div>
+
+    <div class="workshop-note fade-up">
+      <span class="workshop-note-badge">催し</span>
+      <p>
+        ワークショップへご参加をご希望される場合は、当店公式LINEの「メッセージ」からお問い合わせください※<br>
+        <a href="https://page.line.me/182ficqy?oat_content=url&openQrModal=true" target="_blank" rel="noopener" class="workshop-note-btn">公式LINEでお問い合わせ</a>
+      </p>
+    </div>
 
     <a href="index.html" class="back-link">← トップページへ戻る</a>
 
