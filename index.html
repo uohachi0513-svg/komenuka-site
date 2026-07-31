@@ -976,8 +976,8 @@
     /* 各セクションの上端・下端を、隣り合うセクションの色に合わせる
        （未指定はクリーム = 明るい写真セクション同士の継ぎ目） */
     .news   { --seam-top: var(--color-brown); --seam-bottom: #ffffff; } /* 上:バッジ帯(茶) / 下:私たちについて(白) */
-    .access { --seam-bottom: #14100a; }                                  /* 下:店長の想い(暗い写真) */
-    .owner-note-section { --seam-top: transparent; --seam-bottom: #ffffff; } /* 上:暗い写真を活かす / 下:ご予約(白) */
+    /* アクセスの下端・店長の想いの上下は、他と同じくクリーム/白でぼかす */
+    .owner-note-section { --seam-bottom: #ffffff; } /* 下:ご予約(白) */
 
     @media (max-width: 600px) {
       .news, .ricebran, .course, .commitment,
