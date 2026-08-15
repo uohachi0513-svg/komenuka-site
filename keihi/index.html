@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="経費管理">
+<meta name="robots" content="noindex, nofollow">
+<title>経費管理 ｜ 米ぬか酵素浴 田</title>
+<style>
+:root{
+  --bg:#f7f4ef; --card:#fff; --ink:#2f2a25; --sub:#8b8178; --line:#e5ded4;
+  --accent:#8a6d3b; --accent-l:#f0e7d8; --ok:#3f7d5b; --warn:#b4553c; --shadow:0 1px 3px rgba(60,50,40,.08);
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--bg); color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;
+  font-size:15px; line-height:1.6; -webkit-text-size-adjust:100%;
+  padding-bottom:env(safe-area-inset-bottom);
+}
+header{
+  background:var(--card); border-bottom:1px solid var(--line); position:sticky; top:0; z-index:50;
+  padding:10px 14px calc(10px + env(safe-area-inset-top)) 14px; padding-top:calc(10px + env(safe-area-inset-top));
+}
+header h1{margin:0;font-size:16px;font-weight:700;letter-spacing:.02em}
+header .sub{font-size:11px;color:var(--sub);margin-top:1px}
+nav{display:flex;gap:4px;margin-top:10px;overflow-x:auto;-webkit-overflow-scrolling:touch}
+nav button{
+  flex:0 0 auto; border:1px solid var(--line); background:#fff; color:var(--sub);
+  padding:7px 13px; border-radius:999px; font-size:13px; font-weight:600; cursor:pointer; font-family:inherit;
+}
+nav button.on{background:var(--accent);border-color:var(--accent);color:#fff}
+main{padding:14px; max-width:900px; margin:0 auto}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px;margin-bottom:12px;box-shadow:var(--shadow)}
+.card h2{margin:0 0 10px;font-size:14px;font-weight:700;display:flex;align-items:center;gap:6px}
+.card h2 .tag{font-size:10px;font-weight:600;color:var(--accent);background:var(--accent-l);padding:2px 7px;border-radius:99px}
+label{display:block;font-size:12px;font-weight:600;color:var(--sub);margin:0 0 4px}
+.field{margin-bottom:11px}
+input,select,textarea,button{font-family:inherit;font-size:16px}
+input[type=text],input[type=date],input[type=number],select,textarea{
+  width:100%;padding:9px 10px;border:1px solid var(--line);border-radius:8px;background:#fff;color:var(--ink)
+}
+textarea{min-height:56px;resize:vertical}
+.row{display:flex;gap:9px}
+.row>*{flex:1;min-width:0}
+.amt input{font-size:20px;font-weight:700;text-align:right;letter-spacing:.02em}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:6px;
+  padding:11px 16px;border-radius:9px;border:1px solid var(--accent);background:var(--accent);color:#fff;
+  font-weight:700;font-size:14px;cursor:pointer;width:100%
+}
+.btn.sec{background:#fff;color:var(--accent)}
+.btn.ghost{background:#fff;color:var(--sub);border-color:var(--line)}
+.btn.sm{padding:6px 11px;font-size:12px;width:auto;border-radius:7px}
+.btn.danger{background:#fff;color:var(--warn);border-color:#e8c6bd}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:9px}
+.chip{border:1px solid var(--line);background:#fff;color:var(--ink);padding:6px 11px;border-radius:99px;font-size:13px;cursor:pointer;font-weight:600}
+.chip.on{background:var(--accent-l);border-color:var(--accent);color:var(--accent)}
+.hint{font-size:11px;color:var(--sub);margin-top:5px;line-height:1.5}
+.list{display:flex;flex-direction:column;gap:7px}
+.item{border:1px solid var(--line);border-radius:9px;padding:10px 11px;background:#fff;display:flex;gap:10px;align-items:flex-start;cursor:pointer}
+.item:active{background:#faf8f4}
+.item .d{font-size:11px;color:var(--sub);width:44px;flex:0 0 44px;font-variant-numeric:tabular-nums;padding-top:2px}
+.item .m{flex:1;min-width:0}
+.item .t{font-weight:700;font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.item .s{font-size:11px;color:var(--sub);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.item .y{font-weight:700;font-size:15px;font-variant-numeric:tabular-nums;white-space:nowrap;padding-top:1px}
+.badge{display:inline-block;font-size:10px;padding:1px 6px;border-radius:99px;background:#eee;color:#777;margin-left:5px;vertical-align:1px}
+.badge.done{background:#e4efe8;color:var(--ok)}
+.badge.todo{background:#fbeee9;color:var(--warn)}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th,td{padding:7px 6px;border-bottom:1px solid var(--line);text-align:left}
+th{font-size:11px;color:var(--sub);font-weight:600}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
+.total{display:flex;justify-content:space-between;align-items:baseline;padding:11px 0 3px;border-top:2px solid var(--ink);margin-top:6px}
+.total .l{font-size:12px;font-weight:600;color:var(--sub)}
+.total .v{font-size:20px;font-weight:800;font-variant-numeric:tabular-nums}
+.empty{text-align:center;color:var(--sub);font-size:13px;padding:22px 0}
+.modal{position:fixed;inset:0;background:rgba(40,34,28,.45);display:none;align-items:flex-end;justify-content:center;z-index:100}
+.modal.on{display:flex}
+.sheet{background:var(--card);width:100%;max-width:520px;border-radius:14px 14px 0 0;padding:16px;max-height:88vh;overflow:auto;padding-bottom:calc(16px + env(safe-area-inset-bottom))}
+@media(min-width:640px){.modal{align-items:center}.sheet{border-radius:14px}}
+.sheet h3{margin:0 0 12px;font-size:15px}
+.mrow{display:flex;gap:8px;margin-top:12px}
+.mrow>*{flex:1}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.mst{border:1px solid var(--line);border-radius:9px;padding:9px 10px;margin-bottom:7px;background:#fff}
+.mst .h{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.mst .h b{font-size:14px}
+.mst .meta{font-size:11px;color:var(--sub);margin-top:2px}
+.tools{display:flex;gap:6px;flex-wrap:wrap}
+.seg{display:flex;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.seg button{flex:1;border:0;background:#fff;color:var(--sub);padding:8px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit}
+.seg button.on{background:var(--accent-l);color:var(--accent)}
+.warnbox{background:#fdf5f2;border:1px solid #eed6cd;border-radius:9px;padding:10px;font-size:12px;color:#8a4a34;line-height:1.6}
+.okbox{background:#eef5f0;border:1px solid #cfe3d6;border-radius:9px;padding:10px;font-size:12px;color:#2f6349;line-height:1.6}
+.hide{display:none !important}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>経費管理</h1>
+  <div class="sub">仕入・経費の入力 → マネーフォワードクラウド用CSV</div>
+  <nav>
+    <button data-tab="input" class="on">入力</button>
+    <button data-tab="list">一覧</button>
+    <button data-tab="csv">CSV出力</button>
+    <button data-tab="sum">集計</button>
+    <button data-tab="master">マスタ</button>
+  </nav>
+</header>
+
+<main>
+
+<!-- ============ 入力 ============ -->
+<section id="tab-input">
+  <div class="card">
+    <h2>取引を入力</h2>
+    <div class="field">
+      <label>日付（支払日・引き落とし日）</label>
+      <input type="date" id="f-date">
+    </div>
+
+    <div class="field">
+      <label>支払先（仕入先・経費先）</label>
+      <div class="chips" id="vendor-chips"></div>
+      <input type="text" id="f-vendor" placeholder="支払先名を入力（例：○○米穀店）" list="vendor-datalist">
+      <datalist id="vendor-datalist"></datalist>
+      <div class="hint">よく使う先は「マスタ」に登録するとボタンで選べます。登録先を選ぶと科目・税区分・口座が自動で入ります。</div>
+    </div>
+
+    <div class="field amt">
+      <label>金額（税込）</label>
+      <input type="text" id="f-amount" inputmode="numeric" placeholder="0">
+    </div>
+
+    <div class="row">
+      <div class="field">
+        <label>勘定科目（借方）</label>
+        <select id="f-kamoku"></select>
+      </div>
+      <div class="field">
+        <label>税区分</label>
+        <select id="f-tax"></select>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>支払方法・引き落とし口座（貸方）</label>
+      <select id="f-account"></select>
+    </div>
+
+    <div class="field">
+      <label>摘要（MFに転記されます）</label>
+      <input type="text" id="f-memo" placeholder="例：米ぬか 20kg 仕入">
+    </div>
+
+    <button class="btn" id="btn-save">この内容で登録</button>
+    <div class="hint" id="save-hint"></div>
+  </div>
+
+  <div class="card">
+    <h2>最近の入力 <span class="tag" id="recent-count"></span></h2>
+    <div class="list" id="recent-list"></div>
+  </div>
+</section>
+
+<!-- ============ 一覧 ============ -->
+<section id="tab-list" class="hide">
+  <div class="card">
+    <h2>取引一覧</h2>
+    <div class="row" style="margin-bottom:9px">
+      <div><label>年月</label><input type="month" id="l-month"></div>
+      <div><label>状態</label>
+        <select id="l-state">
+          <option value="all">すべて</option>
+          <option value="todo">未出力のみ</option>
+          <option value="done">出力済みのみ</option>
+        </select>
+      </div>
+    </div>
+    <div class="field"><input type="text" id="l-q" placeholder="支払先・摘要で検索"></div>
+    <div class="list" id="list-body"></div>
+    <div class="total"><span class="l">表示中の合計</span><span class="v" id="list-total">¥0</span></div>
+  </div>
+</section>
+
+<!-- ============ CSV出力 ============ -->
+<section id="tab-csv" class="hide">
+  <div class="card">
+    <h2>マネーフォワードクラウド 仕訳帳インポート用CSV</h2>
+    <div class="row">
+      <div class="field"><label>開始日</label><input type="date" id="c-from"></div>
+      <div class="field"><label>終了日</label><input type="date" id="c-to"></div>
+    </div>
+    <div class="field">
+      <label>対象</label>
+      <div class="seg">
+        <button id="c-todo" class="on">未出力のみ</button>
+        <button id="c-all">期間内すべて</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="field"><label>文字コード</label>
+        <select id="c-enc">
+          <option value="sjis">Shift-JIS（MF推奨）</option>
+          <option value="utf8">UTF-8（BOM付き）</option>
+        </select>
+      </div>
+      <div class="field"><label>取引No 開始</label><input type="number" id="c-no" value="1" min="1"></div>
+    </div>
+    <div class="field">
+      <label>税額の欄</label>
+      <select id="c-taxamt">
+        <option value="blank">空欄にする（MF側で自動計算・推奨）</option>
+        <option value="calc">内税として自動計算して入れる</option>
+      </select>
+    </div>
+
+    <div id="c-preview"></div>
+    <button class="btn" id="btn-csv" style="margin-top:10px">CSVをダウンロード</button>
+    <div class="tools" style="margin-top:8px">
+      <button class="btn sec sm" id="btn-csv-preview">中身をプレビュー</button>
+      <button class="btn ghost sm" id="btn-mark">出力済みにする</button>
+      <button class="btn ghost sm" id="btn-unmark">出力済みを取り消す</button>
+    </div>
+    <div class="hint">
+      ダウンロードすると対象の取引は自動で「出力済み」になります（二重記帳の防止）。<br>
+      MF側の取込先：会計帳簿 →「仕訳帳」→ インポート →「仕訳帳インポート」
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>データのバックアップ</h2>
+    <div class="tools">
+      <button class="btn sec sm" id="btn-backup">バックアップを保存</button>
+      <button class="btn ghost sm" id="btn-restore">バックアップから復元</button>
+      <input type="file" id="restore-file" accept=".json" class="hide">
+    </div>
+    <div class="hint">データはこの端末のブラウザ内だけに保存されます。機種変更・キャッシュ削除で消えるので、月に一度はバックアップを保存してください。</div>
+  </div>
+</section>
+
+<!-- ============ 集計 ============ -->
+<section id="tab-sum" class="hide">
+  <div class="card">
+    <h2>月別・科目別集計</h2>
+    <div class="field"><label>年月</label><input type="month" id="s-month"></div>
+    <table>
+      <thead><tr><th>勘定科目</th><th class="n">件数</th><th class="n">金額</th></tr></thead>
+      <tbody id="s-kamoku"></tbody>
+    </table>
+    <div class="total"><span class="l">月合計</span><span class="v" id="s-total">¥0</span></div>
+  </div>
+  <div class="card">
+    <h2>支払方法・口座別</h2>
+    <table>
+      <thead><tr><th>支払方法</th><th class="n">件数</th><th class="n">金額</th></tr></thead>
+      <tbody id="s-account"></tbody>
+    </table>
+  </div>
+  <div class="card">
+    <h2>支払先別</h2>
+    <table>
+      <thead><tr><th>支払先</th><th class="n">件数</th><th class="n">金額</th></tr></thead>
+      <tbody id="s-vendor"></tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ マスタ ============ -->
+<section id="tab-master" class="hide">
+  <div class="card">
+    <h2>支払方法・引き落とし口座 <span class="tag">貸方になります</span></h2>
+    <div id="m-accounts"></div>
+    <button class="btn sec sm" id="btn-add-account">＋ 口座・支払方法を追加</button>
+    <div class="hint">銀行名は「補助科目」としてMFに出力されます。MF側の補助科目名と同じ文字にしてください。</div>
+  </div>
+
+  <div class="card">
+    <h2>支払先（仕入先・経費先）</h2>
+    <div id="m-vendors"></div>
+    <button class="btn sec sm" id="btn-add-vendor">＋ 支払先を追加</button>
+    <div class="hint">よく使う先を登録しておくと、入力画面でボタン1つ＋金額だけで登録できます。</div>
+  </div>
+
+  <div class="card">
+    <h2>勘定科目</h2>
+    <div id="m-kamoku"></div>
+    <div class="row" style="margin-top:8px">
+      <input type="text" id="new-kamoku" placeholder="科目名を追加">
+      <button class="btn sec sm" id="btn-add-kamoku" style="flex:0 0 auto">追加</button>
+    </div>
+    <div class="hint">MFで使っている科目名と1文字も違わないようにしてください（違うとインポート時にエラーになります）。</div>
+  </div>
+
+  <div class="card">
+    <h2>税区分</h2>
+    <div id="m-tax"></div>
+    <div class="row" style="margin-top:8px">
+      <input type="text" id="new-tax" placeholder="税区分を追加">
+      <button class="btn sec sm" id="btn-add-tax" style="flex:0 0 auto">追加</button>
+    </div>
+    <div class="hint">免税事業者・簡易課税の場合は「対象外」だけで運用してもかまいません。</div>
+  </div>
+</section>
+
+</main>
+
+<!-- 編集モーダル -->
+<div class="modal" id="modal">
+  <div class="sheet" id="sheet"></div>
+</div>
+
+<script>
+"use strict";
+
+/* ================= 保存 ================= */
+const KEY = "keihi_v1";
+const DEFAULTS = {
+  accounts: [
+    {id:"a1", name:"現金",   kamoku:"現金",     hojo:""},
+    {id:"a2", name:"銀行①", kamoku:"普通預金", hojo:"銀行①"},
+    {id:"a3", name:"銀行②", kamoku:"普通預金", hojo:"銀行②"},
+    {id:"a4", name:"銀行③", kamoku:"普通預金", hojo:"銀行③"},
+    {id:"a5", name:"クレジットカード", kamoku:"未払金", hojo:"事業用カード"}
+  ],
+  vendors: [],
+  kamokuList: ["仕入高","消耗品費","水道光熱費","地代家賃","通信費","広告宣伝費","支払手数料","修繕費","旅費交通費","新聞図書費","接待交際費","保険料","租税公課","荷造運賃","外注費","福利厚生費","雑費"],
+  taxList: ["課税仕入 10%","課税仕入 8%（軽）","対象外"],
+  txns: [],
+  settings: {}
+};
+let S = load();
+
+function load(){
+  try{
+    const raw = localStorage.getItem(KEY);
+    if(!raw) return structuredClone(DEFAULTS);
+    const d = JSON.parse(raw);
+    return Object.assign(structuredClone(DEFAULTS), d);
+  }catch(e){ return structuredClone(DEFAULTS); }
+}
+function save(){ localStorage.setItem(KEY, JSON.stringify(S)); }
+const uid = () => Math.random().toString(36).slice(2,10) + Date.now().toString(36).slice(-4);
+
+/* ================= 小道具 ================= */
+const $ = s => document.querySelector(s);
+const $$ = s => Array.from(document.querySelectorAll(s));
+const yen = n => "¥" + (n||0).toLocaleString("ja-JP");
+const esc = s => String(s==null?"":s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const todayStr = () => { const d=new Date(); return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0"); };
+const monthStr = () => todayStr().slice(0,7);
+const md = s => s ? s.slice(5).replace("-","/") : "";
+const acc = id => S.accounts.find(a=>a.id===id);
+const num = v => { const n = parseInt(String(v).replace(/[^0-9\-]/g,""),10); return isNaN(n)?0:n; };
+
+/* ================= タブ ================= */
+$$("nav button").forEach(b=>{
+  b.addEventListener("click", ()=>{
+    $$("nav button").forEach(x=>x.classList.remove("on"));
+    b.classList.add("on");
+    $$("main > section").forEach(s=>s.classList.add("hide"));
+    $("#tab-"+b.dataset.tab).classList.remove("hide");
+    window.scrollTo(0,0);
+    if(b.dataset.tab==="list") renderList();
+    if(b.dataset.tab==="csv") renderCsvPreview();
+    if(b.dataset.tab==="sum") renderSum();
+    if(b.dataset.tab==="master") renderMaster();
+  });
+});
+
+/* ================= 入力画面 ================= */
+function fillSelect(sel, arr, val){
+  sel.innerHTML = arr.map(v=>`<option value="${esc(v)}">${esc(v)}</option>`).join("");
+  if(val && arr.includes(val)) sel.value = val;
+}
+function renderInput(){
+  $("#f-date").value = $("#f-date").value || todayStr();
+  fillSelect($("#f-kamoku"), S.kamokuList, $("#f-kamoku").value);
+  fillSelect($("#f-tax"), S.taxList, $("#f-tax").value);
+  $("#f-account").innerHTML = S.accounts.map(a=>`<option value="${a.id}">${esc(a.name)}</option>`).join("");
+  $("#vendor-chips").innerHTML = S.vendors.map(v=>`<button class="chip" data-v="${v.id}">${esc(v.name)}</button>`).join("");
+  $("#vendor-datalist").innerHTML = S.vendors.map(v=>`<option value="${esc(v.name)}">`).join("");
+  $$("#vendor-chips .chip").forEach(c=>{
+    c.addEventListener("click", ()=>{
+      const v = S.vendors.find(x=>x.id===c.dataset.v);
+      if(!v) return;
+      $$("#vendor-chips .chip").forEach(x=>x.classList.remove("on"));
+      c.classList.add("on");
+      $("#f-vendor").value = v.name;
+      if(v.kamoku) $("#f-kamoku").value = v.kamoku;
+      if(v.tax) $("#f-tax").value = v.tax;
+      if(v.accountId && acc(v.accountId)) $("#f-account").value = v.accountId;
+      if(v.memo && !$("#f-memo").value) $("#f-memo").value = v.memo;
+      $("#f-amount").focus();
+    });
+  });
+  renderRecent();
+}
+$("#f-vendor").addEventListener("input", ()=>{
+  const v = S.vendors.find(x=>x.name === $("#f-vendor").value.trim());
+  $$("#vendor-chips .chip").forEach(x=>x.classList.toggle("on", v && x.dataset.v===v.id));
+  if(v){
+    if(v.kamoku) $("#f-kamoku").value = v.kamoku;
+    if(v.tax) $("#f-tax").value = v.tax;
+    if(v.accountId && acc(v.accountId)) $("#f-account").value = v.accountId;
+  }
+});
+$("#f-amount").addEventListener("input", e=>{
+  const n = num(e.target.value);
+  e.target.value = n ? n.toLocaleString("ja-JP") : "";
+});
+
+$("#btn-save").addEventListener("click", ()=>{
+  const t = {
+    id: uid(),
+    date: $("#f-date").value,
+    vendor: $("#f-vendor").value.trim(),
+    amount: num($("#f-amount").value),
+    kamoku: $("#f-kamoku").value,
+    tax: $("#f-tax").value,
+    accountId: $("#f-account").value,
+    memo: $("#f-memo").value.trim(),
+    exported: false,
+    created: new Date().toISOString()
+  };
+  if(!t.date) return alert("日付を入れてください");
+  if(!t.amount) return alert("金額を入れてください");
+  if(!t.vendor) return alert("支払先を入れてください");
+  S.txns.push(t); save();
+  $("#f-amount").value = ""; $("#f-memo").value = "";
+  $("#save-hint").innerHTML = `<span style="color:var(--ok);font-weight:700">登録しました：${esc(t.vendor)} ${yen(t.amount)}</span>`;
+  setTimeout(()=>{ $("#save-hint").textContent=""; }, 4000);
+  renderRecent();
+});
+
+function txLine(t){
+  const a = acc(t.accountId);
+  return `<div class="item" data-id="${t.id}">
+    <div class="d">${md(t.date)}</div>
+    <div class="m">
+      <div class="t">${esc(t.vendor)}${t.exported?'<span class="badge done">出力済</span>':'<span class="badge todo">未出力</span>'}</div>
+      <div class="s">${esc(t.kamoku)} ／ ${esc(a?a.name:"?")}${t.memo?" ／ "+esc(t.memo):""}</div>
+    </div>
+    <div class="y">${yen(t.amount)}</div>
+  </div>`;
+}
+function bindItems(root){
+  root.querySelectorAll(".item").forEach(el=>{
+    el.addEventListener("click", ()=> openEdit(el.dataset.id));
+  });
+}
+function renderRecent(){
+  const list = S.txns.slice().sort((a,b)=> (b.created||"").localeCompare(a.created||"")).slice(0,8);
+  $("#recent-count").textContent = "全" + S.txns.length + "件";
+  $("#recent-list").innerHTML = list.length ? list.map(txLine).join("") : '<div class="empty">まだ入力がありません</div>';
+  bindItems($("#recent-list"));
+}
+
+/* ================= 編集モーダル ================= */
+function openEdit(id){
+  const t = S.txns.find(x=>x.id===id); if(!t) return;
+  $("#sheet").innerHTML = `
+    <h3>取引を編集</h3>
+    <div class="field"><label>日付</label><input type="date" id="e-date" value="${t.date}"></div>
+    <div class="field"><label>支払先</label><input type="text" id="e-vendor" value="${esc(t.vendor)}"></div>
+    <div class="field amt"><label>金額（税込）</label><input type="text" id="e-amount" inputmode="numeric" value="${t.amount.toLocaleString("ja-JP")}"></div>
+    <div class="row">
+      <div class="field"><label>勘定科目</label><select id="e-kamoku"></select></div>
+      <div class="field"><label>税区分</label><select id="e-tax"></select></div>
+    </div>
+    <div class="field"><label>支払方法</label><select id="e-account"></select></div>
+    <div class="field"><label>摘要</label><input type="text" id="e-memo" value="${esc(t.memo)}"></div>
+    <div class="field"><label>状態</label>
+      <select id="e-exported">
+        <option value="0">未出力</option>
+        <option value="1">出力済み</option>
+      </select>
+    </div>
+    <div class="mrow">
+      <button class="btn" id="e-save">保存</button>
+      <button class="btn ghost" id="e-cancel">閉じる</button>
+    </div>
+    <div class="mrow"><button class="btn danger" id="e-del">この取引を削除</button></div>
+  `;
+  fillSelect($("#e-kamoku"), S.kamokuList, t.kamoku);
+  fillSelect($("#e-tax"), S.taxList, t.tax);
+  $("#e-account").innerHTML = S.accounts.map(a=>`<option value="${a.id}"${a.id===t.accountId?" selected":""}>${esc(a.name)}</option>`).join("");
+  $("#e-exported").value = t.exported ? "1" : "0";
+  $("#e-amount").addEventListener("input", e=>{ const n=num(e.target.value); e.target.value = n?n.toLocaleString("ja-JP"):""; });
+  $("#e-save").addEventListener("click", ()=>{
+    t.date=$("#e-date").value; t.vendor=$("#e-vendor").value.trim(); t.amount=num($("#e-amount").value);
+    t.kamoku=$("#e-kamoku").value; t.tax=$("#e-tax").value; t.accountId=$("#e-account").value;
+    t.memo=$("#e-memo").value.trim(); t.exported = $("#e-exported").value==="1";
+    save(); closeModal(); refreshAll();
+  });
+  $("#e-del").addEventListener("click", ()=>{
+    if(!confirm("この取引を削除します。よろしいですか？")) return;
+    S.txns = S.txns.filter(x=>x.id!==t.id); save(); closeModal(); refreshAll();
+  });
+  $("#e-cancel").addEventListener("click", closeModal);
+  $("#modal").classList.add("on");
+}
+function closeModal(){ $("#modal").classList.remove("on"); }
+$("#modal").addEventListener("click", e=>{ if(e.target.id==="modal") closeModal(); });
+function refreshAll(){ renderRecent(); renderList(); renderSum(); renderCsvPreview(); }
+
+/* ================= 一覧 ================= */
+function renderList(){
+  if(!$("#l-month").value) $("#l-month").value = monthStr();
+  const m = $("#l-month").value, st = $("#l-state").value, q = $("#l-q").value.trim();
+  let rows = S.txns.filter(t=>{
+    if(m && !t.date.startsWith(m)) return false;
+    if(st==="todo" && t.exported) return false;
+    if(st==="done" && !t.exported) return false;
+    if(q && !((t.vendor+" "+t.memo+" "+t.kamoku).includes(q))) return false;
+    return true;
+  }).sort((a,b)=> b.date.localeCompare(a.date) || (b.created||"").localeCompare(a.created||""));
+  $("#list-body").innerHTML = rows.length ? rows.map(txLine).join("") : '<div class="empty">該当する取引がありません</div>';
+  bindItems($("#list-body"));
+  $("#list-total").textContent = yen(rows.reduce((s,t)=>s+t.amount,0));
+}
+["#l-month","#l-state","#l-q"].forEach(s=> $(s).addEventListener("input", renderList));
+
+/* ================= 集計 ================= */
+function renderSum(){
+  if(!$("#s-month").value) $("#s-month").value = monthStr();
+  const m = $("#s-month").value;
+  const rows = S.txns.filter(t=>t.date.startsWith(m));
+  const agg = (keyFn)=>{
+    const map = new Map();
+    rows.forEach(t=>{ const k=keyFn(t); const o=map.get(k)||{c:0,s:0}; o.c++; o.s+=t.amount; map.set(k,o); });
+    return Array.from(map.entries()).sort((a,b)=>b[1].s-a[1].s);
+  };
+  const html = arr => arr.length ? arr.map(([k,v])=>`<tr><td>${esc(k)}</td><td class="n">${v.c}</td><td class="n">${yen(v.s)}</td></tr>`).join("")
+                                 : '<tr><td colspan="3" class="empty">データなし</td></tr>';
+  $("#s-kamoku").innerHTML  = html(agg(t=>t.kamoku));
+  $("#s-account").innerHTML = html(agg(t=> (acc(t.accountId)||{}).name || "?" ));
+  $("#s-vendor").innerHTML  = html(agg(t=>t.vendor));
+  $("#s-total").textContent = yen(rows.reduce((s,t)=>s+t.amount,0));
+}
+$("#s-month").addEventListener("input", renderSum);
+
+/* ================= Shift-JIS エンコード ================= */
+let SJIS = null;
+function sjisTable(){
+  if(SJIS) return SJIS;
+  const m = new Map();
+  let dec;
+  try{ dec = new TextDecoder("shift_jis"); }catch(e){ return null; }
+  for(let b=0;b<0x80;b++) m.set(String.fromCharCode(b),[b]);
+  for(let b=0xA1;b<=0xDF;b++){
+    const s = dec.decode(new Uint8Array([b]));
+    if(s.length===1 && s!=="�") m.set(s,[b]);
+  }
+  const leads=[];
+  for(let l=0x81;l<=0x9F;l++) leads.push(l);
+  for(let l=0xE0;l<=0xFC;l++) leads.push(l);
+  for(const l of leads){
+    for(let t=0x40;t<=0xFC;t++){
+      if(t===0x7F) continue;
+      const c = dec.decode(new Uint8Array([l,t]));
+      if(c.length===1 && c!=="�" && !m.has(c)) m.set(c,[l,t]);
+    }
+  }
+  SJIS = m; return m;
+}
+function toSjis(str){
+  const m = sjisTable();
+  if(!m) return null;
+  const out = [];
+  for(const ch of str){
+    const b = m.get(ch);
+    if(b) out.push(...b);
+    else out.push(0x3F); // ?
+  }
+  return new Uint8Array(out);
+}
+
+/* ================= CSV ================= */
+const CSV_HEADER = ["取引No","取引日","借方勘定科目","借方補助科目","借方部門","借方取引先","借方税区分","借方インボイス","借方金額(円)","借方税額","貸方勘定科目","貸方補助科目","貸方部門","貸方取引先","貸方税区分","貸方インボイス","貸方金額(円)","貸方税額","摘要","仕訳メモ","タグ","MF仕訳タイプ","決算整理仕訳","作成日時","作成者","最終更新日時","最終更新者"];
+
+/* MFは文言に【"】が含まれると取り込めない。改行・カンマも事故のもとなので
+   書き出し時に安全な全角文字へ置き換え、クォートが一切不要な形にする。 */
+const NG_CHARS = /["\r\n,]/;
+function csvField(v){
+  return String(v==null?"":v)
+    .replace(/[\r\n]+/g, " ")
+    .replace(/"/g, "”")
+    .replace(/,/g, "、");
+}
+function taxRate(tax){
+  if(/8/.test(tax)) return 0.08;
+  if(/10/.test(tax)) return 0.10;
+  return 0;
+}
+function innerTax(amount, tax){
+  const r = taxRate(tax);
+  if(!r) return "";
+  return Math.floor(amount * r / (1 + r));
+}
+function csvTargets(){
+  const from = $("#c-from").value, to = $("#c-to").value;
+  const onlyTodo = $("#c-todo").classList.contains("on");
+  return S.txns.filter(t=>{
+    if(from && t.date < from) return false;
+    if(to && t.date > to) return false;
+    if(onlyTodo && t.exported) return false;
+    return true;
+  }).sort((a,b)=> a.date.localeCompare(b.date) || (a.created||"").localeCompare(b.created||""));
+}
+function buildCsv(rows){
+  let no = Math.max(1, num($("#c-no").value) || 1);
+  const withTax = $("#c-taxamt").value === "calc";
+  const lines = [CSV_HEADER.join(",")];
+  rows.forEach(t=>{
+    const a = acc(t.accountId) || {kamoku:"", hojo:"", name:""};
+    const d = t.date.replace(/-/g,"/");
+    const dt = withTax ? innerTax(t.amount, t.tax) : "";
+    const r = [
+      no++, d,
+      t.kamoku, "", "", t.vendor, t.tax, "", t.amount, dt,
+      a.kamoku, a.hojo, "", "", "対象外", "", t.amount, "",
+      t.memo || t.vendor, "", "", "", "", "", "", "", ""
+    ];
+    lines.push(r.map(csvField).join(","));
+  });
+  return lines.join("\r\n") + "\r\n";
+}
+function renderCsvPreview(){
+  if(!$("#c-from").value){
+    const d = new Date(); const y=d.getFullYear(), m=d.getMonth();
+    const p = n => String(n).padStart(2,"0");
+    $("#c-from").value = `${y}-${p(m+1)}-01`;
+    $("#c-to").value = `${y}-${p(m+1)}-${p(new Date(y,m+1,0).getDate())}`;
+  }
+  const rows = csvTargets();
+  const total = rows.reduce((s,t)=>s+t.amount,0);
+  const bad = rows.filter(t=>!acc(t.accountId));
+  const fixed = rows.filter(t=> NG_CHARS.test(t.vendor) || NG_CHARS.test(t.memo||""));
+  $("#c-preview").innerHTML = rows.length
+    ? `<div class="okbox">対象 <b>${rows.length}件</b> ／ 合計 <b>${yen(total)}</b><br>${rows[0].date.replace(/-/g,"/")} 〜 ${rows[rows.length-1].date.replace(/-/g,"/")}</div>`
+      + (bad.length ? `<div class="warnbox" style="margin-top:8px">支払方法が削除された取引が ${bad.length}件 あります。一覧から直してください。</div>` : "")
+      + (fixed.length ? `<div class="warnbox" style="margin-top:8px">${fixed.length}件に「"」やカンマが含まれています。MFが取り込めないため、書き出す時だけ「”」「、」に置き換えます（アプリ内の表示は変わりません）。</div>` : "")
+    : `<div class="warnbox">対象の取引がありません。期間か「対象」の設定を確認してください。</div>`;
+}
+["#c-from","#c-to","#c-no","#c-taxamt"].forEach(s=> $(s).addEventListener("input", renderCsvPreview));
+$("#c-todo").addEventListener("click", ()=>{ $("#c-todo").classList.add("on"); $("#c-all").classList.remove("on"); renderCsvPreview(); });
+$("#c-all").addEventListener("click", ()=>{ $("#c-all").classList.add("on"); $("#c-todo").classList.remove("on"); renderCsvPreview(); });
+
+function download(bytes, name, mime){
+  const blob = new Blob([bytes], {type:mime});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url; a.download = name; document.body.appendChild(a); a.click();
+  setTimeout(()=>{ URL.revokeObjectURL(url); a.remove(); }, 1000);
+}
+$("#btn-csv").addEventListener("click", ()=>{
+  const rows = csvTargets();
+  if(!rows.length) return alert("対象の取引がありません。");
+  const csv = buildCsv(rows);
+  let bytes, enc = $("#c-enc").value;
+  if(enc === "sjis"){
+    bytes = toSjis(csv);
+    if(!bytes){ alert("この端末ではShift-JIS変換ができないため、UTF-8で出力します。"); enc="utf8"; }
+  }
+  if(enc !== "sjis"){
+    const u = new TextEncoder().encode(csv);
+    bytes = new Uint8Array(u.length+3); bytes.set([0xEF,0xBB,0xBF]); bytes.set(u,3);
+  }
+  const name = "MF仕訳_" + ($("#c-from").value||"").replace(/-/g,"") + "-" + ($("#c-to").value||"").replace(/-/g,"") + ".csv";
+  download(bytes, name, "text/csv");
+  rows.forEach(t=>{ t.exported = true; t.exportedAt = new Date().toISOString(); });
+  save(); renderCsvPreview(); renderRecent();
+});
+$("#btn-csv-preview").addEventListener("click", ()=>{
+  const rows = csvTargets();
+  if(!rows.length) return alert("対象の取引がありません。");
+  const csv = buildCsv(rows.slice(0,5));
+  $("#sheet").innerHTML = `<h3>CSVの中身（先頭5件）</h3>
+    <textarea readonly style="min-height:220px;font-size:11px;white-space:pre;overflow:auto">${esc(csv)}</textarea>
+    <div class="hint">1行目がヘッダーです。マネーフォワードの取込画面でサンプルCSVをダウンロードして、この見出しと並びが同じか一度だけ確認してください。</div>
+    <div class="mrow"><button class="btn ghost" onclick="document.getElementById('modal').classList.remove('on')">閉じる</button></div>`;
+  $("#modal").classList.add("on");
+});
+$("#btn-mark").addEventListener("click", ()=>{
+  const rows = csvTargets(); if(!rows.length) return alert("対象がありません。");
+  if(!confirm(rows.length+"件を「出力済み」にします。よろしいですか？")) return;
+  rows.forEach(t=>t.exported=true); save(); refreshAll();
+});
+$("#btn-unmark").addEventListener("click", ()=>{
+  const from=$("#c-from").value, to=$("#c-to").value;
+  const rows = S.txns.filter(t=> (!from||t.date>=from) && (!to||t.date<=to) && t.exported);
+  if(!rows.length) return alert("出力済みの取引がありません。");
+  if(!confirm(rows.length+"件の「出力済み」を取り消します。よろしいですか？")) return;
+  rows.forEach(t=>t.exported=false); save(); refreshAll();
+});
+
+/* ================= バックアップ ================= */
+$("#btn-backup").addEventListener("click", ()=>{
+  const bytes = new TextEncoder().encode(JSON.stringify(S,null,2));
+  download(bytes, "経費データ_"+todayStr().replace(/-/g,"")+".json", "application/json");
+});
+$("#btn-restore").addEventListener("click", ()=> $("#restore-file").click());
+$("#restore-file").addEventListener("change", e=>{
+  const f = e.target.files[0]; if(!f) return;
+  const r = new FileReader();
+  r.onload = ()=>{
+    try{
+      const d = JSON.parse(r.result);
+      if(!d.txns) throw new Error("形式が違います");
+      if(!confirm("現在のデータを、このバックアップで置き換えます。よろしいですか？")) return;
+      S = Object.assign(structuredClone(DEFAULTS), d); save();
+      renderInput(); refreshAll(); renderMaster();
+      alert("復元しました（"+S.txns.length+"件）");
+    }catch(err){ alert("読み込めませんでした：" + err.message); }
+  };
+  r.readAsText(f);
+  e.target.value = "";
+});
+
+/* ================= マスタ ================= */
+function renderMaster(){
+  $("#m-accounts").innerHTML = S.accounts.map(a=>`
+    <div class="mst">
+      <div class="h"><b>${esc(a.name)}</b>
+        <span class="tools">
+          <button class="btn ghost sm" data-ea="${a.id}">編集</button>
+          <button class="btn danger sm" data-da="${a.id}">削除</button>
+        </span>
+      </div>
+      <div class="meta">貸方：${esc(a.kamoku)}${a.hojo?" ／ 補助科目："+esc(a.hojo):""}</div>
+    </div>`).join("") || '<div class="empty">未登録</div>';
+
+  $("#m-vendors").innerHTML = S.vendors.map(v=>{
+    const a = acc(v.accountId);
+    return `<div class="mst">
+      <div class="h"><b>${esc(v.name)}</b>
+        <span class="tools">
+          <button class="btn ghost sm" data-ev="${v.id}">編集</button>
+          <button class="btn danger sm" data-dv="${v.id}">削除</button>
+        </span>
+      </div>
+      <div class="meta">${esc(v.kamoku||"—")} ／ ${esc(v.tax||"—")} ／ ${esc(a?a.name:"—")}</div>
+    </div>`;
+  }).join("") || '<div class="empty">未登録</div>';
+
+  const tagList = (arr, key) => arr.map((v,i)=>
+    `<span class="chip" style="cursor:default">${esc(v)} <b data-del="${key}" data-i="${i}" style="color:var(--warn);cursor:pointer;margin-left:4px">×</b></span>`).join("");
+  $("#m-kamoku").innerHTML = `<div class="chips">${tagList(S.kamokuList,"kamokuList")}</div>`;
+  $("#m-tax").innerHTML    = `<div class="chips">${tagList(S.taxList,"taxList")}</div>`;
+
+  $$("[data-del]").forEach(b=> b.addEventListener("click", ()=>{
+    const k=b.dataset.del, i=+b.dataset.i;
+    if(!confirm("「"+S[k][i]+"」を削除しますか？")) return;
+    S[k].splice(i,1); save(); renderMaster(); renderInput();
+  }));
+  $$("[data-ea]").forEach(b=> b.addEventListener("click", ()=> editAccount(b.dataset.ea)));
+  $$("[data-da]").forEach(b=> b.addEventListener("click", ()=>{
+    if(!confirm("この支払方法を削除しますか？（過去の取引の表示が「?」になります）")) return;
+    S.accounts = S.accounts.filter(a=>a.id!==b.dataset.da); save(); renderMaster(); renderInput();
+  }));
+  $$("[data-ev]").forEach(b=> b.addEventListener("click", ()=> editVendor(b.dataset.ev)));
+  $$("[data-dv]").forEach(b=> b.addEventListener("click", ()=>{
+    if(!confirm("この支払先を削除しますか？")) return;
+    S.vendors = S.vendors.filter(v=>v.id!==b.dataset.dv); save(); renderMaster(); renderInput();
+  }));
+}
+$("#btn-add-kamoku").addEventListener("click", ()=>{
+  const v = $("#new-kamoku").value.trim(); if(!v) return;
+  if(!S.kamokuList.includes(v)) S.kamokuList.push(v);
+  $("#new-kamoku").value=""; save(); renderMaster(); renderInput();
+});
+$("#btn-add-tax").addEventListener("click", ()=>{
+  const v = $("#new-tax").value.trim(); if(!v) return;
+  if(!S.taxList.includes(v)) S.taxList.push(v);
+  $("#new-tax").value=""; save(); renderMaster(); renderInput();
+});
+
+function editAccount(id){
+  const a = id ? S.accounts.find(x=>x.id===id) : {id:uid(), name:"", kamoku:"普通預金", hojo:""};
+  $("#sheet").innerHTML = `
+    <h3>${id?"支払方法を編集":"支払方法を追加"}</h3>
+    <div class="field"><label>表示名（アプリ内で選ぶ名前）</label><input type="text" id="ma-name" value="${esc(a.name)}" placeholder="例：〇〇銀行"></div>
+    <div class="field"><label>勘定科目（MFの貸方になります）</label><input type="text" id="ma-kamoku" value="${esc(a.kamoku)}" list="kamoku-dl" placeholder="普通預金 / 現金 / 未払金"></div>
+    <datalist id="kamoku-dl"><option value="普通預金"><option value="当座預金"><option value="現金"><option value="未払金"></datalist>
+    <div class="field"><label>補助科目（MFに登録した銀行名と同じ文字）</label><input type="text" id="ma-hojo" value="${esc(a.hojo)}" placeholder="例：〇〇銀行 △△支店"></div>
+    <div class="mrow">
+      <button class="btn" id="ma-save">保存</button>
+      <button class="btn ghost" id="ma-cancel">閉じる</button>
+    </div>`;
+  $("#ma-save").addEventListener("click", ()=>{
+    a.name = $("#ma-name").value.trim(); a.kamoku = $("#ma-kamoku").value.trim(); a.hojo = $("#ma-hojo").value.trim();
+    if(!a.name) return alert("表示名を入れてください");
+    if(!a.kamoku) return alert("勘定科目を入れてください");
+    if(!id) S.accounts.push(a);
+    save(); closeModal(); renderMaster(); renderInput();
+  });
+  $("#ma-cancel").addEventListener("click", closeModal);
+  $("#modal").classList.add("on");
+}
+$("#btn-add-account").addEventListener("click", ()=> editAccount(null));
+
+function editVendor(id){
+  const v = id ? S.vendors.find(x=>x.id===id) : {id:uid(), name:"", kamoku:S.kamokuList[0], tax:S.taxList[0], accountId:(S.accounts[0]||{}).id, memo:""};
+  $("#sheet").innerHTML = `
+    <h3>${id?"支払先を編集":"支払先を追加"}</h3>
+    <div class="field"><label>支払先の名前</label><input type="text" id="mv-name" value="${esc(v.name)}" placeholder="例：〇〇米穀店"></div>
+    <div class="row">
+      <div class="field"><label>いつもの勘定科目</label><select id="mv-kamoku"></select></div>
+      <div class="field"><label>いつもの税区分</label><select id="mv-tax"></select></div>
+    </div>
+    <div class="field"><label>いつもの支払方法</label><select id="mv-account"></select></div>
+    <div class="field"><label>いつもの摘要（任意）</label><input type="text" id="mv-memo" value="${esc(v.memo||"")}" placeholder="例：米ぬか仕入"></div>
+    <div class="mrow">
+      <button class="btn" id="mv-save">保存</button>
+      <button class="btn ghost" id="mv-cancel">閉じる</button>
+    </div>`;
+  fillSelect($("#mv-kamoku"), S.kamokuList, v.kamoku);
+  fillSelect($("#mv-tax"), S.taxList, v.tax);
+  $("#mv-account").innerHTML = S.accounts.map(a=>`<option value="${a.id}"${a.id===v.accountId?" selected":""}>${esc(a.name)}</option>`).join("");
+  $("#mv-save").addEventListener("click", ()=>{
+    v.name = $("#mv-name").value.trim(); v.kamoku = $("#mv-kamoku").value; v.tax = $("#mv-tax").value;
+    v.accountId = $("#mv-account").value; v.memo = $("#mv-memo").value.trim();
+    if(!v.name) return alert("名前を入れてください");
+    if(!id) S.vendors.push(v);
+    save(); closeModal(); renderMaster(); renderInput();
+  });
+  $("#mv-cancel").addEventListener("click", closeModal);
+  $("#modal").classList.add("on");
+}
+$("#btn-add-vendor").addEventListener("click", ()=> editVendor(null));
+
+/* ================= 起動 ================= */
+renderInput();
+renderCsvPreview();
+</script>
+</body>
+</html>
