@@ -98,6 +98,13 @@ td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
 .warnbox{background:#fdf5f2;border:1px solid #eed6cd;border-radius:9px;padding:10px;font-size:12px;color:#8a4a34;line-height:1.6}
 .okbox{background:#eef5f0;border:1px solid #cfe3d6;border-radius:9px;padding:10px;font-size:12px;color:#2f6349;line-height:1.6}
 .hide{display:none !important}
+#reminder{
+  background:#fff8ea;border:1px solid #e8d6a8;border-radius:10px;padding:11px 12px;margin-bottom:12px;
+  display:flex;gap:10px;align-items:center;flex-wrap:wrap;box-shadow:var(--shadow)
+}
+#reminder .rt{flex:1;min-width:180px;font-size:13px;color:#7a5c22;line-height:1.5;font-weight:600}
+#reminder .rt small{display:block;font-weight:400;font-size:11px;color:#9a7f4a;margin-top:2px}
+#reminder .btn{width:auto}
 </style>
 </head>
 <body>
@@ -115,6 +122,8 @@ td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
 </header>
 
 <main>
+
+<div id="reminder" class="hide"></div>
 
 <!-- ============ 入力 ============ -->
 <section id="tab-input">
@@ -436,7 +445,7 @@ $("#btn-save").addEventListener("click", ()=>{
   $("#f-amount").value = ""; $("#f-memo").value = "";
   $("#save-hint").innerHTML = `<span style="color:var(--ok);font-weight:700">登録しました：${esc(t.vendor)} ${yen(t.amount)}</span>`;
   setTimeout(()=>{ $("#save-hint").textContent=""; }, 4000);
-  renderRecent();
+  renderRecent(); renderReminder();
 });
 
 function txLine(t){
@@ -508,7 +517,7 @@ function openEdit(id){
 }
 function closeModal(){ $("#modal").classList.remove("on"); }
 $("#modal").addEventListener("click", e=>{ if(e.target.id==="modal") closeModal(); });
-function refreshAll(){ renderRecent(); renderList(); renderSum(); renderCsvPreview(); }
+function refreshAll(){ renderRecent(); renderList(); renderSum(); renderCsvPreview(); renderReminder(); }
 
 /* ================= 一覧 ================= */
 function renderList(){
@@ -702,10 +711,43 @@ $("#btn-unmark").addEventListener("click", ()=>{
 });
 
 /* ================= バックアップ ================= */
-$("#btn-backup").addEventListener("click", ()=>{
+function doBackup(){
   const bytes = new TextEncoder().encode(JSON.stringify(S,null,2));
   download(bytes, "経費データ_"+todayStr().replace(/-/g,"")+".json", "application/json");
-});
+  S.settings.lastBackupAt = new Date().toISOString();
+  S.settings.lastBackupCount = S.txns.length;
+  delete S.settings.remindSnoozed;
+  save(); renderReminder();
+}
+$("#btn-backup").addEventListener("click", doBackup);
+
+/* バックアップ催促：未保存が5件たまるか、前回から7日経ったら出す */
+function renderReminder(){
+  const el = $("#reminder");
+  const n = S.txns.length;
+  const lastAt = S.settings.lastBackupAt;
+  const since = n - (S.settings.lastBackupCount || 0);
+  const days = lastAt ? Math.floor((Date.now() - new Date(lastAt)) / 86400000) : null;
+  const need = n > 0 && (
+    (!lastAt && n >= 3) ||
+    since >= 5 ||
+    (days !== null && days >= 7 && since > 0)
+  );
+  if(!need || S.settings.remindSnoozed === todayStr()){ el.classList.add("hide"); el.innerHTML=""; return; }
+
+  const why = !lastAt
+    ? `まだ一度もバックアップしていません（${n}件）`
+    : (since >= 5 ? `バックアップしていない取引が ${since}件 あります` : `前回のバックアップから ${days}日 経ちました`);
+  el.innerHTML = `<div class="rt">${why}
+      <small>ブラウザのデータを消すと帳簿は戻せません。5秒で終わります。</small></div>
+    <button class="btn sm" id="r-now">今すぐ保存</button>
+    <button class="btn ghost sm" id="r-later">あとで</button>`;
+  el.classList.remove("hide");
+  $("#r-now").addEventListener("click", doBackup);
+  $("#r-later").addEventListener("click", ()=>{
+    S.settings.remindSnoozed = todayStr(); save(); renderReminder();
+  });
+}
 $("#btn-restore").addEventListener("click", ()=> $("#restore-file").click());
 $("#restore-file").addEventListener("change", e=>{
   const f = e.target.files[0]; if(!f) return;
@@ -839,6 +881,7 @@ $("#btn-add-vendor").addEventListener("click", ()=> editVendor(null));
 /* ================= 起動 ================= */
 renderInput();
 renderCsvPreview();
+renderReminder();
 </script>
 </body>
 </html>
