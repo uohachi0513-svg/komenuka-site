@@ -867,9 +867,12 @@ function buildCalendar(year, month) {
 function renderCalendars() {
   const now = new Date();
   let html = "";
-  // 今月から3ヶ月分を表示（年またぎも自動対応）
-  for (let i = 0; i < 3; i++) {
+  // 今月は必ず表示。以降は SCHEDULE に登録済みの月だけを表示し、
+  // 未登録の月が来たら以降は表示しない（最大12ヶ月まで）。
+  for (let i = 0; i < 12; i++) {
     const d = new Date(now.getFullYear(), now.getMonth() + i, 1);
+    const key = d.getFullYear() + "-" + zeroPad(d.getMonth() + 1);
+    if (i > 0 && !SCHEDULE[key]) break;
     html += buildCalendar(d.getFullYear(), d.getMonth() + 1);
   }
   document.getElementById("calendar-months").innerHTML = html;
