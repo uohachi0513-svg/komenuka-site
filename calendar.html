@@ -513,6 +513,58 @@
       box-shadow: 0 1px 3px rgba(154,123,58,0.4);
     }
 
+    /* ペア割キャンペーン期間（催し=ゴールドと区別してグリーン系） */
+    .cal-day.campaign:not(.status-closed):not(.has-event) {
+      background: linear-gradient(135deg, #EAF0D8 0%, #DBE6BC 100%);
+      box-shadow: inset 0 0 0 2px #8A9A55;
+    }
+    .cal-day.campaign:not(.status-closed):not(.has-event) .cal-num { color: #4E5A28; font-weight: 700; }
+    .cal-pair {
+      font-size: 8px;
+      font-family: var(--font-serif);
+      letter-spacing: 0.02em;
+      color: #fff;
+      font-weight: 700;
+      background: #8A9A55;
+      padding: 1px 5px;
+      border-radius: 10px;
+      margin-top: 3px;
+      line-height: 1.5;
+      box-shadow: 0 1px 3px rgba(120,138,78,0.4);
+    }
+    /* ペア割の案内（カレンダー下） */
+    .cal-campaign-note {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 10px;
+      font-size: 13.5px;
+      font-family: var(--font-serif);
+      color: var(--color-text);
+      line-height: 1.5;
+      background: #EEF3E0;
+      border: 1px solid rgba(138,154,85,0.4);
+      border-left: 4px solid #8A9A55;
+      border-radius: 8px;
+      padding: 10px 14px;
+    }
+    .cal-campaign-badge {
+      flex: none;
+      font-size: 11px;
+      font-weight: 700;
+      color: #fff;
+      background: #8A9A55;
+      padding: 2px 9px;
+      border-radius: 12px;
+      letter-spacing: 0.05em;
+      box-shadow: 0 1px 3px rgba(120,138,78,0.4);
+    }
+    .cal-campaign-date {
+      flex: none;
+      font-weight: 700;
+      color: #6E7D3A;
+    }
+
     /* イベント一覧（カレンダー下） */
     .cal-events {
       margin-top: 16px;
@@ -786,7 +838,8 @@ const SCHEDULE = {
   },
   "2026-09": {
     closed: [7, 16, 17, 24, 29],
-    events: { 3: "ぬか床ワークショップ" }
+    events: { 3: "ぬか床ワークショップ" },
+    campaign: { from: 19, to: 23, label: "シルバーウィーク限定ペア割", note: "2名様で7,980円" }
   },
   "2026-10": {
     closed: [7, 15, 19, 29]
@@ -810,6 +863,11 @@ function buildCalendar(year, month) {
   const data = SCHEDULE[key] || { closed: [] };
   const closedSet = new Set(data.closed);
   const events = data.events || {};
+  const campaign = data.campaign || null;
+  const campaignSet = new Set();
+  if (campaign) {
+    for (let d = campaign.from; d <= campaign.to; d++) campaignSet.add(d);
+  }
 
   const today = new Date();
   const isCurrentMonth = (today.getFullYear() === year && today.getMonth() + 1 === month);
@@ -840,10 +898,12 @@ function buildCalendar(year, month) {
     const isTodayCell = isCurrentMonth && today.getDate() === d;
     const eventName = events[d];
 
-    html += `<div class="cal-day status-${status}${isTodayCell ? " today" : ""}${eventName ? " has-event" : ""}" data-dow="${dow}"${eventName ? ` title="${eventName}"` : ""}>
+    const isCampaign = campaignSet.has(d);
+    html += `<div class="cal-day status-${status}${isTodayCell ? " today" : ""}${eventName ? " has-event" : ""}${isCampaign ? " campaign" : ""}" data-dow="${dow}"${eventName ? ` title="${eventName}"` : campaign && isCampaign ? ` title="${campaign.label}"` : ""}>
       <span class="cal-num">${d}</span>
       ${status === "closed" ? `<span class="cal-kyuu">休</span>` : ""}
       ${eventName ? `<span class="cal-event">催</span>` : ""}
+      ${isCampaign && status !== "closed" && !eventName ? `<span class="cal-pair">ペア割</span>` : ""}
     </div>`;
   }
 
@@ -859,6 +919,10 @@ function buildCalendar(year, month) {
         `<div class="cal-events-item"><span class="cal-events-badge">催し</span><span class="cal-events-date">${month}月${d}日</span>${events[d]}</div>`
       ).join("") +
       `</div>`;
+  }
+
+  if (campaign) {
+    html += `<div class="cal-campaign-note"><span class="cal-campaign-badge">ペア割</span><span class="cal-campaign-date">${month}月${campaign.from}日〜${campaign.to}日</span>${campaign.label}${campaign.note ? `（${campaign.note}）` : ""}</div>`;
   }
 
   html += `
