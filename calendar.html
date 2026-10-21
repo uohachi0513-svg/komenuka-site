@@ -349,9 +349,56 @@
     }
 
     /* 2カラム */
+    /* 今後のイベント告知カード */
+    .upcoming-event {
+      max-width: 640px;
+      margin: 36px auto 0;
+      padding: 24px 28px;
+      background: linear-gradient(135deg, #FBF3DF 0%, #F6E8C4 100%);
+      border: 1px solid rgba(198,150,58,0.45);
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(154,123,58,0.12);
+      text-align: center;
+    }
+    .upcoming-event-badge {
+      display: inline-block;
+      font-family: var(--font-serif);
+      font-size: 12px;
+      font-weight: 700;
+      color: #fff;
+      background: var(--color-gold);
+      padding: 3px 14px;
+      border-radius: 14px;
+      letter-spacing: 0.08em;
+      margin-bottom: 12px;
+      box-shadow: 0 1px 3px rgba(154,123,58,0.4);
+    }
+    .upcoming-event-date {
+      font-family: var(--font-serif);
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--color-gold);
+      letter-spacing: 0.06em;
+      margin-bottom: 4px;
+    }
+    .upcoming-event-title {
+      font-family: var(--font-serif);
+      font-size: clamp(18px, 3vw, 22px);
+      color: var(--color-brown);
+      letter-spacing: 0.06em;
+      margin-bottom: 12px;
+    }
+    .upcoming-event-text {
+      font-family: var(--font-serif);
+      font-size: 13.5px;
+      line-height: 1.95;
+      color: var(--color-text-lt);
+      letter-spacing: 0.02em;
+    }
+
     .workshop-note {
       max-width: 640px;
-      margin: 40px auto 0;
+      margin: 20px auto 0;
       padding: 22px 26px;
       background: #FBF3DF;
       border: 1px solid rgba(198,150,58,0.35);
@@ -730,6 +777,17 @@
     <!-- カレンダー本体（JSで描画） -->
     <div class="calendar-months fade-up fade-up-d2" id="calendar-months"></div>
 
+    <!-- 今後のイベント告知 -->
+    <div class="upcoming-event fade-up">
+      <span class="upcoming-event-badge">催し</span>
+      <p class="upcoming-event-date">2026年12月1日（火）開催</p>
+      <h3 class="upcoming-event-title">手作り味噌ワークショップ</h3>
+      <p class="upcoming-event-text">
+        ご自宅で楽しめる「手作り味噌」のワークショップを開催します🍶<br>
+        ※12月の営業日カレンダーは、お休みが決まり次第あらためて公開いたします。
+      </p>
+    </div>
+
     <div class="workshop-note fade-up">
       <span class="workshop-note-badge">催し</span>
       <p>
@@ -842,6 +900,9 @@ const SCHEDULE = {
   },
   "2026-10": {
     closed: [7, 14, 15, 19, 29]
+  },
+  "2026-11": {
+    closed: [2, 8, 9, 16, 19, 26, 30]
   }
 };
 
