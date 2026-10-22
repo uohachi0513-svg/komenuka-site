@@ -926,10 +926,6 @@ function buildCalendar(year, month) {
   const closedSet = new Set(data.closed);
   const events = data.events || {};
   const campaign = data.campaign || null;
-  const campaignSet = new Set();
-  if (campaign) {
-    for (let d = campaign.from; d <= campaign.to; d++) campaignSet.add(d);
-  }
 
   const today = new Date();
   const isCurrentMonth = (today.getFullYear() === year && today.getMonth() + 1 === month);
@@ -960,12 +956,10 @@ function buildCalendar(year, month) {
     const isTodayCell = isCurrentMonth && today.getDate() === d;
     const eventName = events[d];
 
-    const isCampaign = campaignSet.has(d);
-    html += `<div class="cal-day status-${status}${isTodayCell ? " today" : ""}${eventName ? " has-event" : ""}${isCampaign ? " campaign" : ""}" data-dow="${dow}"${eventName ? ` title="${eventName}"` : campaign && isCampaign ? ` title="${campaign.label}"` : ""}>
+    html += `<div class="cal-day status-${status}${isTodayCell ? " today" : ""}${eventName ? " has-event" : ""}" data-dow="${dow}"${eventName ? ` title="${eventName}"` : ""}>
       <span class="cal-num">${d}</span>
       ${status === "closed" ? `<span class="cal-kyuu">休</span>` : ""}
       ${eventName ? `<span class="cal-event">催</span>` : ""}
-      ${isCampaign && status !== "closed" && !eventName ? `<span class="cal-pair">ペア割</span>` : ""}
     </div>`;
   }
 
