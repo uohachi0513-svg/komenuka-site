@@ -899,10 +899,12 @@ const SCHEDULE = {
     events: { 3: "ぬか床ワークショップ" }
   },
   "2026-10": {
-    closed: [7, 14, 15, 19, 29]
+    closed: [7, 14, 15, 19, 29],
+    campaign: { from: 26, to: 31, label: "秋のペア割月間", note: "ペアでお一人様4,200円", periodText: "10月26日〜11月30日" }
   },
   "2026-11": {
-    closed: [2, 8, 9, 16, 19, 26, 30]
+    closed: [2, 8, 9, 16, 19, 26, 30],
+    campaign: { from: 1, to: 30, label: "秋のペア割月間", note: "ペアでお一人様4,200円", periodText: "10月26日〜11月30日" }
   }
 };
 
@@ -982,7 +984,8 @@ function buildCalendar(year, month) {
   }
 
   if (campaign) {
-    html += `<div class="cal-campaign-note"><span class="cal-campaign-badge">ペア割</span><span class="cal-campaign-date">${month}月${campaign.from}日〜${campaign.to}日</span>${campaign.label}${campaign.note ? `（${campaign.note}）` : ""}</div>`;
+    const campaignPeriod = campaign.periodText || `${month}月${campaign.from}日〜${campaign.to}日`;
+    html += `<div class="cal-campaign-note"><span class="cal-campaign-badge">ペア割</span><span class="cal-campaign-date">${campaignPeriod}</span>${campaign.label}${campaign.note ? `（${campaign.note}）` : ""}</div>`;
   }
 
   html += `
