@@ -581,9 +581,6 @@
     }
     /* ペア割の案内（カレンダー下） */
     .cal-campaign-note {
-      display: flex;
-      align-items: center;
-      gap: 10px;
       margin-top: 10px;
       font-size: 13.5px;
       font-family: var(--font-serif);
@@ -593,7 +590,33 @@
       border: 1px solid rgba(138,154,85,0.4);
       border-left: 4px solid #8A9A55;
       border-radius: 8px;
-      padding: 10px 14px;
+      padding: 12px 14px;
+      text-align: center;
+    }
+    .cal-campaign-main {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .cal-campaign-link {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 8px 20px;
+      background: #8A9A55;
+      color: #fff;
+      font-size: 12.5px;
+      letter-spacing: 0.04em;
+      border-radius: 20px;
+      text-decoration: none;
+      box-shadow: 0 2px 8px rgba(120,138,78,0.35);
+      transition: var(--transition);
+    }
+    .cal-campaign-link:hover {
+      background: #728040;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 14px rgba(120,138,78,0.42);
     }
     .cal-campaign-badge {
       flex: none;
@@ -979,7 +1002,10 @@ function buildCalendar(year, month) {
 
   if (campaign) {
     const campaignPeriod = campaign.periodText || `${month}月${campaign.from}日〜${campaign.to}日`;
-    html += `<div class="cal-campaign-note"><span class="cal-campaign-badge">ペア割</span><span class="cal-campaign-date">${campaignPeriod}</span>${campaign.label}${campaign.note ? `（${campaign.note}）` : ""}</div>`;
+    html += `<div class="cal-campaign-note">`
+      + `<div class="cal-campaign-main"><span class="cal-campaign-badge">ペア割</span><span class="cal-campaign-date">${campaignPeriod}</span>${campaign.label}${campaign.note ? `（${campaign.note}）` : ""}</div>`
+      + `<a href="index.html#news" class="cal-campaign-link">ペア割について詳しく見る →</a>`
+      + `</div>`;
   }
 
   html += `
