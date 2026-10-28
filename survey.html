@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>ご来店アンケート｜米ぬか酵素浴 田（でん）</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500&family=Shippori+Mincho:wght@400;500;600&family=Yuji+Boku&display=swap" rel="stylesheet">
+  <style>
+    /* サイト本体（index.html）と同じ配色・書体。スマホ1列で上から順に答える */
+    :root {
+      --color-bg:       #FAF6EE;
+      --color-white:    #FFFFFF;
+      --color-gold:     #9A7B3A;
+      --color-gold-lt:  #C8A96E;
+      --color-brown:    #4A3420;
+      --color-green:    #4E6E42;
+      --color-beige:    #E8DFCC;
+      --color-beige-dk: #D4C9B0;
+      --color-text:     #2C2417;
+      --color-text-lt:  #6B5B45;
+      --color-error:    #A4442E;
+      --font-serif:     'Shippori Mincho', 'Noto Serif JP', serif;
+      --font-sans:      'Noto Sans JP', 'Hiragino Sans', sans-serif;
+      --font-brush:     'Yuji Boku', 'Shippori Mincho', serif;
+      --radius:         6px;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0;
+      background: var(--color-bg);
+      color: var(--color-text);
+      font-family: var(--font-sans);
+      font-size: 16px;
+      line-height: 1.8;
+      letter-spacing: 0.03em;
+    }
+    .wrap {
+      max-width: 560px;
+      margin: 0 auto;
+      padding-inline: 18px;
+      padding-block: calc(env(safe-area-inset-top, 0px) + 36px) calc(env(safe-area-inset-bottom, 0px) + 48px);
+    }
+
+    /* ヘッダー */
+    .head { text-align: center; display: grid; gap: 6px; margin-bottom: 28px; }
+    .head-shop { font-family: var(--font-serif); font-size: 12px; color: var(--color-gold); letter-spacing: 0.2em; margin: 0; }
+    .head-title { font-family: var(--font-brush); font-size: 34px; font-weight: 400; color: var(--color-brown); margin: 0; line-height: 1.4; }
+    .head-lead { font-size: 14px; color: var(--color-text-lt); margin: 8px 0 0; text-wrap: pretty; }
+
+    /* 進み具合 */
+    .progress {
+      position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5;
+      background: var(--color-bg);
+      padding-block: 10px;
+      display: flex; align-items: center; gap: 12px;
+      font-size: 12px; color: var(--color-text-lt);
+      font-variant-numeric: tabular-nums;
+    }
+    .progress-track { flex: 1; height: 4px; background: var(--color-beige); border-radius: 2px; overflow: hidden; }
+    .progress-bar { height: 100%; width: 0; background: var(--color-gold); transition: width .3s ease; }
+
+    form { display: grid; gap: 14px; }
+    .q {
+      background: var(--color-white);
+      border: 1px solid var(--color-beige);
+      border-radius: var(--radius);
+      padding: 20px 18px;
+      margin: 0;
+      min-width: 0;
+    }
+    .q.is-missing { border-color: var(--color-error); }
+    .q legend, .q .q-label {
+      float: left; width: 100%; padding: 0;
+      font-family: var(--font-serif); font-weight: 600; font-size: 17px; color: var(--color-brown);
+      line-height: 1.6; margin-bottom: 4px;
+    }
+    .q-num { color: var(--color-gold); margin-right: 6px; }
+    .q-tag { font-family: var(--font-sans); font-weight: 400; font-size: 11px; color: var(--color-text-lt); margin-left: 6px; }
+    .q-tag.req { color: var(--color-gold); }
+    .q-hint { clear: both; font-size: 12px; color: var(--color-text-lt); margin: 0 0 12px; }
+    .q-body { clear: both; padding-top: 10px; }
+    .q-hint + .q-body { padding-top: 0; }
+    .q-error { display: none; font-size: 13px; color: var(--color-error); margin: 10px 0 0; }
+    .q.is-missing .q-error { display: block; }
+
+    /* 選択肢（ラジオ・チェックを大きなボタンに） */
+    .choices { display: grid; gap: 8px; }
+    .choices.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .choice { position: relative; display: block; }
+    .choice input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
+    .choice span {
+      display: flex; align-items: center; gap: 10px;
+      min-height: 50px; padding: 10px 14px;
+      border: 1px solid var(--color-beige-dk); border-radius: var(--radius);
+      background: var(--color-bg);
+      font-size: 15px; line-height: 1.5;
+      transition: background .15s, border-color .15s, color .15s;
+    }
+    .choice span::before {
+      content: ""; flex: none; width: 18px; height: 18px;
+      border: 1.5px solid var(--color-beige-dk); background: var(--color-white);
+      border-radius: 50%;
+    }
+    .choice input[type="checkbox"] + span::before { border-radius: 4px; }
+    .choice input:checked + span { border-color: var(--color-gold); background: #F4ECDC; color: var(--color-brown); font-weight: 500; }
+    .choice input:checked + span::before {
+      border-color: var(--color-gold); background: var(--color-gold);
+      box-shadow: inset 0 0 0 3px var(--color-white);
+    }
+    .choice input[type="checkbox"]:checked + span::before {
+      box-shadow: none;
+      background: var(--color-gold) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3.5 8.5l3 3 6-7' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/14px no-repeat;
+    }
+    .choice input:focus-visible + span { outline: 2px solid var(--color-gold); outline-offset: 2px; }
+
+    /* 5段階評価 */
+    .scale { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 6px; }
+    .scale .choice span {
+      flex-direction: column; justify-content: center; gap: 2px;
+      min-height: 58px; padding: 6px 2px; text-align: center;
+      font-family: var(--font-serif); font-size: 20px; font-weight: 600;
+    }
+    .scale .choice span::before { display: none; }
+    .scale .choice input:checked + span { background: var(--color-gold); border-color: var(--color-gold); color: var(--color-white); }
+    .scale-ends { display: flex; justify-content: space-between; font-size: 11px; color: var(--color-text-lt); margin-top: 6px; }
+
+    textarea, input[type="text"] {
+      width: 100%; font: inherit; font-size: 16px; color: var(--color-text);
+      background: var(--color-bg);
+      border: 1px solid var(--color-beige-dk); border-radius: var(--radius);
+      padding: 12px 14px;
+    }
+    textarea { min-height: 120px; resize: vertical; line-height: 1.7; }
+    textarea:focus, input[type="text"]:focus { outline: 2px solid var(--color-gold); outline-offset: 1px; border-color: var(--color-gold); }
+    .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
+    .submit-area { display: grid; gap: 12px; margin-top: 10px; text-align: center; }
+    .btn {
+      appearance: none; border: 0; cursor: pointer;
+      width: 100%; min-height: 56px;
+      background: var(--color-brown); color: var(--color-white);
+      font-family: var(--font-serif); font-size: 17px; font-weight: 600; letter-spacing: 0.15em;
+      border-radius: var(--radius);
+    }
+    .btn:hover { background: #3A2918; }
+    .btn:focus-visible { outline: 2px solid var(--color-gold); outline-offset: 3px; }
+    .btn[disabled] { opacity: .6; cursor: wait; }
+    .form-msg { font-size: 13px; color: var(--color-error); margin: 0; min-height: 1em; }
+    .privacy-note { font-size: 12px; color: var(--color-text-lt); margin: 0; }
+    .privacy-note a { color: var(--color-gold); }
+
+    /* 送信後 */
+    .thanks { text-align: center; display: grid; gap: 14px; padding-block: 20px; }
+    .thanks-mark { font-family: var(--font-brush); font-size: 64px; color: var(--color-gold); line-height: 1; margin: 0; }
+    .thanks h2 { font-family: var(--font-serif); font-size: 22px; color: var(--color-brown); margin: 0; }
+    .thanks p { margin: 0; font-size: 15px; color: var(--color-text-lt); }
+    .thanks-tip {
+      text-align: left; background: var(--color-white); border: 1px solid var(--color-beige);
+      border-radius: var(--radius); padding: 18px; font-size: 14px; color: var(--color-text);
+    }
+    .thanks-tip strong { font-family: var(--font-serif); color: var(--color-green); display: block; margin-bottom: 4px; font-size: 15px; }
+    .thanks a.link { color: var(--color-gold); font-size: 14px; }
+
+    .demo-note {
+      background: #FFF4D6; border: 1px dashed var(--color-gold-lt); border-radius: var(--radius);
+      padding: 10px 14px; font-size: 12px; color: var(--color-brown); margin: 0 0 18px;
+    }
+
+    @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <header class="head">
+      <p class="head-shop">米ぬか酵素浴 田（でん）</p>
+      <h1 class="head-title">ご来店アンケート</h1>
+      <p class="head-lead">本日はご来店ありがとうございました。<br>今日の体感をお聞かせください。1〜2分で終わります。</p>
+    </header>
+
+    <p class="demo-note" id="demo-note" hidden>【確認用】送信先がまだ設定されていません。送信しても回答は保存されません。</p>
+
+    <div id="survey">
+      <div class="progress" aria-hidden="true">
+        <div class="progress-track"><div class="progress-bar" id="progress-bar"></div></div>
+        <span id="progress-text">0 / 5</span>
+      </div>
+
+      <form id="form" novalidate>
+        <fieldset class="q" data-required data-name="visits">
+          <legend><span class="q-num">Q1</span>今回のご利用は何回目ですか？<span class="q-tag req">必須</span></legend>
+          <div class="q-body choices">
+            <label class="choice"><input type="radio" name="visits" id="visits-1" value="初めて"><span>初めて</span></label>
+            <label class="choice"><input type="radio" name="visits" id="visits-2" value="2〜4回目"><span>2〜4回目</span></label>
+            <label class="choice"><input type="radio" name="visits" id="visits-3" value="5回以上"><span>5回以上</span></label>
+          </div>
+          <p class="q-error">ひとつお選びください</p>
+        </fieldset>
+
+        <fieldset class="q" data-required data-name="satisfaction">
+          <legend><span class="q-num">Q2</span>今日の酵素浴、全体の満足度は？<span class="q-tag req">必須</span></legend>
+          <div class="q-body">
+            <div class="scale" id="scale-satisfaction"></div>
+            <div class="scale-ends"><span>いまひとつ</span><span>とても満足</span></div>
+          </div>
+          <p class="q-error">ひとつお選びください</p>
+        </fieldset>
+
+        <fieldset class="q" data-required data-name="warmth">
+          <legend><span class="q-num">Q3</span>体の温まり具合はいかがでしたか？<span class="q-tag req">必須</span></legend>
+          <div class="q-body">
+            <div class="scale" id="scale-warmth"></div>
+            <div class="scale-ends"><span>物足りない</span><span>芯までぽかぽか</span></div>
+          </div>
+          <p class="q-error">ひとつお選びください</p>
+        </fieldset>
+
+        <fieldset class="q" data-required data-name="relax">
+          <legend><span class="q-num">Q4</span>リラックスできましたか？<span class="q-tag req">必須</span></legend>
+          <div class="q-body">
+            <div class="scale" id="scale-relax"></div>
+            <div class="scale-ends"><span>落ち着かなかった</span><span>とてもできた</span></div>
+          </div>
+          <p class="q-error">ひとつお選びください</p>
+        </fieldset>
+
+        <fieldset class="q" data-name="changes">
+          <legend><span class="q-num">Q5</span>入酵後に感じたことはありますか？<span class="q-tag">いくつでも</span></legend>
+          <div class="q-body choices two">
+            <label class="choice"><input type="checkbox" name="changes" id="changes-1" value="体がぽかぽか"><span>体がぽかぽか</span></label>
+            <label class="choice"><input type="checkbox" name="changes" id="changes-2" value="汗がたくさん出た"><span>汗がたくさん出た</span></label>
+            <label class="choice"><input type="checkbox" name="changes" id="changes-3" value="肌がすべすべ"><span>肌がすべすべ</span></label>
+            <label class="choice"><input type="checkbox" name="changes" id="changes-4" value="体が軽い"><span>体が軽い</span></label>
+            <label class="choice"><input type="checkbox" name="changes" id="changes-5" value="気分がすっきり"><span>気分がすっきり</span></label>
+            <label class="choice"><input type="checkbox" name="changes" id="changes-6" value="よく眠れそう"><span>よく眠れそう</span></label>
+            <label class="choice"><input type="checkbox" name="changes" id="changes-7" value="少し疲れた・だるい"><span>少し疲れた・だるい</span></label>
+            <label class="choice"><input type="checkbox" name="changes" id="changes-8" value="特になし"><span>特になし</span></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="q" data-name="good">
+          <legend><span class="q-num">Q6</span>良かったところを教えてください<span class="q-tag">いくつでも</span></legend>
+          <div class="q-body choices two">
+            <label class="choice"><input type="checkbox" name="good" id="good-1" value="酵素浴の心地よさ"><span>酵素浴の心地よさ</span></label>
+            <label class="choice"><input type="checkbox" name="good" id="good-2" value="スタッフの説明・対応"><span>スタッフの説明・対応</span></label>
+            <label class="choice"><input type="checkbox" name="good" id="good-3" value="個室・清潔さ"><span>個室・清潔さ</span></label>
+            <label class="choice"><input type="checkbox" name="good" id="good-4" value="発酵ドリンク"><span>発酵ドリンク</span></label>
+            <label class="choice"><input type="checkbox" name="good" id="good-5" value="駅から近い"><span>駅から近い</span></label>
+            <label class="choice"><input type="checkbox" name="good" id="good-6" value="予約のしやすさ"><span>予約のしやすさ</span></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="q" data-required data-name="again">
+          <legend><span class="q-num">Q7</span>また酵素浴に入りたいと思いますか？<span class="q-tag req">必須</span></legend>
+          <div class="q-body choices">
+            <label class="choice"><input type="radio" name="again" id="again-1" value="ぜひまた来たい"><span>ぜひまた来たい</span></label>
+            <label class="choice"><input type="radio" name="again" id="again-2" value="機会があれば"><span>機会があれば</span></label>
+            <label class="choice"><input type="radio" name="again" id="again-3" value="今はわからない"><span>今はわからない</span></label>
+          </div>
+          <p class="q-error">ひとつお選びください</p>
+        </fieldset>
+
+        <fieldset class="q" data-name="next">
+          <legend><span class="q-num">Q8</span>次回はいつ頃来られそうですか？</legend>
+          <div class="q-body choices two">
+            <label class="choice"><input type="radio" name="next" id="next-1" value="1週間以内"><span>1週間以内</span></label>
+            <label class="choice"><input type="radio" name="next" id="next-2" value="2週間以内"><span>2週間以内</span></label>
+            <label class="choice"><input type="radio" name="next" id="next-3" value="1ヶ月以内"><span>1ヶ月以内</span></label>
+            <label class="choice"><input type="radio" name="next" id="next-4" value="まだ決めていない"><span>まだ決めていない</span></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="q" data-name="interest">
+          <legend><span class="q-num">Q9</span>気になるものはありますか？<span class="q-tag">いくつでも</span></legend>
+          <p class="q-hint">次回ご来店時に詳しくご案内します</p>
+          <div class="q-body choices">
+            <label class="choice"><input type="checkbox" name="interest" id="interest-1" value="回数券"><span>回数券（5回券・10回券）</span></label>
+            <label class="choice"><input type="checkbox" name="interest" id="interest-2" value="マスターV3"><span>脊椎セラピーマシン マスターV3</span></label>
+            <label class="choice"><input type="checkbox" name="interest" id="interest-3" value="家族・友人と来店"><span>家族や友人と一緒に来たい</span></label>
+            <label class="choice"><input type="checkbox" name="interest" id="interest-4" value="わかめ麺"><span>わかめ麺（淡路島・井上商店）</span></label>
+            <label class="choice"><input type="checkbox" name="interest" id="interest-5" value="温活・食事のアドバイス"><span>温活・食事のアドバイス</span></label>
+          </div>
+        </fieldset>
+
+        <div class="q">
+          <label class="q-label" for="comment"><span class="q-num">Q10</span>ご感想・ご要望があればどうぞ<span class="q-tag">任意</span></label>
+          <div class="q-body">
+            <textarea id="comment" name="comment" maxlength="1000" placeholder="例：終わったあともずっとぽかぽかしています。次は主人と来たいです。"></textarea>
+          </div>
+        </div>
+
+        <div class="q">
+          <label class="q-label" for="name">お名前（ニックネーム可）<span class="q-tag">任意</span></label>
+          <p class="q-hint">いただいたご感想へのお礼や、次回のご案内の参考にします</p>
+          <div class="q-body">
+            <input type="text" id="name" name="name" maxlength="40" autocomplete="name">
+          </div>
+        </div>
+
+        <div class="hp" aria-hidden="true">
+          <label for="website">この欄は空のままにしてください</label>
+          <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+        </div>
+
+        <div class="submit-area">
+          <p class="form-msg" id="form-msg" role="alert"></p>
+          <button type="submit" class="btn" id="submit-btn">送信する</button>
+          <p class="privacy-note">いただいた回答はサービス向上のためだけに使います。<br><a href="/privacy.html" target="_blank" rel="noopener">プライバシーポリシー</a></p>
+        </div>
+      </form>
+    </div>
+
+    <section class="thanks" id="thanks" hidden aria-live="polite">
+      <p class="thanks-mark">田</p>
+      <h2>ありがとうございました</h2>
+      <p>いただいた声は、これからの酵素浴づくりに活かします。</p>
+      <div class="thanks-tip">
+        <strong>今日はこんな過ごし方がおすすめです</strong>
+        水分をこまめにとり、30分〜1時間ほどは消化に重い食事を控えめに。体が温かいうちに、ゆっくりお過ごしください。
+      </div>
+      <a class="link" href="/">米ぬか酵素浴 田 のホームページへ</a>
+    </section>
+  </main>
+
+  <script>
+    // Google Apps Script の「ウェブアプリURL」をここに貼る（空のままだと確認用モード）
+    const ENDPOINT = '';
+
+    const form = document.getElementById('form');
+    const REQUIRED = [...form.querySelectorAll('[data-required]')];
+
+    // 5段階評価ボタンを生成
+    ['satisfaction', 'warmth', 'relax'].forEach(name => {
+      const box = document.getElementById('scale-' + name);
+      for (let i = 1; i <= 5; i++) {
+        box.insertAdjacentHTML('beforeend',
+          `<label class="choice"><input type="radio" name="${name}" id="${name}-${i}" value="${i}" aria-label="${i}"><span>${i}</span></label>`);
+      }
+    });
+
+    if (!ENDPOINT) document.getElementById('demo-note').hidden = false;
+
+    // 「特になし」と他の選択肢は同時に選べないようにする
+    form.addEventListener('change', e => {
+      const t = e.target;
+      if (t.name === 'changes' && t.checked) {
+        form.querySelectorAll('input[name="changes"]').forEach(el => {
+          if (t.value === '特になし' ? el !== t : el.value === '特になし') el.checked = false;
+        });
+      }
+      const q = t.closest('.q');
+      if (q && q.classList.contains('is-missing') && isAnswered(q)) q.classList.remove('is-missing');
+      updateProgress();
+    });
+
+    function isAnswered(q) {
+      return !!form.querySelector(`input[name="${q.dataset.name}"]:checked`);
+    }
+
+    function updateProgress() {
+      const done = REQUIRED.filter(isAnswered).length;
+      document.getElementById('progress-bar').style.width = (done / REQUIRED.length * 100) + '%';
+      document.getElementById('progress-text').textContent = `${done} / ${REQUIRED.length}`;
+    }
+
+    function collect() {
+      const fd = new FormData(form);
+      const one = k => (fd.get(k) || '').toString().trim();
+      const many = k => fd.getAll(k).join('、');
+      return {
+        visits: one('visits'),
+        satisfaction: one('satisfaction'),
+        warmth: one('warmth'),
+        relax: one('relax'),
+        changes: many('changes'),
+        good: many('good'),
+        again: one('again'),
+        next: one('next'),
+        interest: many('interest'),
+        comment: one('comment'),
+        name: one('name'),
+        website: one('website'),
+      };
+    }
+
+    form.addEventListener('submit', async e => {
+      e.preventDefault();
+      const msg = document.getElementById('form-msg');
+      msg.textContent = '';
+
+      const missing = REQUIRED.filter(q => !isAnswered(q));
+      REQUIRED.forEach(q => q.classList.toggle('is-missing', missing.includes(q)));
+      if (missing.length) {
+        msg.textContent = `まだ答えていない質問が${missing.length}つあります`;
+        missing[0].scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return;
+      }
+
+      const btn = document.getElementById('submit-btn');
+      btn.disabled = true;
+      btn.textContent = '送信しています…';
+      try {
+        if (ENDPOINT) {
+          // text/plain で送ると Apps Script 側で CORS の事前確認が不要になる
+          await fetch(ENDPOINT, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+            body: JSON.stringify(collect()),
+          });
+        }
+        document.getElementById('survey').hidden = true;
+        document.getElementById('thanks').hidden = false;
+        window.scrollTo({ top: 0 });
+      } catch (err) {
+        msg.textContent = '送信できませんでした。電波の良い場所でもう一度「送信する」を押してください。';
+        btn.disabled = false;
+        btn.textContent = '送信する';
+      }
+    });
+
+    updateProgress();
+  </script>
+</body>
+</html>
