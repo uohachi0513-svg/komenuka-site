@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-14 40 240 284" fill="none" stroke="#000" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+  <defs>
+    <path id="g" d="M0 0c5-5 12-5 16 0c-4 5-11 5-16 0z"/>
+  </defs>
+  <!-- 主の稲穂：茎と垂れる穂軸 -->
+  <path d="M100 318C98 252 101 178 114 120C122 86 136 64 154 60"/>
+  <path d="M154 60C176 62 192 84 197 114C200 136 198 158 191 178"/>
+  <!-- 穂の粒（穂軸に沿って左右に） -->
+  <use href="#g" transform="translate(160 61) rotate(38)"/>
+  <use href="#g" transform="translate(160 61) rotate(-18)"/>
+  <use href="#g" transform="translate(170 65) rotate(58)"/>
+  <use href="#g" transform="translate(170 65) rotate(2)"/>
+  <use href="#g" transform="translate(179 72) rotate(73)"/>
+  <use href="#g" transform="translate(179 72) rotate(17)"/>
+  <use href="#g" transform="translate(186 82) rotate(88)"/>
+  <use href="#g" transform="translate(186 82) rotate(32)"/>
+  <use href="#g" transform="translate(191 94) rotate(100)"/>
+  <use href="#g" transform="translate(191 94) rotate(44)"/>
+  <use href="#g" transform="translate(195 107) rotate(108)"/>
+  <use href="#g" transform="translate(195 107) rotate(52)"/>
+  <use href="#g" transform="translate(197 120) rotate(116)"/>
+  <use href="#g" transform="translate(197 120) rotate(60)"/>
+  <use href="#g" transform="translate(198 134) rotate(120)"/>
+  <use href="#g" transform="translate(198 134) rotate(64)"/>
+  <use href="#g" transform="translate(197 148) rotate(126)"/>
+  <use href="#g" transform="translate(197 148) rotate(70)"/>
+  <use href="#g" transform="translate(195 161) rotate(130)"/>
+  <use href="#g" transform="translate(195 161) rotate(74)"/>
+  <use href="#g" transform="translate(192 174) rotate(100)"/>
+  <!-- 二本目の稲穂 -->
+  <path d="M92 318C88 262 78 206 62 160C52 132 38 114 22 108"/>
+  <path d="M22 108C10 116 6 134 9 154C11 166 15 176 20 184"/>
+  <use href="#g" transform="translate(17 110) rotate(188)"/>
+  <use href="#g" transform="translate(17 110) rotate(132)"/>
+  <use href="#g" transform="translate(12 119) rotate(158)"/>
+  <use href="#g" transform="translate(12 119) rotate(102)"/>
+  <use href="#g" transform="translate(9 130) rotate(133)"/>
+  <use href="#g" transform="translate(9 130) rotate(77)"/>
+  <use href="#g" transform="translate(8 142) rotate(120)"/>
+  <use href="#g" transform="translate(8 142) rotate(64)"/>
+  <use href="#g" transform="translate(9 154) rotate(110)"/>
+  <use href="#g" transform="translate(9 154) rotate(54)"/>
+  <use href="#g" transform="translate(12 166) rotate(103)"/>
+  <use href="#g" transform="translate(12 166) rotate(47)"/>
+  <use href="#g" transform="translate(17 178) rotate(75)"/>
+  <!-- 葉 -->
+  <path d="M98 300C84 262 58 232 26 214C58 222 86 246 100 276"/>
+  <path d="M102 292C114 248 146 214 196 198C160 220 130 250 112 290"/>
+  <path d="M96 250C90 226 80 206 66 192"/>
+</svg>
