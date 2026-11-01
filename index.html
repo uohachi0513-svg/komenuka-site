@@ -378,16 +378,28 @@
       inset: 0;
     }
 
+    /* トップ画像：数枚をふわっと切り替えるスライドショー */
     .hero-slide {
       position: absolute;
       inset: 0;
-      background-image: url('images/hero-main.png');
       background-size: cover;
       background-position: center center;
       background-repeat: no-repeat;
       opacity: 0;
-      transform: scale(1.06);
+      transform: scale(1.08);
+      transition: opacity 2.4s ease, transform 9s linear;
+    }
+    .hero-slide.s1 { background-image: url('images/hero-slide-1.jpg'); }
+    .hero-slide.s2 { background-image: url('images/hero-slide-2.jpg'); background-position: 35% center; }
+    .hero-slide.s3 { background-image: url('images/hero-slide-3.jpg'); }
+    .hero-slide.s4 { background-image: url('images/hero-slide-4.jpg'); }
+
+    .hero-slide.is-active { opacity: 1; transform: scale(1); }
+
+    /* 1枚目だけは、ページを開いた時にぼかしから浮かび上がる */
+    .hero-slide.is-intro {
       filter: blur(12px);
+      transform: scale(1.06);
       animation: heroReveal 4.4s cubic-bezier(0.16, 0.62, 0.23, 1) 0.3s forwards;
     }
 
@@ -397,7 +409,8 @@
     }
 
     @media (prefers-reduced-motion: reduce) {
-      .hero-slide { animation: none; opacity: 1; transform: none; filter: none; }
+      .hero-slide { transition: none; }
+      .hero-slide.is-intro { animation: none; opacity: 1; transform: none; filter: none; }
     }
 
     .hero-bg::before {
@@ -2394,6 +2407,7 @@
       .container { padding: 0 18px; }
       .coupon-grid { grid-template-columns: 1fr; }
       .pair-detail-grid { grid-template-columns: 1fr !important; }
+      .hero-slide.s2 { background-position: 43% center; } /* 縦長画面でも横顔が入るように */
       .site-logo-mark { width: 36px; height: 36px; }
       .site-logo { gap: 9px; font-size: 17px; }
       .site-logo span { font-size: 8px; letter-spacing: 0.14em; }
@@ -2532,7 +2546,10 @@
      ============================================================ -->
 <section class="hero" id="top">
   <div class="hero-bg">
-    <div class="hero-slide"></div>
+    <div class="hero-slide s1 is-intro"></div>
+    <div class="hero-slide s2"></div>
+    <div class="hero-slide s3"></div>
+    <div class="hero-slide s4"></div>
   </div>
   <div class="hero-deco">
     <div class="hero-deco-ring"></div>
@@ -3776,6 +3793,34 @@
         }
       });
     });
+  })();
+
+  // ── Hero slideshow（トップ画像をふわっと切り替え） ──
+  (function() {
+    var slides = document.querySelectorAll('.hero-slide');
+    if (slides.length < 2) return;
+    var first = slides[0];
+    var current = 0;
+    var INTERVAL = 6500;
+
+    function startCycle() {
+      // 1枚目の登場アニメーションを外し、以降はクラスの付け替えで切り替える
+      first.classList.remove('is-intro');
+      first.classList.add('is-active');
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      setInterval(function() {
+        if (document.hidden) return;
+        slides[current].classList.remove('is-active');
+        current = (current + 1) % slides.length;
+        slides[current].classList.add('is-active');
+      }, INTERVAL);
+    }
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      startCycle();
+    } else {
+      first.addEventListener('animationend', startCycle, { once: true });
+    }
   })();
 
   // ── Header scroll ──
