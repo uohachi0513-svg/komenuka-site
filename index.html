@@ -59,6 +59,7 @@
 
     :root {
       --color-bg:       #FAF6EE;
+      --color-washi:    #EFE4D1; /* 和紙の地色 */
       --color-white:    #FFFFFF;
       --color-gold:     #9A7B3A;
       --color-gold-lt:  #C8A96E;
@@ -777,7 +778,7 @@
     /* ===== ABOUT ===== */
     .about {
       padding: 120px 0;
-      background: var(--color-white);
+      background: var(--color-washi) url("images/washi.svg") repeat;
     }
 
     .about .section-label { color: var(--color-gold); }
@@ -996,10 +997,10 @@
     }
 
     /* ===== セクションの継ぎ目を、隣り合う色に合わせて自然にぼかす ===== */
-    .news, .ricebran, .course, .commitment,
+    .news, .enzyme, .ricebran, .course, .commitment,
     .faq, .voice, .access, .owner-note-section { position: relative; }
 
-    .news::after, .ricebran::after, .course::after,
+    .news::after, .enzyme::after, .ricebran::after, .course::after,
     .commitment::after, .faq::after, .voice::after,
     .access::after, .owner-note-section::after {
       content: '';
@@ -1020,18 +1021,40 @@
 
     /* 各セクションの上端・下端を、隣り合うセクションの色に合わせる
        （未指定はクリーム = 明るい写真セクション同士の継ぎ目） */
-    .news   { --seam-top: var(--color-brown); --seam-bottom: #ffffff; } /* 上:バッジ帯(茶) / 下:私たちについて(白) */
+    .news   { --seam-top: var(--color-brown); --seam-bottom: transparent; } /* 上:バッジ帯(茶) / 下:私たちについて(和紙→.washi-fadeでぼかす) */
     /* こだわり ↔ よくあるご質問 ↔ お客様の声 の継ぎ目は濃い色でぼかす */
+    .enzyme { --seam-top: transparent; } /* 上:初回料金の案内(和紙→.washi-fadeでぼかす) */
     .commitment { --seam-bottom: #1c1407; }
     .faq    { --seam-top: #1c1407; --seam-bottom: #1c1407; }
     .voice  { --seam-top: #1c1407; --seam-bottom: #1c1407; } /* 下:アクセス（濃→明はアクセス側でぼかす） */
-    /* 並び順：お客様の声(濃) → アクセス(明) → ご予約(白) → でん店長のブログ(濃) → Instagram(濃) */
-    .access { --seam-top: #1c1407; --seam-bottom: #ffffff; } /* 上:お客様の声(濃色) / 下:ご予約(白) */
-    .owner-note-section { --seam-top: #ffffff; --seam-bottom: #1c1407; } /* 上:ご予約(白) / 下:Instagram(濃色) */
+    /* 並び順：お客様の声(濃) → アクセス(明) → ご予約(和紙) → でん店長のブログ(濃) → Instagram(濃) */
+    .access { --seam-top: #1c1407; --seam-bottom: transparent; } /* 上:お客様の声(濃色) / 下:ご予約(和紙→.washi-fadeでぼかす) */
+    .owner-note-section { --seam-top: transparent; --seam-bottom: #1c1407; } /* 上:ご予約(和紙→.washi-fadeでぼかす) / 下:Instagram(濃色) */
 
     @media (max-width: 600px) {
-      .news, .ricebran, .course, .commitment,
+      .news, .enzyme, .ricebran, .course, .commitment,
       .faq, .voice, .access, .owner-note-section { --seam-dist: 56px; }
+    }
+
+    /* 和紙セクションの隣：端に和紙の質感をグラデーションで重ねてなじませる */
+    .washi-fade {
+      position: absolute;
+      left: 0; right: 0;
+      height: calc(var(--seam-dist, 90px) * 1.4);
+      background: var(--color-washi) url("images/washi.svg") repeat;
+      pointer-events: none;
+      z-index: 1; /* 写真の白フィルターより上、本文(.container)より下 */
+    }
+    /* 境目が小数ピクセルでも線が出ないよう、2px外側まで重ねる */
+    .washi-fade.top {
+      top: -2px;
+      -webkit-mask: linear-gradient(#000 0%, rgba(0,0,0,0.85) 35%, transparent 100%);
+      mask: linear-gradient(#000 0%, rgba(0,0,0,0.85) 35%, transparent 100%);
+    }
+    .washi-fade.bottom {
+      bottom: -2px;
+      -webkit-mask: linear-gradient(transparent 0%, rgba(0,0,0,0.85) 65%, #000 100%);
+      mask: linear-gradient(transparent 0%, rgba(0,0,0,0.85) 65%, #000 100%);
     }
 
     /* ===== ENZYME ===== */
@@ -1950,7 +1973,7 @@
     /* ===== CTA BANNER ===== */
     .cta-banner {
       padding: 80px 0;
-      background: var(--color-white);
+      background: var(--color-washi) url("images/washi.svg") repeat;
       text-align: center;
     }
 
@@ -2057,7 +2080,7 @@
     /* ===== CONTACT ===== */
     .contact {
       padding: 100px 0;
-      background: var(--color-white);
+      background: var(--color-washi) url("images/washi.svg") repeat;
     }
 
     .contact-inner {
@@ -2574,6 +2597,7 @@
      NEWS
      ============================================================ -->
 <section class="news" id="news">
+  <div class="washi-fade bottom" aria-hidden="true"></div>
   <div class="deco-inaho tl" aria-hidden="true"></div>
   <div class="container">
     <div class="news-header fade-up">
@@ -2765,6 +2789,7 @@
      ENZYME BATH
      ============================================================ -->
 <section class="enzyme" id="enzyme">
+  <div class="washi-fade top" aria-hidden="true"></div>
   <div class="enzyme-overlay"></div>
   <div class="container">
     <div class="enzyme-header">
@@ -3420,6 +3445,7 @@
      ACCESS
      ============================================================ -->
 <section class="access" id="access">
+  <div class="washi-fade bottom" aria-hidden="true"></div>
   <div class="container">
     <div style="margin-bottom: 52px;">
       <span class="section-label">Access</span>
@@ -3593,6 +3619,7 @@
      OWNER NOTE → note
      ============================================================ -->
 <section class="owner-note-section">
+  <div class="washi-fade top" aria-hidden="true"></div>
   <div class="container">
     <div class="about-note fade-up">
       <h3 class="about-note-title">でん店長の想い｜体と向き合ってきた私の話</h3>
