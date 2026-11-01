@@ -551,6 +551,25 @@
       background: rgba(255,255,255,0.14);
       border-color: rgba(255,255,255,0.85);
     }
+    /* 右上：LINE予約ボタン（PCは文字つき、スマホはマークのみ） */
+    .header-line {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      height: 40px;
+      padding: 0 16px 0 12px;
+      border-radius: 20px;
+      background: #06C755;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      white-space: nowrap;
+      box-shadow: 0 3px 10px rgba(6,199,85,0.35);
+      transition: var(--transition);
+    }
+    .header-line svg { width: 24px; height: 24px; flex-shrink: 0; }
+    .header-line:hover { background: #05b04b; transform: translateY(-1px); }
     @media (max-width: 920px) {
       .header-actions { align-items: center; }
     }
@@ -559,6 +578,11 @@
       .site-logo { gap: 9px; font-size: 17px; }
       .site-logo span { font-size: 8px; letter-spacing: 0.14em; }
       .header-ig { width: 36px; height: 36px; }
+      .header-line { width: 36px; height: 36px; padding: 0; justify-content: center; border-radius: 50%; }
+      .header-line span { display: none; }
+      .header-line svg { width: 22px; height: 22px; }
+      .header-actions { gap: 10px; }
+      .site-logo span { letter-spacing: 0.06em; }
     }
 
     /* ===== 主要タイトルの書体：刻明朝（トップページと共通） =====
@@ -581,6 +605,11 @@
       font-weight: 400;
     }
 
+    /* 幅の狭いスマホ（〜350px）：ヘッダーの右側ボタンと店名が重ならないように */
+    @media (max-width: 350px) {
+      .site-logo { font-size: 15px; }
+      .site-logo span { display: none; }
+    }
   </style>
 </head>
 
@@ -610,6 +639,10 @@
       <a href="index.html#faq"     class="nav-link">よくあるご質問</a>
       <a href="https://note.com/agile_eider7673" target="_blank" rel="noopener" class="nav-cta">店長のブログ</a>
     </nav>
+    <a href="https://page.line.me/182ficqy?oat_content=url&openQrModal=true" target="_blank" rel="noopener" class="header-line" aria-label="LINEで予約する">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 3.3c-5.2 0-9.4 3.4-9.4 7.6 0 3.8 3.4 6.9 7.9 7.5.3.1.7.2.8.5.1.3.1.6 0 .9l-.1.8c0 .2-.2.9.8.5 1-.4 5.6-3.3 7.6-5.6 1.4-1.5 2-3 2-4.6 0-4.2-4.2-7.6-9.6-7.6z"/><path fill="#06C755" d="M7.2 13.2V9.1h.9v3.3h1.8v.8H7.2zm3.2 0V9.1h.9v4.1h-.9zm1.8 0V9.1h.8l1.8 2.6V9.1h.9v4.1h-.8L13.1 10.6v2.6h-.9zm4.1 0V9.1h2.6v.8h-1.7v.8h1.6v.8h-1.6v.8h1.7v.9h-2.6z"/></svg>
+      <span>LINE予約</span>
+    </a>
     <a href="https://www.instagram.com/kousoyokuden/" target="_blank" rel="noopener" class="header-ig" aria-label="公式Instagram">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="0.9" fill="currentColor" stroke="none"/></svg>
     </a>
