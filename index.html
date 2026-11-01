@@ -48,6 +48,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500;700&family=Noto+Sans+JP:wght@300;400;500&family=Shippori+Mincho:wght@400;500;600;700&family=Yuji+Boku&family=Pinyon+Script&display=swap" rel="stylesheet">
+  <link rel="preload" href="fonts/kokumincho-subset.woff2" as="font" type="font/woff2" crossorigin>
 
   <style>
     /* ===== RESET & BASE ===== */
@@ -72,6 +73,7 @@
       --color-text:     #2C2417;
       --color-text-lt:  #6B5B45;
       --font-serif:     'Shippori Mincho', 'Noto Serif JP', serif;
+      --font-title:     'KokuMincho', 'Shippori Mincho', 'Noto Serif JP', serif; /* 主要タイトル用：刻明朝 */
       --font-sans:      'Noto Sans JP', sans-serif;
       --font-brush:     'Yuji Boku', 'Shippori Mincho', serif;
       --font-script:    'Pinyon Script', cursive;
@@ -2481,6 +2483,25 @@
       .mob-acc-body { max-height: none !important; overflow: visible !important; opacity: 1 !important; }
     }
 
+
+    /* ===== 主要タイトルの書体：刻明朝 =====
+       サイトで使う文字だけに絞った軽量版（fonts/kokumincho-subset.woff2）。
+       IPAフォントライセンスv1.0（fonts/ にライセンス文を同梱）。
+       刻明朝は標準の太さのみなので、太字の自動生成でつぶれないよう400に揃える */
+    @font-face {
+      font-family: 'KokuMincho';
+      src: url('fonts/kokumincho-subset.woff2') format('woff2');
+      font-weight: 400;
+      font-display: swap;
+    }
+    .hero-logo,
+    .site-logo,
+    .section-title,
+    .about-note-title,
+    .mob-acc-btn {
+      font-family: var(--font-title);
+      font-weight: 400;
+    }
   </style>
 </head>
 
