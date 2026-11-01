@@ -171,6 +171,10 @@
     }
 
     @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+    /* 背景を和紙の質感に（トップページと共通の images/washi.svg） */
+    body,
+    .progress { background: #EFE4D1 url("images/washi.svg") repeat; }
+    .progress-track { background: rgba(122,92,56,0.22); } /* 和紙の上でも線が見えるように */
   </style>
 </head>
 <body>
