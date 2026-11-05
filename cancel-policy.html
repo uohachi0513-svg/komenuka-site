@@ -1640,6 +1640,12 @@
     /* メニューを閉じている間は、透明なメニュー背景がタップを受け取らないように
        （スマホで最初のタップが空振りしていたのを防ぐ） */
     .nav-overlay:not(.open) { pointer-events: none; }
+    /* 狭めのPC画面（921〜1100px）：メニューが1つ増えたぶん、LINE予約をマークだけにして間隔を詰める */
+    @media (min-width: 921px) and (max-width: 1100px) {
+      .header-line { width: 40px; padding: 0; justify-content: center; border-radius: 50%; }
+      .header-line span { display: none; }
+      .site-nav { gap: 6px; }
+    }
   </style>
 </head>
 
@@ -1662,6 +1668,7 @@
 
     <nav class="site-nav">
       <a href="index.html#about"   class="nav-link">酵素浴田とは</a>
+      <a href="omoi.html" class="nav-link">私たちの想い</a>
       <a href="index.html#enzyme"  class="nav-link">酵素浴について</a>
       <a href="calendar.html"      class="nav-link">営業日案内</a>
       <a href="flow.html"          class="nav-link">ご利用の流れ</a>
@@ -1696,6 +1703,7 @@
     <a href="index.html#course">コース・料金</a>
     <a href="index.html#commitment">こだわり</a>
     <a href="flow.html">ご利用の流れ</a>
+    <a href="omoi.html">私たちの想い</a>
     <a href="index.html#faq">よくある質問</a>
     <a href="index.html#access">アクセス</a>
     <a href="cancel-policy.html">キャンセルポリシー</a>
@@ -1807,6 +1815,7 @@
         <div class="footer-col-title">メニュー</div>
         <div class="footer-links">
           <a href="index.html#about">当店について</a>
+          <a href="omoi.html">私たちの想い</a>
           <a href="index.html#enzyme">酵素浴について</a>
           <a href="index.html#course">ご利用料金</a>
           <a href="index.html#commitment">こだわり</a>

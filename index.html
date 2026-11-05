@@ -850,6 +850,7 @@
       content: '';
       position: absolute;
       inset: 0;
+      z-index: 1;
       background: linear-gradient(to top, rgba(26,18,8,0.4) 0%, transparent 50%);
     }
 
@@ -861,7 +862,8 @@
       aspect-ratio: 1;
       background: url('images/nuka-woman.jpg') center center / cover no-repeat;
       border-radius: var(--radius);
-      border: 4px solid #161007;
+      border: 6px solid var(--color-washi); /* 和紙色の台紙 */
+      box-shadow: 0 14px 30px rgba(60,40,20,0.22);
     }
 
     .about-img-mobile { display: none; }
@@ -1017,6 +1019,32 @@
       animation-play-state: paused;
     }
     .about-note-btn .scent-callout-tap { bottom: -14px; right: -6px; }
+    .about-omoi-link {
+      margin: -6px 0 26px;
+      font-size: 14px;
+      color: var(--color-text-lt);
+      letter-spacing: 0.04em;
+    }
+    .about-omoi-link a {
+      color: var(--color-gold);
+      border-bottom: 1px solid currentColor;
+      padding-bottom: 1px;
+      margin-left: 4px;
+      transition: var(--transition);
+    }
+    .about-omoi-link a:hover { color: var(--color-brown); }
+    .about-note-omoi {
+      display: inline-block;
+      margin-top: 40px;
+      padding: 12px 28px;
+      border: 1px solid rgba(255,255,255,0.6);
+      border-radius: 30px;
+      color: #fff;
+      font-size: 14px;
+      letter-spacing: 0.06em;
+      transition: var(--transition);
+    }
+    .about-note-omoi:hover { background: rgba(255,255,255,0.14); border-color: #fff; }
 
     .owner-note-section {
       padding: 96px 0;
@@ -2535,9 +2563,72 @@
       .site-logo { font-size: 15px; }
       .site-logo span { display: none; }
     }
+    /* ===== 写真の見せ方（参考：おしゃれなウェルネス系サイトの手法） =====
+       .ph       … 写真を包む枠。右下に少しずらした金の細線（オフセットフレーム）
+       .ph-box   … 写真本体。茶色の幕が右へ引かれて現れる（カーテン・リビール）
+       .ph-zoom  … 写真が少し大きめからゆっくり元に戻る（ズームアウト）
+       .ph / .ph-solo に .visible が付くと動き出す（スクロール監視） */
+    .ph { position: relative; isolation: isolate; }
+    .ph::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border: 1px solid rgba(154,123,58,0.6);
+      border-radius: var(--radius);
+      transform: translate(18px, 18px);
+      opacity: 0;
+      transition: opacity 1s ease 1.1s;
+      z-index: -1;
+      pointer-events: none;
+    }
+    .ph.visible::before { opacity: 1; }
+    .ph .ph-box { position: relative; }
+    .ph-box { overflow: hidden; }
+    .ph-zoom {
+      position: absolute;
+      inset: 0;
+      background: inherit;
+      transform: scale(1.18);
+      transition: transform 2.4s cubic-bezier(0.22,0.61,0.36,1);
+    }
+    .ph-box img {
+      display: block;
+      width: 100%;
+      height: auto;
+      transform: scale(1.18);
+      transition: transform 2.4s cubic-bezier(0.22,0.61,0.36,1);
+    }
+    .ph-box::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      background: var(--color-brown);
+      transform-origin: right center;
+      transition: transform 1.2s cubic-bezier(0.77,0,0.18,1);
+      pointer-events: none;
+    }
+    .ph.visible .ph-zoom, .ph.visible .ph-box img, .ph-solo.visible .ph-zoom { transform: none; }
+    .ph.visible .ph-box::after, .ph-solo.visible::after { transform: scaleX(0); }
+    .ph-solo::after, .ph-solo .ph-zoom { transition-delay: 0.4s; }
+    @media (max-width: 600px) {
+      .ph::before { transform: translate(10px, 10px); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .ph-zoom, .ph-box img { transform: none; transition: none; }
+      .ph-box::after { display: none; }
+      .ph::before { opacity: 1; transition: none; }
+    }
+
     /* メニューを閉じている間は、透明なメニュー背景がタップを受け取らないように
        （スマホで最初のタップが空振りしていたのを防ぐ） */
     .nav-overlay:not(.open) { pointer-events: none; }
+    /* 狭めのPC画面（921〜1100px）：メニューが1つ増えたぶん、LINE予約をマークだけにして間隔を詰める */
+    @media (min-width: 921px) and (max-width: 1100px) {
+      .header-line { width: 40px; padding: 0; justify-content: center; border-radius: 50%; }
+      .header-line span { display: none; }
+      .site-nav { gap: 6px; }
+    }
   </style>
 </head>
 
@@ -2559,6 +2650,7 @@
     <div class="header-actions">
     <nav class="site-nav">
       <a href="#about"   class="nav-link">酵素浴田とは</a>
+      <a href="omoi.html" class="nav-link">私たちの想い</a>
       <a href="#enzyme"  class="nav-link">酵素浴について</a>
       <a href="calendar.html" class="nav-link">営業日案内</a>
       <a href="flow.html" class="nav-link">ご利用の流れ</a>
@@ -2591,6 +2683,7 @@
     <a href="#news">最新情報</a>
     <a href="calendar.html">営業日案内</a>
     <a href="flow.html">ご利用の流れ</a>
+    <a href="omoi.html">私たちの想い</a>
     <a href="#faq">よくある質問</a>
     <a href="#access">アクセス</a>
     <a href="cancel-policy.html">キャンセルポリシー</a>
@@ -2769,9 +2862,9 @@
     <div class="about-inner">
 
       <!-- Visual -->
-      <div class="about-visual fade-up">
-        <div class="about-img-main"></div>
-        <div class="about-img-sub"></div>
+      <div class="about-visual">
+        <div class="ph"><div class="about-img-main ph-box"><span class="ph-zoom"></span></div></div>
+        <div class="about-img-sub ph-box ph-solo"><span class="ph-zoom"></span></div>
       </div>
 
       <!-- Text -->
@@ -2787,6 +2880,7 @@
           姫路・神戸・大阪からもお越しいただく、地域に愛されるサロンとして、
           お一人おひとりに寄り添った丁寧なサービスをご提供します。
         </p>
+        <p class="about-omoi-link">夫婦二人で営む小さなお店です。お店に込めた想いは<a href="omoi.html">こちら →</a></p>
         <blockquote class="about-philosophy">
           「米ぬかの香りは『発酵』の原点であり<br>
           古き良き伝統の健康法です。」
@@ -2821,7 +2915,7 @@
           <div class="about-feature-item">レンタルタオル有（¥220）</div>
           <div class="about-feature-item">2名様ペアにてご予約可（ご予約前に要事前連絡にてご確認ください）</div>
         </div>
-        <img class="about-img-mobile img-reveal" src="images/nuka-woman.jpg" alt="兵庫・加古川エリアの完全個室 米ぬか酵素浴（酵素風呂）田（でん）の施術風景" loading="lazy">
+        <div class="about-img-mobile ph"><div class="ph-box"><img src="images/nuka-woman.jpg" alt="兵庫・加古川エリアの完全個室 米ぬか酵素浴（酵素風呂）田（でん）の施術風景" loading="lazy"></div></div>
       </div>
 
     </div>
@@ -2956,8 +3050,8 @@
         </div>
       </div>
 
-      <div class="fade-up fade-up-d1">
-        <div class="ricebran-img"></div>
+      <div>
+        <div class="ph"><div class="ricebran-img ph-box"><span class="ph-zoom"></span></div></div>
       </div>
 
     </div>
@@ -3706,6 +3800,7 @@
           こちらをタップ
         </span>
       </a>
+      <a href="omoi.html" class="about-note-omoi">夫婦でお店に込めた想い「私たちの想い」を読む →</a>
     </div>
   </div>
 </section>
@@ -3764,6 +3859,7 @@
         <div class="footer-col-title">メニュー</div>
         <div class="footer-links">
           <a href="#about">当店について</a>
+          <a href="omoi.html">私たちの想い</a>
           <a href="#enzyme">酵素浴について</a>
           <a href="#course">ご利用料金</a>
           <a href="#commitment">こだわり</a>
@@ -3928,7 +4024,7 @@
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
   }, { threshold: 0.12 });
 
-  document.querySelectorAll('.fade-up, .img-reveal').forEach(el => io.observe(el));
+  document.querySelectorAll('.fade-up, .img-reveal, .ph, .ph-solo').forEach(el => io.observe(el));
 
   // ── ナビゲーター：ドロワー内リンクのhref更新 ──
   // LINE公式アカウントのURL：https://page.line.me/182ficqy?oat_content=url&openQrModal=true
