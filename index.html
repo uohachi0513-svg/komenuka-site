@@ -2385,7 +2385,7 @@
     .fade-up {
       opacity: 0;
       transform: translateY(28px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
+      transition: opacity 1.1s ease, transform 1.3s cubic-bezier(0.22,0.61,0.36,1);
     }
 
     .fade-up.visible { opacity: 1; transform: translateY(0); }
@@ -2563,11 +2563,11 @@
       .site-logo { font-size: 15px; }
       .site-logo span { display: none; }
     }
-    /* ===== 写真の見せ方（参考：おしゃれなウェルネス系サイトの手法） =====
-       .ph       … 写真を包む枠。右下に少しずらした金の細線（オフセットフレーム）
-       .ph-box   … 写真本体。茶色の幕が右へ引かれて現れる（カーテン・リビール）
-       .ph-zoom  … 写真が少し大きめからゆっくり元に戻る（ズームアウト）
-       .ph / .ph-solo に .visible が付くと動き出す（スクロール監視） */
+    /* ===== 写真の見せ方：ほわっと浮かび上がる =====
+       .ph      … 写真を包む枠。浮かび上がったあと、右下にずらした金の細線が静かに現れる
+       .ph-box  … 写真本体。少し下から、ぼんやり→ふんわりはっきり浮かび上がる
+       .ph-solo … 枠なしで単独で浮かび上がる写真
+       画面に入るたびに .visible が付き、画面から外れると外れる（スクロールのたびに再生） */
     .ph { position: relative; isolation: isolate; }
     .ph::before {
       content: '';
@@ -2577,46 +2577,38 @@
       border-radius: var(--radius);
       transform: translate(18px, 18px);
       opacity: 0;
-      transition: opacity 1s ease 1.1s;
+      transition: opacity 1.2s ease 0.9s;
       z-index: -1;
       pointer-events: none;
     }
     .ph.visible::before { opacity: 1; }
     .ph .ph-box { position: relative; }
     .ph-box { overflow: hidden; }
-    .ph-zoom {
-      position: absolute;
-      inset: 0;
-      background: inherit;
-      transform: scale(1.18);
-      transition: transform 2.4s cubic-bezier(0.22,0.61,0.36,1);
+    .ph > .ph-box, .ph-solo {
+      opacity: 0;
+      transform: translateY(44px) scale(0.97);
+      filter: blur(6px);
+      transition:
+        opacity 1.4s ease,
+        transform 1.8s cubic-bezier(0.22,0.61,0.36,1),
+        filter 1.4s ease,
+        box-shadow 1.8s ease;
     }
-    .ph-box img {
-      display: block;
-      width: 100%;
-      height: auto;
-      transform: scale(1.18);
-      transition: transform 2.4s cubic-bezier(0.22,0.61,0.36,1);
+    .ph.visible > .ph-box, .ph-solo.visible {
+      opacity: 1;
+      transform: none;
+      filter: none;
+      box-shadow: 0 22px 44px rgba(90,60,30,0.18);
     }
-    .ph-box::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      z-index: 2;
-      background: var(--color-brown);
-      transform-origin: right center;
-      transition: transform 1.2s cubic-bezier(0.77,0,0.18,1);
-      pointer-events: none;
-    }
-    .ph.visible .ph-zoom, .ph.visible .ph-box img, .ph-solo.visible .ph-zoom { transform: none; }
-    .ph.visible .ph-box::after, .ph-solo.visible::after { transform: scaleX(0); }
-    .ph-solo::after, .ph-solo .ph-zoom { transition-delay: 0.4s; }
+    .ph-solo { transition-delay: 0.35s; }
+    .ph-zoom { position: absolute; inset: 0; background: inherit; }
+    .ph-box img { display: block; width: 100%; height: auto; }
     @media (max-width: 600px) {
       .ph::before { transform: translate(10px, 10px); }
+      .ph > .ph-box, .ph-solo { transform: translateY(30px) scale(0.98); }
     }
     @media (prefers-reduced-motion: reduce) {
-      .ph-zoom, .ph-box img { transform: none; transition: none; }
-      .ph-box::after { display: none; }
+      .ph > .ph-box, .ph-solo { opacity: 1; transform: none; filter: none; transition: none; }
       .ph::before { opacity: 1; transition: none; }
     }
 
@@ -4024,7 +4016,16 @@
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
   }, { threshold: 0.12 });
 
-  document.querySelectorAll('.fade-up, .img-reveal, .ph, .ph-solo').forEach(el => io.observe(el));
+  document.querySelectorAll('.fade-up, .img-reveal').forEach(el => io.observe(el));
+
+  // 写真はスクロールのたびに、ほわっと浮かび上がる（画面から外れたら元に戻し、次に入ったとき再び浮かぶ）
+  const phIO = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting && e.intersectionRatio >= 0.15) e.target.classList.add('visible');
+      else if (!e.isIntersecting) e.target.classList.remove('visible');
+    });
+  }, { threshold: [0, 0.15] });
+  document.querySelectorAll('.ph, .ph-solo').forEach(el => phIO.observe(el));
 
   // ── ナビゲーター：ドロワー内リンクのhref更新 ──
   // LINE公式アカウントのURL：https://page.line.me/182ficqy?oat_content=url&openQrModal=true
