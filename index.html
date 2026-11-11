@@ -640,6 +640,73 @@
       .hero-first-price b { font-size: 19px; }
     }
 
+    /* トップの「ご予約はこちら」：金のグラデーション＋内側の細線＋ときどき光が流れる */
+    .hero-reserve {
+      position: relative;
+      overflow: hidden;
+      display: inline-flex;
+      align-items: center;
+      gap: 22px;
+      min-width: 250px;
+      padding: 13px 16px 13px 34px;
+      background: linear-gradient(135deg, #C2A15E 0%, #9A7B3A 52%, #7A5E27 100%);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 2px;
+      box-shadow: 0 12px 28px rgba(0,0,0,.32), inset 0 1px 0 rgba(255,255,255,.25);
+      transition: transform .35s ease, box-shadow .35s ease;
+    }
+    .hero-reserve::before {
+      content: '';
+      position: absolute;
+      inset: 4px;
+      border: 1px solid rgba(255,255,255,.42);
+      pointer-events: none;
+    }
+    .hero-reserve::after {
+      content: '';
+      position: absolute;
+      top: 0; bottom: 0; left: -60%;
+      width: 40%;
+      background: linear-gradient(100deg, transparent, rgba(255,255,255,.28), transparent);
+      transform: skewX(-20deg);
+      animation: reserveShine 5.5s ease-in-out 2.5s infinite;
+      pointer-events: none;
+    }
+    @keyframes reserveShine {
+      0%   { left: -60%; }
+      22%  { left: 130%; }
+      100% { left: 130%; }
+    }
+    .hero-reserve-text { display: flex; flex-direction: column; align-items: flex-start; gap: 2px; text-align: left; }
+    .hero-reserve-en {
+      font-family: var(--font-script);
+      font-size: 17px;
+      line-height: 1;
+      color: rgba(255,244,220,.85);
+      letter-spacing: .02em;
+    }
+    .hero-reserve-ja {
+      font-family: var(--font-title);
+      font-size: 17px;
+      letter-spacing: .16em;
+      text-shadow: 0 1px 6px rgba(0,0,0,.25);
+    }
+    .hero-reserve-arrow {
+      margin-left: auto;
+      width: 38px; height: 38px;
+      flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      border: 1px solid rgba(255,255,255,.6);
+      border-radius: 50%;
+      transition: background .35s ease, color .35s ease;
+    }
+    .hero-reserve-arrow svg { width: 18px; height: 18px; transition: transform .35s ease; }
+    .hero-reserve:hover { transform: translateY(-2px); box-shadow: 0 16px 34px rgba(0,0,0,.38), inset 0 1px 0 rgba(255,255,255,.25); }
+    .hero-reserve:hover .hero-reserve-arrow { background: #fff; color: #8A6C30; }
+    .hero-reserve:hover .hero-reserve-arrow svg { transform: translateX(3px); }
+    @media (prefers-reduced-motion: reduce) { .hero-reserve::after { animation: none; display: none; } }
+
     .hero-buttons {
       display: flex;
       gap: 16px;
@@ -2873,7 +2940,15 @@
       <span class="hero-first-price">初回体験 <b>¥3,900</b><small>（税込）</small></span>
     </p>
     <div class="hero-buttons">
-      <a href="#reservation" class="btn btn-gold">ご予約はこちら</a>
+      <a href="#reservation" class="hero-reserve">
+        <span class="hero-reserve-text">
+          <span class="hero-reserve-en">Reservation</span>
+          <span class="hero-reserve-ja">ご予約はこちら</span>
+        </span>
+        <span class="hero-reserve-arrow" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </span>
+      </a>
     </div>
   </div>
 
