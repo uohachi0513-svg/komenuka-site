@@ -606,6 +606,40 @@
       text-shadow: 0 1px 10px rgba(0,0,0,0.3);
     }
 
+    /* はじめての方の料金（トップ写真の上に控えめに） */
+    .hero-first {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      margin: 6px auto 34px;
+      padding: 9px 22px;
+      border: 1px solid rgba(201,170,107,.65);
+      border-radius: 40px;
+      background: rgba(26,18,8,.28);
+      -webkit-backdrop-filter: blur(3px);
+      backdrop-filter: blur(3px);
+      color: #fff;
+      font-family: var(--font-serif);
+      letter-spacing: .08em;
+      text-shadow: 0 1px 8px rgba(0,0,0,.35);
+    }
+    .hero-first-label {
+      font-size: 11px;
+      color: var(--color-gold-lt);
+      padding-right: 14px;
+      border-right: 1px solid rgba(201,170,107,.55);
+    }
+    .hero-first-price { font-size: 14px; }
+    .hero-first-price b { font-size: 21px; font-weight: 500; color: var(--color-gold-lt); margin-left: 4px; }
+    .hero-first-price small { font-size: 10px; opacity: .8; }
+    .hero-first-label, .hero-first-price { white-space: nowrap; }
+    @media (max-width: 600px) {
+      .hero-first { gap: 10px; padding: 8px 16px; margin: 4px auto 28px; letter-spacing: .04em; }
+      .hero-first-label { font-size: 10.5px; padding-right: 10px; }
+      .hero-first-price { font-size: 13px; }
+      .hero-first-price b { font-size: 19px; }
+    }
+
     .hero-buttons {
       display: flex;
       gap: 16px;
@@ -676,10 +710,16 @@
     .news-header .section-title { color: var(--color-brown); }
     .news-header .divider { background: var(--color-gold); }
 
+    /* カードが2枚・1枚になっても真ん中に並ぶように（幅は3枚並びと同じ） */
     .news-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
       gap: 28px;
+    }
+    .news-grid > .news-card { flex: 0 1 calc((100% - 56px) / 3); min-width: 300px; }
+    @media (max-width: 700px) {
+      .news-grid > .news-card { flex-basis: 100%; min-width: 0; }
     }
 
     .news-card {
@@ -2828,14 +2868,12 @@
       <span class="hero-logo-en">Komenuka Koso-yoku Den</span>
     </h1>
     <p class="hero-eyebrow">兵庫県播磨町 / JR土山駅徒歩2分</p>
-    <p class="hero-desc">
-      米ぬかの香りは、発酵の原点。<br>
-      温活・腸活・菌活のすべてが揃った酵素風呂で、<br>
-      心と身体を整えにいらしてください。
+    <p class="hero-first">
+      <span class="hero-first-label">はじめての方</span>
+      <span class="hero-first-price">初回体験 <b>¥3,900</b><small>（税込）</small></span>
     </p>
     <div class="hero-buttons">
-      <a href="#course"      class="btn btn-gold">料金を見る</a>
-      <a href="#reservation" class="btn btn-outline-white">ご予約はこちら</a>
+      <a href="#reservation" class="btn btn-gold">ご予約はこちら</a>
     </div>
   </div>
 
