@@ -2570,6 +2570,57 @@
       .mob-book-bar svg { width: 20px; height: 20px; flex-shrink: 0; }
       .site-footer { padding-bottom: calc(76px + env(safe-area-inset-bottom)); }
     }
+    /* ===== スマホの見出し帯（11/11 作り直し） =====
+       茶色の帯 → 和紙の地に金の細線・小さな写真・刻明朝の見出し。
+       閉じているセクション（.acc-closed）は背景写真と上下の余白を消して、見出し帯だけにする */
+    @media (max-width: 920px) {
+      .mob-acc-btn {
+        justify-content: flex-start;
+        gap: 14px;
+        padding: 14px 18px;
+        background: var(--color-washi) url("images/washi.svg") repeat;
+        color: var(--color-brown);
+        border-bottom: 1px solid rgba(154,123,58,.45);
+        box-shadow: none;
+        opacity: 1;
+      }
+      :not(.acc-closed) + .acc-closed > .mob-acc-btn,
+      section:not(.acc-closed) > .mob-acc-btn { border-top: 1px solid rgba(154,123,58,.45); }
+      .mob-acc-thumb {
+        width: 54px; height: 54px; flex-shrink: 0;
+        border-radius: 6px;
+        background-size: cover; background-position: center;
+        box-shadow: 0 0 0 1px rgba(154,123,58,.55);
+      }
+      .mob-acc-text { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+      .mob-acc-en {
+        font-family: var(--font-serif);
+        font-size: 10px; letter-spacing: .22em; text-transform: uppercase;
+        color: var(--color-gold);
+      }
+      .mob-acc-ja { font-size: 17px; letter-spacing: .08em; line-height: 1.4; }
+      .mob-acc-btn::after {
+        margin-left: auto;
+        width: 30px; height: 30px;
+        display: flex; align-items: center; justify-content: center;
+        border: 1px solid rgba(154,123,58,.6);
+        border-radius: 50%;
+        color: var(--color-gold);
+        font-size: 16px;
+      }
+      /* 閉じている間：見出し帯だけ */
+      section.acc-closed {
+        padding: 0 !important;
+        background: var(--color-washi) url("images/washi.svg") repeat !important;
+      }
+      section.acc-closed::before, section.acc-closed::after,
+      section.acc-closed > .washi-fade, section.acc-closed > .enzyme-overlay,
+      section.acc-closed > .deco-inaho { display: none !important; }
+      /* 開いている間：見出し帯をセクションの一番上に置き、本文との間に余白 */
+      section.acc-open { padding-top: 0 !important; scroll-margin-top: 60px; }
+      section.acc-open > .mob-acc-body > .container { padding-top: 56px; }
+      section.acc-closed { scroll-margin-top: 60px; }
+    }
     @media (min-width: 921px) {
       .mob-acc-btn  { display: none !important; }
       .mob-acc-body { max-height: none !important; overflow: visible !important; opacity: 1 !important; }
@@ -4041,17 +4092,30 @@
       container.parentNode.insertBefore(body, container);
       body.appendChild(container);
 
+      // 見出し帯：小さな写真（セクションの背景写真）＋英字ラベル＋見出し
+      var bg = getComputedStyle(section).backgroundImage;
+      var en = section.querySelector('.section-label');
       var btn = document.createElement('button');
       btn.className = 'mob-acc-btn';
       btn.setAttribute('aria-expanded', open ? 'true' : 'false');
       if (open) body.classList.add('open');  // 料金・お客様の声・アクセスは最初から開いておく
-      btn.innerHTML = '<span>' + label + '</span>';
+      btn.innerHTML =
+        (bg && bg !== 'none' ? '<span class="mob-acc-thumb" aria-hidden="true"></span>' : '') +
+        '<span class="mob-acc-text">' +
+          (en ? '<span class="mob-acc-en">' + en.textContent.trim() + '</span>' : '') +
+          '<span class="mob-acc-ja">' + label + '</span>' +
+        '</span>';
+      var thumb = btn.querySelector('.mob-acc-thumb');
+      if (thumb) thumb.style.backgroundImage = bg;
       section.insertBefore(btn, body);
+      section.classList.add(open ? 'acc-open' : 'acc-closed');
 
       btn.addEventListener('click', function() {
         var isOpen = body.classList.contains('open');
         body.classList.toggle('open', !isOpen);
         btn.setAttribute('aria-expanded', String(!isOpen));
+        section.classList.toggle('acc-open', !isOpen);
+        section.classList.toggle('acc-closed', isOpen);
         if (!isOpen) {
           setTimeout(function() {
             section.scrollIntoView({ behavior: 'smooth', block: 'start' });
