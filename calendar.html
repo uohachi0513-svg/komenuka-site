@@ -920,14 +920,13 @@
     <!-- カレンダー本体（JSで描画） -->
     <div class="calendar-months fade-up fade-up-d2" id="calendar-months"></div>
 
-    <!-- 今後のイベント告知 -->
-    <div class="upcoming-event fade-up">
+    <!-- 今後のイベント告知（data-until の日を過ぎたら自動で非表示） -->
+    <div class="upcoming-event fade-up" data-until="2026-12-01">
       <span class="upcoming-event-badge">催し</span>
       <p class="upcoming-event-date">2026年12月1日（火）開催</p>
       <h3 class="upcoming-event-title">手作り味噌ワークショップ</h3>
       <p class="upcoming-event-text">
-        ご自宅で楽しめる「手作り味噌」のワークショップを開催します🍶<br>
-        ※12月の営業日カレンダーは、お休みが決まり次第あらためて公開いたします。
+        ご自宅で楽しめる「手作り味噌」のワークショップを開催します🍶
       </p>
     </div>
 
@@ -1018,6 +1017,15 @@
      SCRIPTS
      ============================================================ -->
 <script>
+// ── 期間限定の表示を日付で自動切り替え（data-until＝この日まで／data-from＝この日から、日本時間） ──
+(function() {
+  var today = new Date(Date.now() + 9 * 3600 * 1000).toISOString().slice(0, 10);
+  document.querySelectorAll('[data-until], [data-from]').forEach(function(el) {
+    var until = el.getAttribute('data-until'), from = el.getAttribute('data-from');
+    if ((until && today > until) || (from && today < from)) el.remove();
+  });
+})();
+
 /* ================================================================
    ★★★ 毎月ここだけ更新してください ★★★
 
@@ -1049,6 +1057,11 @@ const SCHEDULE = {
   "2026-11": {
     closed: [2, 8, 9, 16, 19, 26, 30],
     campaign: { from: 1, to: 30, label: "秋のペア割月間", note: "ペアでお一人様¥4,200", periodText: "10月26日〜11月30日", until: "2026-11-30" }
+  },
+  "2026-12": {
+    closed: [9, 10, 16, 17, 24, 30, 31],
+    events: { 1: "手作り味噌ワークショップ" },
+    notice: "年末年始は 12月30日（水）〜 1月2日（土）までお休みをいただきます。"
   }
 };
 
@@ -1113,6 +1126,12 @@ function buildCalendar(year, month) {
   `;
 
   const eventEntries = Object.keys(events).sort((a, b) => a - b);
+  // notice：その月のお知らせ（年末年始のお休みなど）をカレンダーの下に表示
+  if (data.notice) {
+    html += `<div class="cal-events"><p class="cal-events-title">◆ ${month}月のお知らせ</p>`
+      + `<div class="cal-events-item">${data.notice}</div></div>`;
+  }
+
   if (eventEntries.length) {
     html += `<div class="cal-events"><p class="cal-events-title">◆ ${month}月のイベント</p>` +
       eventEntries.map(d =>
