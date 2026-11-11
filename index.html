@@ -2541,6 +2541,35 @@
       .deco-inaho.tl, .deco-inaho.tr { top: auto; bottom: 18px; }
       section:has(> .mob-acc-btn[aria-expanded="false"]) > .deco-inaho { display: none; }
     }
+    /* ===== スマホ下の予約バー（LINEで予約／電話） =====
+       トップ画像を過ぎたら下から出てきて、ページ下の「ご予約」欄が見えている間は引っ込む */
+    .mob-book-bar { display: none; }
+    @media (max-width: 920px) {
+      .mob-book-bar {
+        display: flex;
+        gap: 10px;
+        position: fixed;
+        left: 0; right: 0; bottom: 0;
+        z-index: 150;
+        padding: 10px 14px calc(10px + env(safe-area-inset-bottom));
+        background: rgba(250,245,236,.96);
+        border-top: 1px solid rgba(154,123,58,.35);
+        box-shadow: 0 -6px 18px rgba(90,60,30,.12);
+        transform: translateY(110%);
+        transition: transform .45s cubic-bezier(.22,.61,.36,1);
+      }
+      .mob-book-bar.show { transform: none; }
+      .mob-book-bar a {
+        display: flex; align-items: center; justify-content: center; gap: 7px;
+        height: 48px; border-radius: 26px;
+        font-size: 15px; font-weight: 700; letter-spacing: .04em;
+        text-decoration: none;
+      }
+      .mob-book-line { flex: 1.6; background: #06C755; color: #fff; box-shadow: 0 4px 12px rgba(6,199,85,.3); }
+      .mob-book-tel  { flex: 1; background: #fff; color: var(--color-brown); border: 1.5px solid var(--color-brown); }
+      .mob-book-bar svg { width: 20px; height: 20px; flex-shrink: 0; }
+      .site-footer { padding-bottom: calc(76px + env(safe-area-inset-bottom)); }
+    }
     @media (min-width: 921px) {
       .mob-acc-btn  { display: none !important; }
       .mob-acc-body { max-height: none !important; overflow: visible !important; opacity: 1 !important; }
@@ -3941,23 +3970,56 @@
 </footer>
 
 
+<!-- スマホ下の予約バー -->
+<div class="mob-book-bar" id="mobBookBar" aria-hidden="true">
+  <a class="mob-book-line" href="https://miniapp.line.me/2007214431-nL5Yq5oB#booking" target="_blank" rel="noopener" aria-label="LINEで予約する" tabindex="-1">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3C6.5 3 2 6.6 2 11c0 3.9 3.5 7.2 8.3 7.9.3.1.8.2.9.5.1.3.1.7 0 1l-.1.9c0 .3-.2 1 .9.5s5.9-3.5 8.1-6c1.5-1.6 2-3.2 2-4.8C21.9 6.6 17.5 3 12 3z"/></svg>
+    LINEで予約
+  </a>
+  <a class="mob-book-tel" href="tel:0789393224" aria-label="電話する" tabindex="-1">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></svg>
+    電話
+  </a>
+</div>
+
 <!-- ============================================================
      SCRIPTS
      ============================================================ -->
 <script>
+  // ── スマホ下の予約バー：トップ画像を過ぎたら出す／「ご予約」欄が見えている間は隠す ──
+  (function() {
+    var bar = document.getElementById('mobBookBar');
+    var hero = document.getElementById('top');
+    var resv = document.getElementById('reservation');
+    if (!bar || !hero || !('IntersectionObserver' in window)) return;
+    var pastHero = false, atResv = false;
+    function update() {
+      var show = pastHero && !atResv;
+      bar.classList.toggle('show', show);
+      bar.setAttribute('aria-hidden', String(!show));
+      bar.querySelectorAll('a').forEach(function(a) { a.tabIndex = show ? 0 : -1; });
+    }
+    new IntersectionObserver(function(es) {
+      pastHero = !es[0].isIntersecting && es[0].boundingClientRect.top < 0; update();
+    }).observe(hero);
+    if (resv) new IntersectionObserver(function(es) {
+      atResv = es[0].isIntersecting; update();
+    }, { threshold: 0.15 }).observe(resv);
+  })();
+
   // ── Mobile accordion ──
   (function() {
     const targets = [
       { selector: '#news',       label: '当店最新情報' },
       { selector: '#enzyme',     label: '米ぬか酵素浴とは' },
       { selector: '.ricebran',   label: '米ぬかが選ばれる理由' },
-      { selector: '#course',     label: 'コース・料金' },
+      { selector: '#course',     label: 'コース・料金', open: true },
       { selector: '#commitment', label: '私たちのこだわり' },
       { selector: '#faq',        label: 'よくあるご質問' },
-      { selector: '.voice',      label: 'お客様の声' },
-      { selector: '#access',     label: 'アクセス' },
+      { selector: '.voice',      label: 'お客様の声', open: true },
+      { selector: '#access',     label: 'アクセス', open: true },
     ];
-    targets.forEach(function({ selector, label }) {
+    targets.forEach(function({ selector, label, open }) {
       var section = document.querySelector(selector);
       if (!section) return;
       var container = section.querySelector('.container');
@@ -3970,7 +4032,8 @@
 
       var btn = document.createElement('button');
       btn.className = 'mob-acc-btn';
-      btn.setAttribute('aria-expanded', 'false');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      if (open) body.classList.add('open');  // 料金・お客様の声・アクセスは最初から開いておく
       btn.innerHTML = '<span>' + label + '</span>';
       section.insertBefore(btn, body);
 
