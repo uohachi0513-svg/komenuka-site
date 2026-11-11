@@ -2757,6 +2757,59 @@
       .site-logo { font-size: 15px; }
       .site-logo span { display: none; }
     }
+    /* ===== 演出まとめ（11/11）=====
+       1) 開いた瞬間：和紙の幕にロゴが浮かび、すっと開く（1回の訪問につき最初だけ）
+       2) トップ写真：発酵のぬくもりのような光の粒がゆっくり立ちのぼる
+       3) 見出し：一文字ずつ、ほわっと浮かび上がる＋金の線がのびる
+       4) 画面のいちばん上：読み進めた分だけのびる金の細線 */
+    .intro-veil {
+      position: fixed; inset: 0; z-index: 999;
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px;
+      background: var(--color-washi) url("images/washi.svg") repeat;
+      animation: veilOut 1s cubic-bezier(.6,0,.2,1) 1.35s forwards;
+    }
+    .intro-veil img {
+      width: 84px; height: auto;
+      opacity: 0; transform: translateY(14px) scale(.94); filter: blur(6px);
+      animation: veilIn 1s cubic-bezier(.22,.61,.36,1) .1s forwards;
+    }
+    .intro-veil span {
+      font-family: var(--font-title); font-size: 17px; letter-spacing: .34em; color: var(--color-brown);
+      opacity: 0; animation: veilIn 1s ease .45s forwards;
+    }
+    .intro-veil i {
+      display: block; width: 0; height: 1px; background: var(--color-gold);
+      animation: veilLine .9s ease .5s forwards;
+    }
+    @keyframes veilIn   { to { opacity: 1; transform: none; filter: none; } }
+    @keyframes veilLine { to { width: 120px; } }
+    @keyframes veilOut  { to { opacity: 0; visibility: hidden; transform: translateY(-3%); } }
+    .no-intro .intro-veil { display: none; }
+
+    .hero-motes { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none; }
+
+    .scroll-prog {
+      position: fixed; top: 0; left: 0; right: 0; height: 2px; z-index: 120;
+      background: linear-gradient(90deg, #7A5E27, #C8A96E 60%, #F0DDB0);
+      transform: scaleX(0); transform-origin: 0 50%; pointer-events: none;
+    }
+
+    .tt-ready .tt-ch {
+      display: inline-block;
+      opacity: 0; transform: translateY(.55em); filter: blur(5px);
+      transition: opacity .9s ease, transform 1.1s cubic-bezier(.22,.61,.36,1), filter .9s ease;
+      transition-delay: calc(var(--i) * 48ms);
+    }
+    .tt-ready.tt-on .tt-ch { opacity: 1; transform: none; filter: none; }
+    .tt-ready + .divider { transform: scaleX(0); transition: transform 1.2s cubic-bezier(.22,.61,.36,1) .35s; }
+    .tt-ready.tt-on + .divider { transform: none; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .intro-veil, .hero-motes { display: none; }
+      .tt-ready .tt-ch { opacity: 1; transform: none; filter: none; transition: none; }
+      .tt-ready + .divider { transform: none; transition: none; }
+    }
+
     /* ===== 写真の見せ方：ほわっと浮かび上がる =====
        .ph      … 写真を包む枠。浮かび上がったあと、右下にずらした金の細線が静かに現れる
        .ph-box  … 写真本体。少し下から、ぼんやり→ふんわりはっきり浮かび上がる
@@ -2851,6 +2904,9 @@
 </head>
 
 <body>
+<script>try{if(sessionStorage.getItem('introSeen'))document.documentElement.classList.add('no-intro');else sessionStorage.setItem('introSeen','1');}catch(e){}</script>
+<div class="intro-veil" aria-hidden="true"><img src="images/emblem.webp" alt=""><i></i><span>米ぬか酵素浴 田</span></div>
+<div class="scroll-prog" id="scrollProg" aria-hidden="true"></div>
 
 <!-- ============================================================
      HEADER
@@ -2923,6 +2979,7 @@
     <div class="hero-slide s3"></div>
     <div class="hero-slide s4"></div>
   </div>
+  <canvas class="hero-motes" id="heroMotes" aria-hidden="true"></canvas>
   <div class="hero-deco">
     <div class="hero-deco-ring"></div>
     <div class="hero-deco-ring"></div>
@@ -4169,6 +4226,103 @@
     if (resv) new IntersectionObserver(function(es) {
       atResv = es[0].isIntersecting; update();
     }, { threshold: 0.15 }).observe(resv);
+  })();
+
+  // ── 演出：読み進めた分だけのびる金の細線 ──
+  (function() {
+    var bar = document.getElementById('scrollProg'); if (!bar) return;
+    var tick = false;
+    function draw() {
+      tick = false;
+      var max = document.documentElement.scrollHeight - innerHeight;
+      bar.style.transform = 'scaleX(' + (max > 0 ? Math.min(1, scrollY / max) : 0) + ')';
+    }
+    addEventListener('scroll', function() { if (!tick) { tick = true; requestAnimationFrame(draw); } }, { passive: true });
+    draw();
+  })();
+
+  // ── 演出：見出しを一文字ずつ、ほわっと浮かび上がらせる ──
+  (function() {
+    if (!('IntersectionObserver' in window)) return;
+    var titles = document.querySelectorAll('.section-title');
+    titles.forEach(function(t) {
+      t.setAttribute('aria-label', t.textContent.replace(/\s+/g, ' ').trim());
+      var i = 0;
+      (function walk(node) {
+        Array.prototype.slice.call(node.childNodes).forEach(function(n) {
+          if (n.nodeType === 1) { if (n.tagName !== 'BR') walk(n); return; }
+          if (n.nodeType !== 3 || !n.textContent.trim()) return;
+          var frag = document.createDocumentFragment();
+          // 英数字のかたまりは1つにまとめ、日本語は1文字ずつ
+          (n.textContent.trim().match(/[A-Za-z0-9¥,.'&-]+|\s+|[\s\S]/g) || []).forEach(function(part) {
+            if (/^\s+$/.test(part)) { frag.appendChild(document.createTextNode(' ')); return; }
+            var sp = document.createElement('span');
+            sp.className = 'tt-ch'; sp.setAttribute('aria-hidden', 'true');
+            sp.style.setProperty('--i', Math.min(i++, 26));
+            sp.textContent = part;
+            frag.appendChild(sp);
+          });
+          n.parentNode.replaceChild(frag, n);
+        });
+      })(t);
+      t.classList.add('tt-ready');
+    });
+    var tio = new IntersectionObserver(function(es) {
+      es.forEach(function(e) {
+        if (e.intersectionRatio >= 0.5) e.target.classList.add('tt-on');
+        else if (!e.isIntersecting) e.target.classList.remove('tt-on');
+      });
+    }, { threshold: [0, 0.5] });
+    titles.forEach(function(t) { tio.observe(t); });
+  })();
+
+  // ── 演出：トップ写真に、ぬくもりの光の粒がゆっくり立ちのぼる ──
+  (function() {
+    var cv = document.getElementById('heroMotes'), hero = document.getElementById('top');
+    if (!cv || !hero || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var ctx = cv.getContext('2d'), W = 0, H = 0, dpr = 1, motes = [], running = false, visible = true, last = 0;
+    // 光の粒の元絵（やわらかい金色のにじみ）を1回だけ描いて使い回す
+    var sprite = document.createElement('canvas'); sprite.width = sprite.height = 64;
+    var g = sprite.getContext('2d'), rg = g.createRadialGradient(32, 32, 0, 32, 32, 32);
+    rg.addColorStop(0, 'rgba(255,236,190,1)'); rg.addColorStop(.25, 'rgba(240,205,130,.55)'); rg.addColorStop(1, 'rgba(200,160,90,0)');
+    g.fillStyle = rg; g.fillRect(0, 0, 64, 64);
+    function mote(anywhere) {
+      var depth = Math.random();
+      return { x: Math.random() * W, y: anywhere ? Math.random() * H : H + 30, r: 2.5 + depth * depth * 26,
+               vy: 7 + depth * 16, sway: 10 + Math.random() * 26, ph: Math.random() * 6.28, sp: .25 + Math.random() * .5,
+               a: .26 + (1 - depth) * .5, tw: Math.random() * 6.28 };
+    }
+    function size() {
+      dpr = Math.min(devicePixelRatio || 1, 2);
+      W = hero.clientWidth; H = hero.clientHeight;
+      cv.width = W * dpr; cv.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      var n = Math.round(Math.min(64, Math.max(32, W * H / 16000)));
+      motes = []; for (var i = 0; i < n; i++) motes.push(mote(true));
+    }
+    function frame(t) {
+      if (!running) return;
+      var dt = Math.min(.05, (t - last) / 1000 || 0); last = t;
+      ctx.clearRect(0, 0, W, H);
+      for (var i = 0; i < motes.length; i++) {
+        var m = motes[i];
+        m.y -= m.vy * dt; m.ph += m.sp * dt; m.tw += dt * 1.3;
+        if (m.y < -40) { motes[i] = m = mote(false); }
+        var x = m.x + Math.sin(m.ph) * m.sway;
+        var fade = Math.min(1, (H - m.y) / (H * .25)) * Math.min(1, (m.y + 40) / (H * .3));
+        ctx.globalAlpha = Math.max(0, m.a * fade * (.75 + .25 * Math.sin(m.tw)));
+        ctx.drawImage(sprite, x - m.r, m.y - m.r, m.r * 2, m.r * 2);
+      }
+      requestAnimationFrame(frame);
+    }
+    function sync() {
+      var should = visible && !document.hidden;
+      if (should && !running) { running = true; last = performance.now(); requestAnimationFrame(frame); }
+      else if (!should) running = false;
+    }
+    size(); addEventListener('resize', function() { if (hero.clientWidth !== W) size(); });  // スマホのアドレスバー開閉では作り直さない
+    new IntersectionObserver(function(es) { visible = es[0].isIntersecting; sync(); }).observe(hero);
+    document.addEventListener('visibilitychange', sync);
+    sync();
   })();
 
   // ── 期間限定の表示を日付で自動切り替え ──
