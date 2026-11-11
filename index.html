@@ -2612,6 +2612,38 @@
       .ph::before { opacity: 1; transition: none; }
     }
 
+    /* ===== Googleの口コミへの入口 ===== */
+    .voice-google { text-align: center; margin-top: 44px; }
+    .google-review-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 28px;
+      border-radius: 30px;
+      background: #fff;
+      color: var(--color-brown);
+      font-size: 14px;
+      letter-spacing: 0.06em;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+      transition: var(--transition);
+    }
+    .google-review-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 26px rgba(0,0,0,0.3); }
+    .google-review-stars { color: #E8A317; font-weight: 700; letter-spacing: 0.04em; }
+    .google-review-stars small { font-size: 12px; font-weight: 400; color: var(--color-text-lt); margin-left: 2px; }
+    .google-review-mini {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 6px;
+      margin-top: 14px;
+      font-size: 13px;
+      color: var(--color-text-lt);
+      letter-spacing: 0.04em;
+    }
+    .google-review-mini b { color: #E8A317; }
+    .google-review-mini span { margin-left: 8px; color: var(--color-gold); border-bottom: 1px solid currentColor; }
+    .google-review-mini:hover span { color: var(--color-brown); }
+
     /* メニューを閉じている間は、透明なメニュー背景がタップを受け取らないように
        （スマホで最初のタップが空振りしていたのを防ぐ） */
     .nav-overlay:not(.open) { pointer-events: none; }
@@ -3536,6 +3568,13 @@
         </div>
       </div>
     </div>
+    <div class="voice-google fade-up">
+      <a href="https://g.page/r/CWW925_j25XTEAE" target="_blank" rel="noopener" class="google-review-btn" aria-label="Googleの口コミをもっと見る（Googleマップが開きます）">
+        <span class="google-review-stars" aria-hidden="true">★4.9<small>（65件）</small></span>
+        <span>Googleの口コミをもっと見る</span>
+        <span aria-hidden="true">→</span>
+      </a>
+    </div>
   </div>
 </section>
 
@@ -3730,6 +3769,7 @@
             <div style="font-size: 12px; opacity: 0.85; line-height: 1.7;">空き状況の確認・ご予約・お問合せ<br>お誕生日月の特典つき ✨</div>
           </div>
         </a>
+        <a href="https://g.page/r/CWW925_j25XTEAE" target="_blank" rel="noopener" class="google-review-mini" aria-label="Googleの口コミを見る（Googleマップが開きます）">Google口コミ <b>★4.9</b>（65件）<span>口コミを見る →</span></a>
 
       </div>
 
