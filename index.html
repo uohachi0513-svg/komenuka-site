@@ -1980,6 +1980,20 @@
     .voice-header .section-title { color: var(--color-white); }
     .voice-header .divider { margin: 0 auto 28px; background: var(--color-gold-lt); }
 
+    /* 「横にスライドしてお読みください」の小さな案内（矢印がゆっくり左右に揺れる） */
+    .voice-swipe-hint {
+      display: inline-flex; align-items: center; gap: 10px;
+      margin: -6px 0 0;
+      font-family: var(--font-serif);
+      font-size: 12px; letter-spacing: .12em;
+      color: rgba(255,255,255,.72);
+    }
+    .voice-swipe-arrow { color: var(--color-gold-lt); animation: swipeNudgeL 2.4s ease-in-out infinite; }
+    .voice-swipe-arrow.r { animation-name: swipeNudgeR; }
+    @keyframes swipeNudgeL { 0%,100% { transform: translateX(0); } 50% { transform: translateX(-4px); } }
+    @keyframes swipeNudgeR { 0%,100% { transform: translateX(0); } 50% { transform: translateX(4px); } }
+    @media (prefers-reduced-motion: reduce) { .voice-swipe-arrow { animation: none; } }
+
     .voice-track-wrapper {
       overflow-x: scroll;
       scroll-snap-type: x mandatory;
@@ -3739,6 +3753,7 @@
       <span class="section-label">Customer Voice</span>
       <h2 class="section-title">お客様の声</h2>
       <div class="divider"></div>
+      <p class="voice-swipe-hint"><span class="voice-swipe-arrow" aria-hidden="true">←</span>横にスライドしてお読みください<span class="voice-swipe-arrow r" aria-hidden="true">→</span></p>
     </div>
     <div class="voice-track-wrapper">
       <div class="voice-track">
