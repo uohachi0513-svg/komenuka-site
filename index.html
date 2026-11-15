@@ -2847,6 +2847,7 @@
       background: #17110a;
     }
     .ma-bg { position: absolute; inset: 0; }
+    .ma > .washi-fade { height: 64px; }   /* 上下のぼかしは細く：写真をはっきり見せる */
     .ma-bg-img {
       position: absolute; left: 0; right: 0; top: -14%; bottom: -14%;   /* 上下に余白を持たせて、動かしても端が見えないように */
       background: url('images/hero-slide-2.webp') 38% center / cover no-repeat;
@@ -2877,7 +2878,8 @@
     .ma-copy span:nth-child(2) { transition-delay: 1.05s; margin-top: 2.2em; }
     .ma.in .ma-copy span { opacity: 1; transform: none; filter: none; }
     @media (max-width: 700px) {
-      .ma { height: 340px; min-height: 0; }   /* 低めの帯にして、顔と米ぬかの両方が入るように */
+      .ma { height: 360px; min-height: 0; }   /* 低めの帯にして、顔と米ぬかの両方が入るように */
+      .ma > .washi-fade { height: 22px; }
       .ma-bg-img { background-position: 27% center; }
       .ma-bg::after { background: linear-gradient(90deg, rgba(20,13,6,0) 30%, rgba(20,13,6,.6) 100%); }
       .ma-copy { right: 26px; font-size: 18px; letter-spacing: .28em; line-height: 2.1; }
@@ -3074,7 +3076,7 @@
         <span class="hero-tanzaku-v">初回体験</span>
         <span class="hero-tanzaku-price"><b>¥3,900</b><small>税込</small></span>
       </p>
-      <a href="#reservation" class="hero-tanzaku hero-tanzaku-reserve">
+      <a href="https://miniapp.line.me/2007214431-nL5Yq5oB#booking" target="_blank" rel="noopener" class="hero-tanzaku hero-tanzaku-reserve" aria-label="LINEで予約する">
         <span class="hero-tanzaku-v">ご予約はこちら</span>
         <span class="hero-tanzaku-arrow" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
@@ -3210,6 +3212,21 @@
 
 
 <!-- ============================================================
+     写真の間（横いっぱいの大きな写真に、縦書きの一文だけ。写真はトップ画像の2枚目）
+     ============================================================ -->
+<section class="ma" id="ma" aria-label="米ぬか酵素浴のひととき">
+  <div class="ma-bg" aria-hidden="true"><div class="ma-bg-img" data-para="-0.12"></div></div>
+  <div class="washi-fade top" aria-hidden="true"></div>
+  <p class="ma-copy" aria-label="米ぬかの香りは、発酵の原点。">
+    <span aria-hidden="true">米ぬかの香りは、</span>
+    <span aria-hidden="true">発酵の原点。</span>
+  </p>
+  <div class="washi-fade bottom" aria-hidden="true"></div>
+</section>
+
+
+
+<!-- ============================================================
      ABOUT
      ============================================================ -->
 <section class="about" id="about">
@@ -3277,18 +3294,6 @@
   </div>
 </section>
 
-<!-- ============================================================
-     写真の間（横いっぱいの大きな写真に、縦書きの一文だけ。写真はトップ画像の2枚目）
-     ============================================================ -->
-<section class="ma" id="ma" aria-label="米ぬか酵素浴のひととき">
-  <div class="ma-bg" aria-hidden="true"><div class="ma-bg-img" data-para="-0.12"></div></div>
-  <div class="washi-fade top" aria-hidden="true"></div>
-  <p class="ma-copy" aria-label="米ぬかの香りは、発酵の原点。">
-    <span aria-hidden="true">米ぬかの香りは、</span>
-    <span aria-hidden="true">発酵の原点。</span>
-  </p>
-  <div class="washi-fade bottom" aria-hidden="true"></div>
-</section>
 
 
 
